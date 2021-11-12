@@ -1,12 +1,12 @@
 <?php 
 require "config.php";
 require "models/db.php";
-require "models/products.php";
+require "models/product.php";
 require "models/protype.php";
-$products = new Product;
+$product = new Product;
 $protype = new Protype;
-$getAllProducts = $products->getAllProducts();
-$getAllNewProducts = $products->getAllNewProducts();
+$getAllProducts = $product->getAllProducts();
+$getAllNewProducts = $product->getAllNewProducts();
 //var_dump($getAllProducts); 
 ?>
 <!DOCTYPE html>

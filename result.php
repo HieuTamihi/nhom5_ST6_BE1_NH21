@@ -240,7 +240,7 @@
 							<?php 
 							if(isset($_GET['keyword'])):
 							$keyword = $_GET['keyword'];
-							$search = $products->search($keyword); 
+							$search = $product->search($keyword); 
 							foreach($search as $value):
 							?>
 							<!-- product -->

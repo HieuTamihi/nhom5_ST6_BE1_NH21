@@ -17,6 +17,14 @@ $item = array();
 $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
 return $item; //return an array
 }
+public function getTopSellingProducts()
+{
+$sql = self::$connection->prepare("SELECT * FROM products WHERE ");
+$sql->execute();//return an object
+$item = array();
+$item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+return $item; //return an array
+}
 public function getProductById($id)
 {
 $sql = self::$connection->prepare("SELECT * FROM products WHERE id = ?");
