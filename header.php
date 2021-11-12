@@ -2,7 +2,9 @@
 require "config.php";
 require "models/db.php";
 require "models/products.php";
+require "models/protype.php";
 $products = new Product;
+$protype = new Protype;
 $getAllProducts = $products->getAllProducts();
 $getAllNewProducts = $products->getAllNewProducts();
 //var_dump($getAllProducts); 
@@ -180,11 +182,13 @@ $getAllNewProducts = $products->getAllNewProducts();
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="index.php">Home</a></li>
-						<li><a href="#">Categories</a></li>
-						<li><a href="#">Laptops</a></li>
-						<li><a href="#">Smartphones</a></li>
-						<li><a href="#">Cameras</a></li>
-						<li><a href="#">Accessories</a></li>
+						<?php 
+						$getAllProtype = $protype->getAllProtype();
+						foreach($getAllProtype as $value):
+						?>
+						<li><a href="products.php?type_id=<?php echo $value['type_id'] ?>">
+						<?php echo $value['type_name'] ?></a></li>
+						<?php endforeach; ?>
 					</ul>
 					<!-- /NAV -->
 				</div>
