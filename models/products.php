@@ -8,6 +8,13 @@ $sql->execute();//return an object
 $item = array();
 $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
 return $item; //return an array
+public function getAllHighLight()
+{
+$sql = self::$connection->prepare("SELECT * FROM products WHERE `feature` = '1'");
+$sql->execute();//return an object
+$item = array();
+$item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+return $item; //return an array
 }
 public function getAllNewProducts()
 {
