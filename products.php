@@ -241,7 +241,7 @@
                             // lấy đường dẫn đến file hiện hành
                             $url = $_SERVER['PHP_SELF']."?type_id".$type_id;
 							$get3ProductsByType = $product->get3ProductsByType($type_id,$page,$perPage);
-							foreach($getProductsByType as $value):
+							foreach($get3ProductsByType as $value):
 							?>
 							<!-- product -->
 							<div class="col-md-4 col-xs-6">
