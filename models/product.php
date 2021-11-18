@@ -19,7 +19,7 @@ return $item; //return an array
 }
 public function getTopSellingProducts()
 {
-$sql = self::$connection->prepare("SELECT * FROM `sales`,products WHERE `Sell number`>500 AND products.id = sales.id ");
+$sql = self::$connection->prepare("SELECT * FROM `sales`,products WHERE `Sell number`>= 500 AND products.id = sales.id ");
 $sql->execute();//return an object
 $item = array();
 $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -36,6 +36,15 @@ return $item; //return an array
 public function getProductsByType($type_id)
     {
         $sql = self::$connection->prepare("SELECT * FROM products WHERE type_id = ?");
+        $sql->bind_param("i", $type_id);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+    public function getProductsTopSellingByType($type_id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `sales`,products WHERE products.type_id = ? AND products.id = sales.id AND `Sell number`>=500");
         $sql->bind_param("i", $type_id);
         $sql->execute(); //return an object
         $items = array();

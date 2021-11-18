@@ -196,7 +196,7 @@ include "header.php";
 						        $getAllProtype = $protype->getAllProtype();
 						        foreach($getAllProtype as $value):
 						        ?>
-						        <li><a href="products.php?type_id=<?php echo $value['type_id'] ?>">
+						        <li><a href="products1.php?type_id=<?php echo $value['type_id'] ?>">
 						        <?php echo $value['type_name'] ?></a></li>
 						        <?php endforeach; ?>
 								</ul>
