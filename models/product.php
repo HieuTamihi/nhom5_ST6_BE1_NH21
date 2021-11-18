@@ -19,7 +19,7 @@ return $item; //return an array
 }
 public function getTopSellingProducts()
 {
-$sql = self::$connection->prepare("SELECT * FROM products WHERE ");
+$sql = self::$connection->prepare("SELECT * FROM `sales`,products WHERE `Sell number`>500 AND products.id = sales.id ");
 $sql->execute();//return an object
 $item = array();
 $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -73,8 +73,7 @@ public function getProductsByType($type_id)
     }
 public function search($keyword)
     {
-        $sql = self::$connection->prepare("SELECT * FROM products 
-        WHERE `name` LIKE ?");
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");
         $keyword = "%$keyword%";
         $sql->bind_param("s", $keyword);
         $sql->execute(); //return an object

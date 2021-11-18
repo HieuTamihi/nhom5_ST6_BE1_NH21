@@ -192,10 +192,13 @@ include "header.php";
 							<h3 class="title">Top selling</h3>
 							<div class="section-nav">
 								<ul class="section-tab-nav tab-nav">
-									<li class="active"><a data-toggle="tab" href="#tab2">Laptops</a></li>
-									<li><a data-toggle="tab" href="#tab2">Smartphones</a></li>
-									<li><a data-toggle="tab" href="#tab2">Cameras</a></li>
-									<li><a data-toggle="tab" href="#tab2">Accessories</a></li>
+								<?php 
+						        $getAllProtype = $protype->getAllProtype();
+						        foreach($getAllProtype as $value):
+						        ?>
+						        <li><a href="products.php?type_id=<?php echo $value['type_id'] ?>">
+						        <?php echo $value['type_name'] ?></a></li>
+						        <?php endforeach; ?>
 								</ul>
 							</div>
 						</div>
@@ -209,6 +212,7 @@ include "header.php";
 								<!-- tab -->
 								<div id="tab2" class="tab-pane fade in active">
 									<div class="products-slick" data-nav="#slick-nav-2">
+									<?php foreach($getTopSellingProducts as $value): ?>
 										<!-- product -->
 										<div class="product">
 											<div class="product-img">
@@ -239,6 +243,7 @@ include "header.php";
 											</div>
 										</div>
 										<!-- /product -->
+										<?php endforeach; ?>
 									</div>
 									<div id="slick-nav-2" class="products-slick-nav"></div>
 								</div>

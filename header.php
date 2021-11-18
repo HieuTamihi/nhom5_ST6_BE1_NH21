@@ -7,6 +7,7 @@ $product = new Product;
 $protype = new Protype;
 $getAllProducts = $product->getAllProducts();
 $getAllNewProducts = $product->getAllNewProducts();
+$getTopSellingProducts = $product->getTopSellingProducts();
 //var_dump($getAllProducts); 
 ?>
 <!DOCTYPE html>
@@ -86,9 +87,9 @@ $getAllNewProducts = $product->getAllNewProducts();
 							<div class="header-search">
 								<form method="get" action="result.php">
 									<select class="input-select" name="searchCol">
-										<option value="0">All Categories</option>
-										<option value="1">Category 01</option>
-										<option value="1">Category 02</option>
+										<option value="1">NAME</option>
+										<option value="2">DESCRIPTION</option>
+										<option value="3">PRICE</option>
 									</select>
 									<input name="keyword" class="input" placeholder="Search here">
 									<button type="submit" class="search-btn">Search</button>
