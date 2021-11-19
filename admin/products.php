@@ -51,16 +51,19 @@
                       <th style="width: 20%">
                           Description
                       </th>
-                      <th>
+                      <th style="width: 10%">
                           Price
                       </th>
-                      <th style="width: 8%" class="text-center">
+                      <th style="width: 10%">
+                          Feature
+                      </th>
+                      <th style="width: 6%" class="text-center">
                           Manufactures
                       </th>
-                      <th style="width: 8%" class="text-center">
+                      <th style="width: 6%" class="text-center">
                           Protype
                       </th>
-                      <th style="width: 14%">
+                      <th style="width: 17%">
                       Action
                       </th>
                   </tr>
@@ -78,6 +81,15 @@
                       <?php echo $value['description'] ?>   
                       </td>
                       <td><?php echo $value['price'] ?></td>
+                      <td><?php
+                      if($value['feature'] == 1){
+                        echo $value['feature'] = "Nổi bật";
+                      }
+                      elseif($value['feature'] == 0){
+                        echo $value['feature'] = "";
+                      } 
+                      ?> 
+                      </td>
                       <td class="project_progress">
                       <?php echo $value['manu_name'] ?>   
                       </td>
