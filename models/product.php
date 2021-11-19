@@ -81,13 +81,25 @@ public function getProductsByType($type_id)
      	return $link;
     }
 public function search($keyword,$searchCol)
-    {
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE (`name` LIKE ?) AND (`type_id` = ?)");
-        $keyword = "%$keyword%";
-        $sql->bind_param("ii", $keyword,$searchCol);
-        $sql->execute(); //return an object
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items; //return an array
+    {   if($searchCol == 1 || $searchCol == 2 || $searchCol == 3 || $searchCol == 4 || $searchCol == 5)
+        {
+            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ? AND `type_id` = ?");
+            $keyword = "%$keyword%";
+            $sql->bind_param("si", $keyword,$searchCol);
+            $sql->execute(); //return an object
+            $items = array();
+            $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+            return $items; //return an array
+        }
+        else
+        {
+            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");
+            $keyword = "%$keyword%";
+            $sql->bind_param("s", $keyword);
+            $sql->execute(); //return an object
+            $items = array();
+            $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+            return $items; //return an array
+        }
     }
 }

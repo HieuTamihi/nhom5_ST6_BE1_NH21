@@ -87,6 +87,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
 							<div class="header-search">
 								<form method="get" action="result.php">
 									<select class="input-select" name="searchCol">
+									    <option value="0">All category</option>
 										<option value="1">Phone</option>
 										<option value="2">LapTop</option>
 										<option value="3">Tablet</option>
