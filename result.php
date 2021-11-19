@@ -240,8 +240,8 @@
 							<?php 
 							if(isset($_GET['keyword'])):
 							$keyword = $_GET['keyword'];
-							$searchCol = '';
-							$search = $product->search($keyword); 
+							$searchCol = $value['type_id'];
+							$search = $product->search($keyword,$searchCol);
 							foreach($search as $value):
 							?>
 							<!-- product -->
@@ -275,7 +275,7 @@
 								</div>
 							</div>
 							<!-- /product -->
-							<?php endforeach; endif?>
+							<?php endforeach; endif ?>
 						</div>
 						<!-- /store products -->
 

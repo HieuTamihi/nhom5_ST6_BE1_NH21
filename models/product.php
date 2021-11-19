@@ -80,11 +80,11 @@ public function getProductsByType($type_id)
      	}
      	return $link;
     }
-public function search($keyword)
+public function search($keyword,$searchCol)
     {
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE (`name` LIKE ?) AND (`type_id` = ?)");
         $keyword = "%$keyword%";
-        $sql->bind_param("s", $keyword);
+        $sql->bind_param("ii", $keyword,$searchCol);
         $sql->execute(); //return an object
         $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

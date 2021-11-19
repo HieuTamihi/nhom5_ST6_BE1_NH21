@@ -87,9 +87,11 @@ $getTopSellingProducts = $product->getTopSellingProducts();
 							<div class="header-search">
 								<form method="get" action="result.php">
 									<select class="input-select" name="searchCol">
-										<option value="1">NAME</option>
-										<option value="2">DESCRIPTION</option>
-										<option value="3">PRICE</option>
+										<option value="1">Phone</option>
+										<option value="2">LapTop</option>
+										<option value="3">Tablet</option>
+										<option value="4">Smartwatch</option>
+										<option value="5">HeadPhone</option>
 									</select>
 									<input name="keyword" class="input" placeholder="Search here">
 									<button type="submit" class="search-btn">Search</button>
