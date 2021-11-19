@@ -2,7 +2,9 @@
 require "config.php";
 require "models/db.php";
 require "models/product.php"; 
+require "models/manufacture.php"; 
 $product = new Product;
+$manufacture = new Manufacture;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -216,25 +218,27 @@ $product = new Product;
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="index.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/index.php'){echo 'active';} ?>"">
+            <a href="index.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/index.php'){echo 'active';} ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
-                <i class="right fas fa-angle-left"></i>
+              Dashboard   
+            
+                     
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="products.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/products.php'){echo 'active';} ?>"">
+            <a href="products.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/products.php'){echo 'active';} ?>">             
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Products
+               
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="manufactures.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/manufactures.php'){echo 'active';} ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Manufactures

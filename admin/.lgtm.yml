@@ -1,4 +1,4 @@
-# https://lgtm.com/help/lgtm/customizing-file-classification
+ https://lgtm.com/help/lgtm/customizing-file-classification
 path_classifiers:
   plugins:
     - plugins/
