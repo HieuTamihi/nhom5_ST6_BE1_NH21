@@ -249,7 +249,6 @@
 									<div class="product-img">
 										<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 										<div class="product-label">
-											<span class="new">NEW</span>
 										</div>
 									</div>
 									<div class="product-body">
