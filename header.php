@@ -185,7 +185,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
 				<div id="responsive-nav">
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
-						<li class="active"><a href="index.php">Home</a></li>
+						<li class="<?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/index.php'){echo 'active';} ?>"><a href="index.php">Home</a></li>
 						<?php 
 						$getAllProtype = $protype->getAllProtype();
 						foreach($getAllProtype as $value):

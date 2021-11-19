@@ -221,9 +221,7 @@ $manufacture = new Manufacture;
             <a href="index.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/index.php'){echo 'active';} ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-              Dashboard   
-            
-                     
+              Dashboard                        
               </p>
             </a>
           </li>
@@ -231,8 +229,7 @@ $manufacture = new Manufacture;
             <a href="products.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/products.php'){echo 'active';} ?>">             
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Products
-               
+                Products              
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>

@@ -44,7 +44,7 @@ public function getProductsByType($type_id)
     }
     public function getProductsTopSellingByType($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM `sales`,products WHERE products.type_id = ? AND products.id = sales.id AND `Sell number`>=500");
+        $sql = self::$connection->prepare("SELECT * FROM `sales`,products WHERE products.type_id = ? AND products.id = sales.id AND `Sell number`>= 200");
         $sql->bind_param("i", $type_id);
         $sql->execute(); //return an object
         $items = array();
