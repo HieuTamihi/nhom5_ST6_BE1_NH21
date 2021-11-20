@@ -78,7 +78,7 @@ include "header.php";
 						</div>
 					</div>
 					<!-- /section title -->
-
+<?php ?>
 					<!-- Products tab & slick -->
 					<div class="col-md-12">
 						<div class="row">
