@@ -19,7 +19,7 @@ return $item; //return an array
 }
 public function getTopSellingProducts()
 {
-$sql = self::$connection->prepare("SELECT * FROM `sales`,products WHERE `Sell number`>= 500 AND products.id = sales.id ");
+$sql = self::$connection->prepare("SELECT * FROM `sales`,products WHERE `Sell number`>= 200 AND products.id = sales.id ");
 $sql->execute();//return an object
 $item = array();
 $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -81,11 +81,11 @@ public function getProductsByType($type_id)
      	return $link;
     }
 public function search($keyword,$searchCol)
-    {   if($searchCol == 1 || $searchCol == 2 || $searchCol == 3 || $searchCol == 4 || $searchCol == 5)
+    {   if($searchCol == 0)
         {
-            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ? AND `type_id` = ?");
+            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");
             $keyword = "%$keyword%";
-            $sql->bind_param("si", $keyword,$searchCol);
+            $sql->bind_param("s", $keyword);
             $sql->execute(); //return an object
             $items = array();
             $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
@@ -93,9 +93,9 @@ public function search($keyword,$searchCol)
         }
         else
         {
-            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");
+            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ? AND `type_id` = ?");
             $keyword = "%$keyword%";
-            $sql->bind_param("s", $keyword);
+            $sql->bind_param("si", $keyword,$searchCol);
             $sql->execute(); //return an object
             $items = array();
             $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
