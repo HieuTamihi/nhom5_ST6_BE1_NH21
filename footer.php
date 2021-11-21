@@ -45,11 +45,11 @@
 						<div class="col-md-3 col-xs-6">
 							<div class="footer">
 								<h3 class="footer-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<p><strong>Group 5-course code CNC10745305-school year 2021</strong></p>
 								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+									<li><i class="fa fa-map-marker"></i>53 Vo Van Ngan - Linh Chieu Ward- Thu Duc City</li>
+									<li><i class="fa fa-phone"></i>08.38970023</li>
+									<li><i class="fa fa-envelope-o"></i>fit@tdc.edu.vn</li>
 								</ul>
 							</div>
 						</div>
@@ -58,11 +58,11 @@
 							<div class="footer">
 								<h3 class="footer-title">Categories</h3>
 								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
+									<li><a href="products.php?type_id=1">Smartphones</a></li>
+									<li><a href="products.php?type_id=2">Laptops</a></li>
+									<li><a href="products.php?type_id=3">Tablets</a></li>
+									<li><a href="products.php?type_id=4">Smartwatchs</a></li>
+									<li><a href="products.php?type_id=5">Headphones</a></li>
 								</ul>
 							</div>
 						</div>
@@ -73,11 +73,9 @@
 							<div class="footer">
 								<h3 class="footer-title">Information</h3>
 								<ul class="footer-links">
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Orders and Returns</a></li>
-									<li><a href="#">Terms & Conditions</a></li>
+									<li><strong>Thai Minh Hieu</strong> - Thaihieu243@gmail.com</li>
+									<li><strong>Nguyen Anh Vu</strong> - Anhvu4777@gmail.com</li>
+									<li><strong>Nguyen Anh Khoa</strong> - nguyenanhkhoaa5@gmail.com</li>
 								</ul>
 							</div>
 						</div>
