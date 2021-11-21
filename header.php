@@ -8,7 +8,6 @@ $protype = new Protype;
 $getAllProducts = $product->getAllProducts();
 $getAllNewProducts = $product->getAllNewProducts();
 $getTopSellingProducts = $product->getTopSellingProducts();
-//var_dump($getAllProducts); 
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -33,6 +33,29 @@ $item = array();
 $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
 return $item; //return an array
 }
+public function getFeaturedPhone()
+{
+$sql = self::$connection->prepare("SELECT * FROM products WHERE `feature` = 1 AND `type_id` = 1 LIMIT 3");
+$sql->execute();//return an object
+$item = array();
+$item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+return $item; //return an array
+}public function getFeaturedPhonePlus()
+{
+$sql = self::$connection->prepare("SELECT * FROM products WHERE `manu_id` = 4 AND `type_id` = 1 AND `feature` = 1");
+$sql->execute();//return an object
+$item = array();
+$item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+return $item; //return an array
+}
+public function getAllFeaturedLaptop()
+{
+$sql = self::$connection->prepare("SELECT * FROM products WHERE `feature` = 1 AND `type_id` = 2");
+$sql->execute();//return an object
+$item = array();
+$item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+return $item; //return an array
+}
 public function getProductsByType($type_id)
     {
         $sql = self::$connection->prepare("SELECT * FROM products WHERE type_id = ?");
