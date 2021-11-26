@@ -73,8 +73,8 @@
           </thead>
           <tbody>
             <?php
-            $getAllProducts = $product->getAllProducts();
-            foreach ($getAllProducts as $value) :
+            $getAllProductsDESC = $product->getAllProductsDESC();
+            foreach ($getAllProductsDESC as $value) :
             ?>
               <tr>
                 <td><?php echo $value['id'] ?></td>
