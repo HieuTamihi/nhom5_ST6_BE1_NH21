@@ -3,8 +3,12 @@ require "config.php";
 require "models/db.php";
 require "models/product.php"; 
 require "models/manufacture.php"; 
+require "models/protype.php";
+require "models/sale.php";
 $product = new Product;
 $manufacture = new Manufacture;
+$protype = new Protype;
+$sale = new Sale;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -244,7 +248,7 @@ $manufacture = new Manufacture;
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="protypes.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/protypes.php'){echo 'active';} ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Protypes
@@ -253,7 +257,7 @@ $manufacture = new Manufacture;
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="sales.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/sales.php'){echo 'active';} ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Sales
