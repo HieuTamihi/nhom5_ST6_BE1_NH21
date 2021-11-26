@@ -21,5 +21,12 @@ AND `products`.`type_id` = `protypes`.`type_id`");
         
         return $sql->execute(); //return an array
 
+
+    }
+
+    public function deleteProduct($id){
+        $sql = self::$connection->prepare("DELETE FROM `products` WHERE `id`=?");
+        $sql->bind_param("i", $id);
+        return $sql->execute();
     }
 }
