@@ -65,7 +65,7 @@
               </th>
               <th style="width: 8%" class="text-center">
                 Created_at
-              </th>
+              </th>              
               <th style="width: 14%">
                 Action
               </th>
@@ -81,9 +81,9 @@
                 <td><?php echo $value['name'] ?></td>
                 <td><img style="width:50px" src="../img/<?php echo $value['pro_image'] ?>" alt=""></td>
                 <td class="project_progress">
-                  <?php echo substr($value['description'], 0, 60)?><a style="color: black;" href="#">...</a>
+                  <?php echo substr($value['description'], 0, 60) ?><a style="color: black;" href="#">...</a>
                 </td>
-                <td><?php echo number_format($value['price'])?> VND</td>
+                <td><?php echo number_format($value['price']) ?> VND</td>
                 <td class="project_progress">
                   <?php echo $value['manu_name'] ?>
                 </td>

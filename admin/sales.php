@@ -58,7 +58,7 @@
           </thead>
           <tbody>
             <?php
-            $getAllSales = $sales->getAllSales();
+            $getAllSales = $sale->getAllSales();
             foreach ($getAllSales as $value) :
             ?>
               <tr>
