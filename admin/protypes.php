@@ -52,8 +52,8 @@
           </thead>
           <tbody>
             <?php
-            $getAllProtypes = $protype->getAllProtypes();
-            foreach ($getAllProtypes as $value) :
+            $getAllProtypeDESC = $protype->getAllProtypeDESC();
+            foreach ($getAllProtypeDESC as $value) :
             ?>
               <tr>
                 <td><?php echo $value['type_id'] ?></td>
@@ -64,7 +64,7 @@
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="#">
+                  <a class="btn btn-danger btn-sm" href="delete1.php?type_id=<?php echo $value['type_id'];?>">
                     <i class="fas fa-trash">
                     </i>
                     Delete

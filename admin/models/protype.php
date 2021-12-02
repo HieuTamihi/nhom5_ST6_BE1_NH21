@@ -10,4 +10,24 @@ FROM `protypes`");
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
     }
+    public function getAllProtypeDESC()
+    {
+        $sql = self::$connection->prepare("SELECT * FROM `protypes` ORDER BY `type_id` DESC");
+        $sql->execute(); //return an object
+        $item = array();
+        $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $item; //return an array
+    }
+    public function addProtype($type_name)
+    {
+
+        $sql = self::$connection->prepare("INSERT INTO `protypes`(`type_name`) VALUES(?)");
+        $sql->bind_param("s", $type_name);       
+        return $sql->execute(); //return an array
+    }
+    public function deleteProtype($type_id){
+        $sql = self::$connection->prepare("DELETE FROM `protypes` WHERE `type_id`=?");
+        $sql->bind_param("i", $type_id);
+        return $sql->execute();
+    }
 }
