@@ -31,6 +31,11 @@ AND `products`.`type_id` = `protypes`.`type_id` ORDER BY `id` DESC");
     $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
     return $item; //return an array
     }
+    public function updateProductNotImage($name, $manu, $type_id, $price, $desc, $feature, $id){
+        $sql = self::$connection->prepare("UPDATE `products` SET `name`=?,`manu_id`=?,`type_id`=?,`price`=?,`description`=?,`feature`=? WHERE `id`=?");
+        $sql->bind_param("siiisii", $name, $manu, $type_id, $price, $desc, $feature, $id);
+        return $sql->execute(); //return an object
+    }
     public function addProduct($name, $manu, $type_id, $price, $image, $desc, $feature)
     {
 
@@ -45,9 +50,9 @@ AND `products`.`type_id` = `protypes`.`type_id` ORDER BY `id` DESC");
         return $sql->execute();
     }
 
-    public function updateProduct($name, $manu, $type_id, $price, $image, $desc, $feature, $id){
-        $sql = self::$connection->prepare("UPDATE `products` SET `name`=?,`manu_id`=?,`type_id`=?,`price`=?,`pro_image`=?,`description`=?,`feature`=? WHERE `id`=?");
-        $sql->bind_param("siiissii", $name, $manu, $type_id, $price, $image, $desc, $feature, $id);
+    public function updateProduct($name, $manu, $type_id, $price, $image, $desc, $feature, $cre, $id){
+        $sql = self::$connection->prepare("UPDATE `products` SET `name`=?,`manu_id`=?,`type_id`=?,`price`=?,`pro_image`=?,`description`=?,`feature`=?,`created_at`=? WHERE `id`=?");
+        $sql->bind_param("siiissisi", $name, $manu, $type_id, $price, $image, $desc, $feature, $cre, $id);
         return $sql->execute(); //return an object
     }
 }

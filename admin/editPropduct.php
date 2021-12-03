@@ -60,7 +60,7 @@
                                             $getAllManu = $manufacture->getAllManu();
                                             foreach ($getAllManu as $values1) :
                                             ?>
-                                                <option value=<?php echo $values1['manu_id'] ?> <?php if($values1['manu_id']==$values['manu_id']) echo 'selected' ?>><?php echo $values1['manu_name'] ?></option>
+                                            <option value=<?php echo $values1['manu_id'] ?> <?php if($values1['manu_id']==$values['manu_id']) echo 'selected' ?>><?php echo $values1['manu_name'] ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </div>
@@ -72,7 +72,7 @@
                                             $getAllProtypes = $protype->getAllProtypes();
                                             foreach ($getAllProtypes as $values1) :
                                             ?>
-                                                <option value=<?php echo $values1['type_id'] ?> <?php if($values1['type_id']==$values['type_id']) echo 'selected' ?>><?php echo $values1['type_name'] ?></option>
+                                            <option value=<?php echo $values1['type_id'] ?> <?php if($values1['type_id']==$values['type_id']) echo 'selected' ?>><?php echo $values1['type_name'] ?></option>
                                             <?php endforeach ?>
                                         </select>
                                     </div>
@@ -98,9 +98,11 @@
                                          <!-- <input type="text"  name="fileToUpload" id="inputProjectLeader" class="form-control" -->
                                          <img style="width:50px" src="../img/<?php echo $values['pro_image'] ?>" alt="">
                                          <input type="file" name="image" id="fileToUpload">
-                                        
                                     </div>
-                                    
+                                    <div class="form-group">
+                                        <label for="inputClientCompany">Create_at</label>
+                                        <input type="text" id="inputClientCompany" class="form-control" name="cre" value="<?php echo $values['created_at']?>">
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>

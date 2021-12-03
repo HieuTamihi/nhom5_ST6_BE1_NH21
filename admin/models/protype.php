@@ -18,6 +18,14 @@ FROM `protypes`");
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
     }
+    public function getProtypeById($type_id)
+    {
+    $sql = self::$connection->prepare("SELECT * FROM protypes WHERE type_id = ".$type_id);
+    $sql->execute();//return an object
+    $item = array();
+    $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $item; //return an array
+    }
     public function addProtype($type_name)
     {
 
@@ -29,5 +37,10 @@ FROM `protypes`");
         $sql = self::$connection->prepare("DELETE FROM `protypes` WHERE `type_id`=?");
         $sql->bind_param("i", $type_id);
         return $sql->execute();
+    }
+    public function updateProtype($type_name, $type_id){
+        $sql = self::$connection->prepare("UPDATE `protypes` SET `type_name`=? WHERE `type_id`=?");
+        $sql->bind_param("si", $type_name, $type_id);
+        return $sql->execute(); //return an object
     }
 }
