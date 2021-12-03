@@ -101,7 +101,7 @@
                   <?php echo $value['created_at'] ?>
                 </td>
                 <td class="project-actions text-right">
-                  <a class="btn btn-info btn-sm" href="editProducts.php?id=<?php echo $value['id'];?>">
+                  <a class="btn btn-info btn-sm" href="editPropduct.php?id=<?php echo $value['id'];?>">
                     <i class="fas fa-pencil-alt">
                     </i>
                     Edit
