@@ -30,20 +30,20 @@ class Manufacture extends Db
         $sql->bind_param("i", $manu_id);
         return $sql->execute();
     }
-   /*  public function deleteManufacture1($manu_id)
+    /* public function deleteManufacture1($manu_id)
     {
         $sql = self::$connection->prepare("SELECT COUNT(*) FROM `products` WHERE `manu_id`=?");
         $sql->bind_param("i", $manu_id);
-        if ($sql == 0) {
+        var_dump($sql);
+        if (count($sql)==0) {
             $sql1 = self::$connection->prepare("DELETE FROM `manufactures` WHERE `manu_id`=?");
-            $sql1->bind_param("i", $manu_id);
+            $sql1->bind_param("i", $manu_id);           
             return $sql1->execute();
+
         }
         else{
-            alert("Hello World");
-        
-       
+            header('location:products.php');
         }
-        }
-    } */
-}
+        } */
+    }
+
