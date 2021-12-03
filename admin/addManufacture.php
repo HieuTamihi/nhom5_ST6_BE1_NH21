@@ -1,5 +1,4 @@
 <?php include "header.php"; ?>
-
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -11,12 +10,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Add Protype</h1>
+                            <h1>Add Manufacture</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Add Protype</li>
+                                <li class="breadcrumb-item active">Add Manufacture</li>
                             </ol>
                         </div>
                     </div>
@@ -25,7 +24,7 @@
 
             <!-- Main content -->
             <section class="content">
-                <form action="addPT.php" method="post" enctype="multipart/form-data">
+                <form action="addMF.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card card-primary">
@@ -40,8 +39,8 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="inputName">Type_Name</label>
-                                        <input type="text" id="inputName" class="form-control" name="type_name">
+                                        <label for="inputName">Manu_name</label>
+                                        <input type="text" id="inputName" class="form-control" name="manu_name">
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -51,7 +50,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" name="submit" value="Create new Protype" class="btn btn-success float-right">
+                            <input type="submit" name="submit" value="Create new Manufacture" class="btn btn-success float-right">
                         </div>
                     </div>
                 </form>
@@ -59,5 +58,4 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-        <?php include "footer.php" ?>
+<?php include "footer.php" ?>

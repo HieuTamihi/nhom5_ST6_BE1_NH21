@@ -64,7 +64,7 @@
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="delete1.php?type_id=<?php echo $value['type_id'];?>">
+                  <a class="btn btn-danger btn-sm" href="deletePT.php?type_id=<?php echo $value['type_id'];?>">
                     <i class="fas fa-trash">
                     </i>
                     Delete

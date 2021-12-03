@@ -284,6 +284,15 @@ $sale = new Sale;
             </a>
           </li>
           <li class="nav-item">
+            <a href="addManufacture.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addManufacture.php'){echo 'active';} ?>">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Add Manufacture
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>

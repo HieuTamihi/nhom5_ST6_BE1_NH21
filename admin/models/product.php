@@ -23,7 +23,7 @@ AND `products`.`type_id` = `protypes`.`type_id` ORDER BY `id` DESC");
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
     }
-
+    
     public function addProduct($name, $manu, $type_id, $price, $image, $desc, $feature)
     {
 

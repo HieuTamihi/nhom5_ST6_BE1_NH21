@@ -52,8 +52,8 @@
           </thead>
           <tbody>
             <?php
-            $getAllManufactures = $manufacture->getAllManu();
-            foreach ($getAllManufactures as $value) :
+            $getAllManufacturesDESC = $manufacture->getAllManufacturesDESC();
+            foreach ($getAllManufacturesDESC as $value) :
             ?>
               <tr>
                 <td><?php echo $value['manu_id'] ?></td>
@@ -65,7 +65,7 @@
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="#">
+                  <a class="btn btn-danger btn-sm" href="deleteMF.php?manu_id=<?php echo $value['manu_id'];?>">
                     <i class="fas fa-trash">
                     </i>
                     Delete
