@@ -99,10 +99,7 @@
                                          <img style="width:50px" src="../img/<?php echo $values['pro_image'] ?>" alt="">
                                          <input type="file" name="image" id="fileToUpload">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="inputClientCompany">Create_at</label>
-                                        <input type="text" id="inputClientCompany" class="form-control" name="cre" value="<?php echo $values['created_at']?>">
-                                    </div>
+                                    
                                 </div>
                                 <!-- /.card-body -->
                             </div>

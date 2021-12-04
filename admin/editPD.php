@@ -20,9 +20,8 @@ if(isset($_POST['submit'])){
     $desc = $_POST['desc'];
     $image = $_FILES['image']['name'];
     $feature = $_POST['feature'];
-    $cre = $_POST['cre'];
     $id = $_POST['id'];
-    $product->updateProduct($name, $manu_id, $type_id, $price, $image, $desc, $feature, $cre, $id);
+    $product->updateProduct($name, $manu_id, $type_id, $price, $image, $desc, $feature, $id);
 
     $target_dir = "../img/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
@@ -37,9 +36,8 @@ if(isset($_POST['submit'])){
     $price = $_POST['price'];
     $desc = $_POST['desc'];
     $feature = $_POST['feature'];
-    $cre = $_POST['cre'];
     $id = $_POST['id'];
-    $product->updateProductNotImage($name, $manu_id, $type_id, $price, $desc,  $feature, $cre, $id);
+    $product->updateProductNotImage($name, $manu_id, $type_id, $price, $desc,  $feature, $id);
     header('location:products.php');
     }
 }
