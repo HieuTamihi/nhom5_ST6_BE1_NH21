@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
                 header('location:../admin');
             }
             if ($value['role_id'] == 2) {
-                header('location:../index.php');
+                header('location:../indexuser.php');
             }
         }
     }
