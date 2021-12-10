@@ -15,4 +15,34 @@ class User extends Db
             return false;
         }
     }
+
+    public function getRoleId($username)
+    {
+        $sql = self::$connection->prepare("SELECT `role_id` FROM `users` WHERE `username` =?" );
+        $sql->bind_param("s", $username);
+        $sql->execute(); //return an object
+        $items = array();       
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+
+    public function register($username, $password, $passwordAgain)
+    {
+        if ($password == $passwordAgain) {
+            $sql = self::$connection->prepare("INSERT INTO `users`( `username`, `password`, `role_id`) VALUES (?,?,2)");
+            $password = md5($password);
+            $sql->bind_param("ss", $username, $password);
+            $sql->execute();
+            return true;
+        }
+    }
+
+    public function getAllUsername()
+    {
+        $sql = self::$connection->prepare("SELECT `username` FROM `users`");
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
 }

@@ -7,10 +7,21 @@ $user = new User;
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $getRoleId = $user->getRoleId($username);
+
+
     if ($user->checkLogin($username, $password)) {
         $_SESSION['user'] = $username;
-        header('location:../admin');
-    } else {
+        foreach ($getRoleId as $value) {
+            if ($value['role_id'] == 1) {
+                header('location:../admin');
+            }
+            if ($value['role_id'] == 2) {
+                header('location:../index.php');
+            }
+        }
+    }
+    else{
         header('location:index.php');
     }
 }
