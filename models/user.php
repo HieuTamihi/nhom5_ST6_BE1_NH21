@@ -18,10 +18,10 @@ class User extends Db
 
     public function getRoleId($username)
     {
-        $sql = self::$connection->prepare("SELECT `role_id` FROM `users` WHERE `username` =?" );
+        $sql = self::$connection->prepare("SELECT `role_id` FROM `users` WHERE `username` =?");
         $sql->bind_param("s", $username);
         $sql->execute(); //return an object
-        $items = array();       
+        $items = array();
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
