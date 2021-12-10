@@ -1,4 +1,5 @@
 <?php include "header.php"; ?>
+
 <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
     <div class="wrapper">
@@ -32,7 +33,8 @@
                                     <h3 class="card-title">General</h3>
 
                                     <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"
+                                            title="Collapse">
                                             <i class="fas fa-minus"></i>
                                         </button>
                                     </div>
@@ -50,7 +52,8 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" name="submit" value="Create new Manufacture" class="btn btn-success float-right">
+                            <input type="submit" name="submit" value="Create new Manufacture"
+                                class="btn btn-success float-right">
                         </div>
                     </div>
                 </form>
@@ -58,4 +61,4 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-<?php include "footer.php" ?>
+        <?php include "footer.php" ?>
