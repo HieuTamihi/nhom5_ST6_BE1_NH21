@@ -11,7 +11,7 @@ $manufacture = new Manufacture;
 $protype = new Protype;
 $sale = new Sale;
 if(isset($_GET['manu_id'])){
-    echo 'hihi';
+   
     $manufacture->deleteManufacture($_GET['manu_id']);
    /*  header('location:manufactures.php'); */
 }

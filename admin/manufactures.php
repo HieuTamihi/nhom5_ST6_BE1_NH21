@@ -27,6 +27,10 @@
         <h3 class="card-title">Manufacture</h3>
 
         <div class="card-tools">
+          <a class="btn  btn-sm bg-green" href="addManufacture.php">
+            <i class="fas fa-plus"></i>
+            Add
+          </a>
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
           </button>
@@ -58,14 +62,14 @@
               <tr>
                 <td><?php echo $value['manu_id'] ?></td>
                 <td><?php echo $value['manu_name'] ?></td>
-              
+
                 <td class="project-actions text-right">
                   <a class="btn btn-info btn-sm" href="#">
                     <i class="fas fa-pencil-alt">
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="deleteMF.php?manu_id=<?php echo $value['manu_id'];?>">
+                  <a class="btn btn-danger btn-sm" href="deleteMF.php?manu_id=<?php echo $value['manu_id']; ?>">
                     <i class="fas fa-trash">
                     </i>
                     Delete

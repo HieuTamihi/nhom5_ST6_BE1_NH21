@@ -27,6 +27,10 @@
         <h3 class="card-title">Products</h3>
 
         <div class="card-tools">
+          <a class="btn  btn-sm bg-green" href="addProduct.php">
+          <i class="fas fa-plus"></i>
+            Add
+          </a>
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
           </button>
@@ -65,7 +69,7 @@
               </th>
               <th style="width: 8%" class="text-center">
                 Created_at
-              </th>              
+              </th>
               <th style="width: 14%">
                 Action
               </th>
@@ -101,12 +105,12 @@
                   <?php echo $value['created_at'] ?>
                 </td>
                 <td class="project-actions text-right">
-                  <a class="btn btn-info btn-sm" href="editPropduct.php?id=<?php echo $value['id'];?>">
+                  <a class="btn btn-info btn-sm" href="editPropduct.php?id=<?php echo $value['id']; ?>">
                     <i class="fas fa-pencil-alt">
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="deletePD.php?id=<?php echo $value['id'];?>">
+                  <a class="btn btn-danger btn-sm" href="deletePD.php?id=<?php echo $value['id']; ?>">
                     <i class="fas fa-trash">
                     </i>
                     Delete

@@ -5,12 +5,16 @@ require "models/product.php";
 require "models/manufacture.php"; 
 require "models/protype.php";
 require "models/sale.php";
+require "models/user.php";
+require "models/role.php";
 
 $product = new Product;
 $manufacture = new Manufacture;
 $protype = new Protype;
 $sale = new Sale;
-if(isset($_GET['type_id'])){
-    $protype->deleteProtype($_GET['type_id']);
-    
+$user = new User;
+$role = new Role;
+if(isset($_GET['role_id'])){
+    $role->deleteRoleByID($_GET['role_id']);
+   
 }

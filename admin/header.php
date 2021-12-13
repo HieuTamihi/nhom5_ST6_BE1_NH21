@@ -5,17 +5,21 @@ require "models/product.php";
 require "models/manufacture.php"; 
 require "models/protype.php";
 require "models/sale.php";
+require "models/user.php";
+require "models/role.php";
 $product = new Product;
 $manufacture = new Manufacture;
 $protype = new Protype;
 $sale = new Sale;
+$user= new User;
+$role= new Role;
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Group 5 | Dashboard</title>
+  <title>AdminLTE 3 | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -54,7 +58,7 @@ $sale = new Sale;
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
+        <a href="index3.html" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -186,6 +190,7 @@ $sale = new Sale;
 
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -196,6 +201,18 @@ $sale = new Sale;
         </div>
         <div class="info">
           <a href="#" class="d-block">Nhom 5</a>
+        </div>
+      </div>
+
+      <!-- SidebarSearch Form -->
+      <div class="form-inline">
+        <div class="input-group" data-widget="sidebar-search">
+          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+          <div class="input-group-append">
+            <button class="btn btn-sidebar">
+              <i class="fas fa-search fa-fw"></i>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -213,7 +230,7 @@ $sale = new Sale;
             </a>
           </li>
           <li class="nav-item">
-            <a href="products.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/products.php'){echo 'active';} ?>">             
+                <a href="products.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/products.php' || $_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addProduct.php'){echo 'active';} ?>">             
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Products              
@@ -222,7 +239,7 @@ $sale = new Sale;
             </a>
           </li>
           <li class="nav-item">
-            <a href="manufactures.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/manufactures.php'){echo 'active';} ?>">
+            <a href="manufactures.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/manufactures.php' || $_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addManufacture.php'){echo 'active';} ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Manufactures
@@ -231,7 +248,7 @@ $sale = new Sale;
             </a>
           </li>
           <li class="nav-item">
-            <a href="protypes.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/protypes.php'){echo 'active';} ?>">
+            <a href="protypes.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/protypes.php' || $_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addProtype.php'){echo 'active';} ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Protypes
@@ -240,7 +257,7 @@ $sale = new Sale;
             </a>
           </li>
           <li class="nav-item">
-            <a href="sales.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/sales.php'){echo 'active';} ?>">
+            <a href="sales.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/sales.php' || $_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addSale.php'){echo 'active';} ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Sales
@@ -249,34 +266,7 @@ $sale = new Sale;
             </a>
           </li>
           <li class="nav-item">
-            <a href="addProduct.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addProduct.php'){echo 'active';} ?>">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Add product
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="addProtype.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addProtype.php'){echo 'active';} ?>">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Add Protypes
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="addManufacture.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addManufacture.php'){echo 'active';} ?>">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Add Manufacture
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="users.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/users.php' || $_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addUser.php'){echo 'active';} ?>">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 User
@@ -285,11 +275,22 @@ $sale = new Sale;
             </a>
           </li>
           <li class="nav-item">
+            <a href="roles.php" class="nav-link <?php if($_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/roles.php' || $_SERVER['PHP_SELF']=='/nhom5_ST6_BE1_NH21/admin/addRole.php'){echo 'active';} ?>">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Roles
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+        
+        
+          <li class="nav-item">
             <a href="logout.php" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Log Out
-                <span class="right badge badge-danger">New</span>
+                <span class="right badge badge-danger "><span class="ion-log-out"></span></span>
               </p>
             </a>
           </li>

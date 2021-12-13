@@ -27,6 +27,10 @@
         <h3 class="card-title">Protypes</h3>
 
         <div class="card-tools">
+        <a class="btn  btn-sm bg-green" href="addProtype.php">
+            <i class="fas fa-plus"></i>
+            Add
+          </a>
           <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
             <i class="fas fa-minus"></i>
           </button>

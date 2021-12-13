@@ -22,13 +22,29 @@ class Manufacture extends Db
 
         $sql = self::$connection->prepare("INSERT INTO `manufactures`(`manu_name`) VALUES(?)");
         $sql->bind_param("s", $manu_name);
-        return $sql->execute(); //return an array
+        return $sql->execute(); //return an object
     }
     public function deleteManufacture($manu_id)
     {
-        $sql = self::$connection->prepare("DELETE FROM `manufactures` WHERE `manu_id`=?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `manu_id`=?");
         $sql->bind_param("i", $manu_id);
-        return $sql->execute();
+        $sql->execute();
+        $item = array();
+        $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+
+        if (count($item) == 0) {
+            $sql = self::$connection->prepare("DELETE FROM `manufactures` WHERE `manu_id`=?");
+            $sql->bind_param("i", $manu_id);
+            header('location:manufactures.php');
+            return $sql->execute(); //return an object
+           
+        }
+        else{
+            header('location:manufactures.php');
+        }
+        /*  $sql = self::$connection->prepare("DELETE FROM `manufactures` WHERE `manu_id`=?");
+        $sql->bind_param("i", $manu_id);
+        return $sql->execute(); */
     }
     /* public function deleteManufacture1($manu_id)
     {
@@ -45,5 +61,4 @@ class Manufacture extends Db
             header('location:products.php');
         }
         } */
-    }
-
+}

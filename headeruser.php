@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "config.php";
 require "models/db.php";
 require "models/product.php";
@@ -61,7 +62,9 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                 </ul>
                 <ul class="header-links pull-right">
                     <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+                    <li><a href="login/changepassword?username=<?php echo $_SESSION['user']?>"><i class="fa fa-key"></i> Change Password</a></li>
                     <li><a href="admin/logoutuser.php"><i class="fa fa-user-o"></i> Log Out</a></li>
+                    
                 </ul>
             </div>
         </div>

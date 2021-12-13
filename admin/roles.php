@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Sales</h1>
+          <h1>Roles</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Sales</li>
+            <li class="breadcrumb-item active">Roles</li>
           </ol>
         </div>
       </div>
@@ -24,10 +24,10 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Sales</h3>
+        <h3 class="card-title">Roles</h3>
 
         <div class="card-tools">
-        <a class="btn  btn-sm bg-green" href="#">
+        <a class="btn  btn-sm bg-green" href="addRole.php">
             <i class="fas fa-plus"></i>
             Add
           </a>
@@ -43,17 +43,12 @@
         <table class="table table-striped projects">
           <thead>
             <tr>
-              <th style="width: 1%">
-                ID
-              </th>
-              <th style="width: 25%">
-                Sell Number
-              </th>                                    
-              <th style="width: 25%">
-                Import Quantity
+                                              
+              <th style="width: 43%">
+               Role ID
               </th>            
-              <th style="width: 35%">
-                Import Date
+              <th style="width: 43%">
+                Role Name
               </th>            
               <th style="width: 14%">
                 Action
@@ -62,21 +57,20 @@
           </thead>
           <tbody>
             <?php
-            $getAllSales = $sale->getAllSales();
-            foreach ($getAllSales as $value) :
+            $getAllRole = $role->getAllRole();
+            foreach ($getAllRole as $value) :
             ?>
               <tr>
-                <td><?php echo $value['id'] ?></td>
-                <td><?php echo $value['Sell number'] ?></td>    
-                <td><?php echo $value['Import quantity'] ?></td>    
-                <td><?php echo $value['Import date'] ?></td>    
+                <td><?php echo $value['role_id'] ?></td>
+                <td><?php echo $value['role_name'] ?></td>    
+                
                 <td class="project-actions text-right">
-                  <a class="btn btn-info btn-sm" href="#">
+                  <a class="btn btn-info btn-sm" href="editRole.php?role_id=<?php echo $value['role_id'];?>">
                     <i class="fas fa-pencil-alt">
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="#">
+                  <a class="btn btn-danger btn-sm" href="deleteR.php?role_id=<?php echo $value['role_id']; ?>">
                     <i class="fas fa-trash">
                     </i>
                     Delete

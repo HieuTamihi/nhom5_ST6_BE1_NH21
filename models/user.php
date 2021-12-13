@@ -45,4 +45,12 @@ class User extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
+    public function changePassword($password, $username)
+    {
+        $sql = self::$connection->prepare("UPDATE `users` SET `password`=? WHERE `username`=?");
+        $password = md5($password);
+        $sql->bind_param("ss", $password, $username);
+        return  $sql->execute(); //return an object
+
+    }
 }

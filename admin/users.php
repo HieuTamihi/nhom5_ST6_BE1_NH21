@@ -6,12 +6,12 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1>Sales</h1>
+          <h1>Users</h1>
         </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active">Sales</li>
+            <li class="breadcrumb-item active">Users</li>
           </ol>
         </div>
       </div>
@@ -24,10 +24,10 @@
     <!-- Default box -->
     <div class="card">
       <div class="card-header">
-        <h3 class="card-title">Sales</h3>
+        <h3 class="card-title">Users</h3>
 
         <div class="card-tools">
-        <a class="btn  btn-sm bg-green" href="#">
+        <a class="btn  btn-sm bg-green" href="addUser.php">
             <i class="fas fa-plus"></i>
             Add
           </a>
@@ -43,18 +43,18 @@
         <table class="table table-striped projects">
           <thead>
             <tr>
-              <th style="width: 1%">
-                ID
+              <th style="width: 15%">
+                User_ID
               </th>
-              <th style="width: 25%">
-                Sell Number
-              </th>                                    
-              <th style="width: 25%">
-                Import Quantity
-              </th>            
-              <th style="width: 35%">
-                Import Date
-              </th>            
+              <th style="width: 28%">
+                Username
+              </th>
+              <th style="width: 28%">
+                Password
+              </th>
+              <th style="width: 15%">
+                Role_ID
+              </th>
               <th style="width: 14%">
                 Action
               </th>
@@ -62,26 +62,27 @@
           </thead>
           <tbody>
             <?php
-            $getAllSales = $sale->getAllSales();
-            foreach ($getAllSales as $value) :
+            $user = $user->getAllUserDESC();
+            foreach ($user as $value) :
             ?>
               <tr>
-                <td><?php echo $value['id'] ?></td>
-                <td><?php echo $value['Sell number'] ?></td>    
-                <td><?php echo $value['Import quantity'] ?></td>    
-                <td><?php echo $value['Import date'] ?></td>    
+                <td><?php echo $value['user_id'] ?></td>
+                <td><?php echo $value['username'] ?></td>
+                <td><?php echo $value['password'] ?></td>
+                <td><?php echo $value['role_id'] ?></td>
+              
                 <td class="project-actions text-right">
-                  <a class="btn btn-info btn-sm" href="#">
+                  <a class="btn btn-info btn-sm" href="editUser.php?user_id=<?php echo $value['user_id'];?>">
                     <i class="fas fa-pencil-alt">
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="#">
+                  <a class="btn btn-danger btn-sm" href="deleteU.php?user_id=<?php echo $value['user_id'];?>">
                     <i class="fas fa-trash">
                     </i>
                     Delete
                   </a>
-                </td>             
+                </td>
               </tr>
             <?php endforeach; ?>
           </tbody>

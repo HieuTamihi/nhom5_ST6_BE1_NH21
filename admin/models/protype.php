@@ -34,9 +34,22 @@ FROM `protypes`");
         return $sql->execute(); //return an array
     }
     public function deleteProtype($type_id){
-        $sql = self::$connection->prepare("DELETE FROM `protypes` WHERE `type_id`=?");
+        $sql = self::$connection->prepare("SELECT * FROM `products` WHERE `type_id`=?");
         $sql->bind_param("i", $type_id);
-        return $sql->execute();
+        $sql->execute();
+        $item = array();
+        $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+
+        if (count($item) == 0) {
+            $sql = self::$connection->prepare("DELETE FROM `protypes` WHERE `type_id`=?");
+            $sql->bind_param("i", $type_id);
+            header('location:protypes.php');
+            return $sql->execute(); //return an object
+           
+        }
+        else{
+            header('location:protypes.php');
+        }
     }
     public function updateProtype($type_name, $type_id){
         $sql = self::$connection->prepare("UPDATE `protypes` SET `type_name`=? WHERE `type_id`=?");
