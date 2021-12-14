@@ -39,7 +39,6 @@ AND `products`.`type_id` = `protypes`.`type_id` ORDER BY `id` DESC");
     }
     public function addProduct($name, $manu, $type_id, $price, $image, $desc, $feature)
     {
-
         $sql = self::$connection->prepare("INSERT INTO `products`(`name`, `manu_id`, `type_id`, `price`, `pro_image`, `description`, `feature`) VALUES(?,?,?,?,?,?,?)");
         $sql->bind_param("siiissi", $name, $manu, $type_id, $price, $image, $desc, $feature);
         return $sql->execute(); //return an object
@@ -56,5 +55,13 @@ AND `products`.`type_id` = `protypes`.`type_id` ORDER BY `id` DESC");
         $sql = self::$connection->prepare("UPDATE `products` SET `name`=?,`manu_id`=?,`type_id`=?,`price`=?,`pro_image`=?,`description`=?,`feature`=?,`created_at` = NOW() WHERE `id`=?");
         $sql->bind_param("siiissii", $name, $manu, $type_id, $price, $image, $desc, $feature, $id);
         return $sql->execute(); //return an object
+    }
+    public function getAllIDProduct()
+    {
+        $sql = self::$connection->prepare("SELECT `id` FROM `products`");
+        $sql->execute(); //return an object
+        $item = array();
+        $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $item; //return an array
     }
 }

@@ -27,7 +27,7 @@
         <h3 class="card-title">Sales</h3>
 
         <div class="card-tools">
-        <a class="btn  btn-sm bg-green" href="#">
+          <a class="btn  btn-sm bg-green" href="addsale.php">
             <i class="fas fa-plus"></i>
             Add
           </a>
@@ -48,13 +48,13 @@
               </th>
               <th style="width: 25%">
                 Sell Number
-              </th>                                    
+              </th>
               <th style="width: 25%">
                 Import Quantity
-              </th>            
+              </th>
               <th style="width: 35%">
                 Import Date
-              </th>            
+              </th>
               <th style="width: 14%">
                 Action
               </th>
@@ -62,26 +62,26 @@
           </thead>
           <tbody>
             <?php
-            $getAllSales = $sale->getAllSales();
-            foreach ($getAllSales as $value) :
+            $getAllSalesDESC = $sale->getAllSalesDESC();
+            foreach ($getAllSalesDESC as $value) :
             ?>
               <tr>
                 <td><?php echo $value['id'] ?></td>
-                <td><?php echo $value['Sell number'] ?></td>    
-                <td><?php echo $value['Import quantity'] ?></td>    
-                <td><?php echo $value['Import date'] ?></td>    
+                <td><?php echo $value['Sell_number'] ?></td>
+                <td><?php echo $value['Import_quantity'] ?></td>
+                <td><?php echo $value['Import_date'] ?></td>
                 <td class="project-actions text-right">
-                  <a class="btn btn-info btn-sm" href="#">
+                  <a class="btn btn-info btn-sm" href="editSale.php?id=<?php echo $value['id']; ?>">
                     <i class="fas fa-pencil-alt">
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="#">
+                  <a class="btn btn-danger btn-sm" href="deleteS.php?id=<?php echo $value['id']; ?>">
                     <i class="fas fa-trash">
                     </i>
                     Delete
                   </a>
-                </td>             
+                </td>
               </tr>
             <?php endforeach; ?>
           </tbody>

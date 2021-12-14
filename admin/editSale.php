@@ -16,7 +16,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Edit Protype</li>
+                                <li class="breadcrumb-item active">Edit Sale</li>
                             </ol>
                         </div>
                     </div>
@@ -25,12 +25,12 @@
 
             <!-- Main content -->
             <section class="content">
-                <form action="editPT.php" method="post" enctype="multipart/form-data">
+                <form action="editS.php" method="post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-12">
                             <?php
-                            $getProtypeById = $protype->getProtypeById($_GET['type_id']);
-                            foreach ($getProtypeById as $values) : ?>
+                            $getSaleById = $sale->getSaleById($_GET['id']);
+                            foreach ($getSaleById as $values) : ?>
                                 <div class="card card-primary">
                                     <div class="card-header">
                                         <h3 class="card-title">General</h3>
@@ -44,11 +44,15 @@
                                     <div class="card-body">
                                         <div class="form-group">
                                             <label for="inputName">ID</label>
-                                            <input readonly value="<?php echo $values['type_id'] ?>" type="text" id="inputID" class="form-control" name="type_id">
+                                            <input readonly value="<?php echo $values['id'] ?>" type="text" id="inputID" class="form-control" name="id">
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName">Type_Name</label>
-                                            <input value="<?php echo $values['type_name'] ?>" type="text" id="inputName" class="form-control" name="type_name">
+                                            <label for="inputName">Sell Number</label>
+                                            <input value="<?php echo $values['Sell_number'] ?>" type="text" id="inputSell" class="form-control" name="sell">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputName">Import Quantity</label>
+                                            <input value="<?php echo $values['Import_quantity'] ?>" type="text" id="inputImport" class="form-control" name="import_quantity">
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
