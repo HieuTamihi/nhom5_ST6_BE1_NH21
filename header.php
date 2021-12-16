@@ -117,7 +117,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
 
                             <!-- Cart -->
                             <div class="dropdown">
-                                <a href="cart.php">
+                                <a href="cart.php?type_id=1">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Your Cart</span>
                                     <div class="qty">3</div>
