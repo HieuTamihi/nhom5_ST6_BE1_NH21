@@ -1,4 +1,10 @@
-<?php include "header.php" ?>
+<?php
+session_start();
+if(isset($_SESSION['user'])){
+	include "headeruser.php";
+}else{
+	include "header.php";
+}?>
 		<!-- BREADCRUMB -->
 		<div id="breadcrumb" class="section">
 			<!-- container -->

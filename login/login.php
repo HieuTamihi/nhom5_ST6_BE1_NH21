@@ -9,6 +9,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'];
     $getRoleId = $user->getRoleId($username);
 
+
     if ($user->checkLogin($username, $password)) {
         $_SESSION['user'] = $username;
         foreach ($getRoleId as $value) {
@@ -16,10 +17,11 @@ if (isset($_POST['submit'])) {
                 header('location:../admin');
             }
             if ($value['role_id'] == 2) {
-                header('location:../indexuser.php');
+                header('location:../index.php');
             }
         }
-    } else {
+    }
+    else{
         header('location:index.php');
     }
 }

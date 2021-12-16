@@ -1,4 +1,9 @@
-<?php include "header.php"; ?>
+<?php session_start() ?>
+<?php if (isset($_SESSION['user'])) {
+    include "headeruser.php";
+} else {
+    include "header.php";
+} ?>
 <!-- Google Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,200,300,700,600' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
@@ -44,45 +49,60 @@
                                             <th class="product-subtotal">Total</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr class="cart_item">
-                                            <td class="product-remove">
-                                                <a title="Remove this item" class="remove" href="#">×</a>
-                                            </td>
+                                    <?php
+                                    ?>
+                                    <?php foreach ($_SESSION['cart'] as $key => $qty) : ?>
+                                        <?php $getAllProducts =  $product->getAllProducts() ?>
+                                        <?php foreach ($getAllProducts as $value) : ?>
+                                            <?php if ($value['id'] == $key) : ?>
+                                                <tbody>
+                                                    <tr class="cart_item">
+                                                        <td class="product-remove">
+                                                            <a title="Remove this item" class="remove" href="delcart.php?id=<?php echo $key ?>">×</a>
+                                                        </td>
 
-                                            <td class="product-thumbnail">
-                                                <a href="single-product.html"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="img/product-thumb-2.jpg"></a>
-                                            </td>
+                                                        <td class="product-thumbnail">
+                                                            <a href="single-product.html"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="img/<?php echo $value['pro_image'] ?>"></a>
+                                                        </td>
 
-                                            <td class="product-name">
-                                                <a href="single-product.html">Ship Your Idea</a>
-                                            </td>
+                                                        <td class="product-name">
+                                                            <a href="single-product.html"><?php echo $value['name'] ?></a>
+                                                        </td>
 
-                                            <td class="product-price">
-                                                <span class="amount">£15.00</span>
-                                            </td>
+                                                        <td class="product-price">
+                                                            <span class="amount"><?php echo number_format($value['price']) ?>VND</span>
+                                                        </td>
 
-                                            <td class="product-quantity">
-                                                <div class="quantity buttons_added">
-                                                    <input type="button" class="minus" value="-">
-                                                    <input type="number" size="4" class="input-text qty text" title="Qty" value="1" min="0" step="1">
-                                                    <input type="button" class="plus" value="+">
-                                                </div>
-                                            </td>
+                                                        <td class="product-quantity">
+                                                            <div class="quantity buttons_added">
+                                                                <!--     <input type="button" class="minus" value="-"> -->
+                                                                <a href="subtractqty.php?id=<?php echo $value['id'] ?>"><input type="button" class="minus" value="-"></a>
+                                                                <input type="text" size="1" class="input-text qty text" title="Qty" value="<?php echo $qty ?>">
+                                                                <a href="addqty.php?id=<?php echo $value['id'] ?>"><input type="button" class="plus" value="+"></a>
+                                                                <!--    <input type="button" class="plus" value="+"> -->
+                                                            </div>
+                                                        </td>
 
-                                            <td class="product-subtotal">
-                                                <span class="amount">£15.00</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="actions" colspan="6">
-                                                <div class="add-to-cart">
-                                                    <button class="add-to-cart-btn"><i class="fa fa-credit-card"></i> Checkout</button>
-                                                </div>
+                                                        <td class="product-subtotal">
+                                                            <span class="amount"><?php echo number_format($value['price'] * $qty) ?>VND</span>
+                                                        </td>
+                                                    </tr>
 
-                                            </td>
-                                        </tr>
-                                    </tbody>
+                                                    <tr>
+                                                        <td class="actions" colspan="6">
+
+                                                            <div class="add-to-cart">
+                                                                <a href="check.php"><button class="add-to-cart-btn"><i class="fa fa-credit-card"></i> Checkout</button> </a>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+
+                                                </tbody>
+                                            <?php endif ?>
+                                        <?php endforeach ?>
+                                    <?php endforeach ?>
+
                                 </table>
                             </form>
                             <div class="cart-collaterals">
@@ -112,33 +132,7 @@
                             </div>
                             <hr size="5px" align="center" color=#e6e9ee />
 
-                            <!--          <div class="cart-collaterals">
-
-
-                                <div class="cross-sells col-lg-offset-4">
-                                    <h2>You may be interested in...</h2>
-                                    <ul class="products">
-                                        <li class="product">
-                                            <a href="single-product.html">
-                                                <img width="325" height="325" alt="T_4_front" class="attachment-shop_catalog wp-post-image" src="img/product-2.jpg">
-                                                <h3>Ship Your Idea</h3>
-                                                <span class="price"><span class="amount">£20.00</span></span>
-                                            </a>
-
-                                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html">Select options</a>
-                                        </li>
-
-                                        <li class="product">
-                                            <a href="single-product.html">
-                                                <img width="325" height="325" alt="T_4_front" class="attachment-shop_catalog wp-post-image" src="img/product-4.jpg">
-                                                <h3>Ship Your Idea</h3>
-                                                <span class="price"><span class="amount">£20.00</span></span>
-                                            </a>
-
-                                            <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="22" rel="nofollow" href="single-product.html">Select options</a>
-                                        </li>
-                                    </ul>
-                                </div>
+                            
 
 
 

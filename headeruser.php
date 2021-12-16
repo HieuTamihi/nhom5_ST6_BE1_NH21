@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 require "config.php";
 require "models/db.php";
 require "models/product.php";
@@ -79,7 +79,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                     <!-- LOGO -->
                     <div class="col-md-3">
                         <div class="header-logo">
-                            <a href="#" class="logo">
+                            <a href="index.php" class="logo">
                                 <img src="./img/logo.png" alt="">
                             </a>
                         </div>
@@ -120,7 +120,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
 
                             <!-- Cart -->
                             <div class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                <a href="cart.php">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Your Cart</span>
                                     <div class="qty">3</div>

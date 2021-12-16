@@ -1,7 +1,7 @@
 <?php 
-
+session_start();
 include "./login/login.php";
-unset($_SESSION['username']);
+unset($_SESSION['user']);
 
 header('location:../index.php');
 ?>

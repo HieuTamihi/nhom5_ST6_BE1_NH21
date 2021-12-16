@@ -1,5 +1,10 @@
 <?php
-include "header.php";
+session_start();
+if(isset($_SESSION['user'])){
+	include "headeruser.php";
+}else{
+	include "header.php";
+}
 ?>
 <!-- SECTION -->
 <div class="section">
@@ -115,10 +120,10 @@ include "header.php";
 												<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 											</div>
 										</div>
-										<div class="add-to-cart">
+										<a href="addcart.php?id=<?php echo $value['id'] ?>"><div class="add-to-cart">
 											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
 												cart</button>
-										</div>
+										</div></a>
 									</div>
 									<!-- /product -->
 								<?php endforeach ?>
