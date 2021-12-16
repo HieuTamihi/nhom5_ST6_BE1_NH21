@@ -49,10 +49,12 @@
                                             <th class="product-subtotal">Total</th>
                                         </tr>
                                     </thead>
-                                    <?php
+                                    <?php $total=0;
                                     ?>
                                     <?php foreach ($_SESSION['cart'] as $key => $qty) : ?>
-                                        <?php $getAllProducts =  $product->getAllProducts() ?>
+                                        <?php $getAllProducts =  $product->getAllProducts();
+                                        
+                                        ?>
                                         <?php foreach ($getAllProducts as $value) : ?>
                                             <?php if ($value['id'] == $key) : ?>
                                                 <tbody>
@@ -84,7 +86,7 @@
                                                         </td>
 
                                                         <td class="product-subtotal">
-                                                            <span class="amount"><?php echo number_format($value['price'] * $qty) ?>VND</span>
+                                                            <span class="amount"><?php echo number_format($value['price'] * $qty); $total+=$value['price'] * $qty; ?>VND</span>
                                                         </td>
                                                     </tr>
 
@@ -92,7 +94,7 @@
                                                         <td class="actions" colspan="6">
 
                                                             <div class="add-to-cart">
-                                                                <a href="check.php"><button class="add-to-cart-btn"><i class="fa fa-credit-card"></i> Checkout</button> </a>
+                                                                <button class="add-to-cart-btn"><a style="text-decoration: none;"  href="check.php"><i class="fa fa-credit-card"></i> Checkout</a></button> 
                                                             </div>
 
                                                         </td>
@@ -108,13 +110,9 @@
                             <div class="cart-collaterals">
                                 <div class="cart_totals col-lg-offset-4">
                                     <h2>Cart Totals</h2>
-
+                                    
                                     <table cellspacing="0">
                                         <tbody>
-                                            <tr class="cart-subtotal">
-                                                <th>Cart Subtotal</th>
-                                                <td><span class="amount">£15.00</span></td>
-                                            </tr>
 
                                             <tr class="shipping">
                                                 <th>Shipping and Handling</th>
@@ -123,254 +121,255 @@
 
                                             <tr class="order-total">
                                                 <th>Order Total</th>
-                                                <td><strong><span class="amount">£15.00</span></strong> </td>
+                                                <td><strong><span class="amount"><?php echo number_format($total)?>VND</span></strong> </td>
                                             </tr>
                                         </tbody>
                                     </table>
+
                                 </div>
 
                             </div>
                             <hr size="5px" align="center" color=#e6e9ee />
 
-                            
 
 
 
 
-                            </div> -->
-                            <div class="col-md-12">
-                                <div class="row">
-                                    <div class="products-tabs">
-                                        <!-- tab -->
-                                        <div id="pap1" class="tab-pane active">
-                                            <div class="products-slick" data-nav="#slick-nav-1">
-                                                <?php
-                                                $type_id = 1;
-                                                $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
-                                                <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
-                                                    <!-- product -->
-                                                    <div class="product">
-                                                        <div class="product-img">
-                                                            <img style="width=100px" src="./img/<?php echo $value['pro_image'] ?>" alt="">
-                                                            <div class="product-label">
-                                                                <span class="new">TOPSELLING</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-body">
-                                                            <p class="product-category">Category</p>
-                                                            <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
-                                                            <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
-                                                            <div class="product-rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                                                cart</button>
+
+                        </div> -->
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="products-tabs">
+                                    <!-- tab -->
+                                    <div id="pap1" class="tab-pane active">
+                                        <div class="products-slick" data-nav="#slick-nav-1">
+                                            <?php
+                                            $type_id = 1;
+                                            $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
+                                            <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
+                                                <!-- product -->
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <img style="width=100px" src="./img/<?php echo $value['pro_image'] ?>" alt="">
+                                                        <div class="product-label">
+                                                            <span class="new">TOPSELLING</span>
                                                         </div>
                                                     </div>
-                                                    <!-- /product -->
-                                                <?php endforeach ?>
-                                            </div>
-                                            <div id="slick-nav-1" class="products-slick-nav"></div>
-                                        </div>
-                                        <!-- /tab -->
-
-                                        <!-- tab -->
-                                        <div id="pap2" class="tab-pane ">
-                                            <div class="products-slick">
-                                                <?php
-                                                $type_id = 2;
-                                                $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
-                                                <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
-                                                    <!-- product -->
-                                                    <div class="product">
-                                                        <div class="product-img">
-                                                            <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
-                                                            <div class="product-label">
-                                                                <span class="new">TOPSELLING</span>
-                                                            </div>
+                                                    <div class="product-body">
+                                                        <p class="product-category">Category</p>
+                                                        <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
+                                                        <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
+                                                        <div class="product-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
                                                         </div>
-                                                        <div class="product-body">
-                                                            <p class="product-category">Category</p>
-                                                            <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
-                                                            <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
-                                                            <div class="product-rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                                                cart</button>
+                                                        <div class="product-btns">
+                                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
                                                         </div>
                                                     </div>
-                                                    <!-- /product -->
-                                                <?php endforeach ?>
-                                            </div>
-                                            <div id="slick-nav-1" class="products-slick-nav"></div>
-                                        </div>
-                                        <!-- /tab -->
-
-                                        <!-- tab -->
-                                        <div id="pap3" class="tab-pane ">
-                                            <div class="products-slick">
-                                                <?php
-                                                $type_id = 3;
-                                                $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
-                                                <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
-                                                    <!-- product -->
-                                                    <div class="product">
-                                                        <div class="product-img">
-                                                            <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
-                                                            <div class="product-label">
-                                                                <span class="new">TOPSELLING</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-body">
-                                                            <p class="product-category">Category</p>
-                                                            <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
-                                                            <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
-                                                            <div class="product-rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                                                cart</button>
-                                                        </div>
+                                                    <div class="add-to-cart">
+                                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
+                                                            cart</button>
                                                     </div>
-                                                    <!-- /product -->
-                                                <?php endforeach ?>
-                                            </div>
-                                            <div id="slick-nav-1" class="products-slick-nav"></div>
+                                                </div>
+                                                <!-- /product -->
+                                            <?php endforeach ?>
                                         </div>
-                                        <!-- /tab -->
-
-                                        <!-- tab -->
-                                        <div id="pap4" class="tab-pane ">
-                                            <div class="products-slick">
-                                                <?php
-                                                $type_id = 4;
-                                                $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
-                                                <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
-                                                    <!-- product -->
-                                                    <div class="product">
-                                                        <div class="product-img">
-                                                            <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
-                                                            <div class="product-label">
-                                                                <span class="new">TOPSELLING</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-body">
-                                                            <p class="product-category">Category</p>
-                                                            <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
-                                                            <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
-                                                            <div class="product-rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                                                cart</button>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /product -->
-
-                                                <?php endforeach ?>
-                                            </div>
-                                            <div id="slick-nav-1" class="products-slick-nav"></div>
-                                        </div>
-                                        <!-- /tab -->
-
-                                        <!-- tab -->
-                                        <div id="pap5" class="tab-pane ">
-                                            <div class="products-slick">
-                                                <?php
-                                                $type_id = 5;
-                                                $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
-                                                <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
-                                                    <!-- product -->
-                                                    <div class="product">
-                                                        <div class="product-img">
-                                                            <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
-                                                            <div class="product-label">
-                                                                <span class="new">TOPSELLING</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="product-body">
-                                                            <p class="product-category">Category</p>
-                                                            <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
-                                                            <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
-                                                            <div class="product-rating">
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                                <i class="fa fa-star"></i>
-                                                            </div>
-                                                            <div class="product-btns">
-                                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
-                                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
-                                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="add-to-cart">
-                                                            <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                                                cart</button>
-                                                        </div>
-                                                    </div>
-                                                    <!-- /product -->
-                                                <?php endforeach ?>
-                                            </div>
-                                            <div id="slick-nav-1" class="products-slick-nav"></div>
-                                        </div>
-                                        <!-- /tab -->
+                                        <div id="slick-nav-1" class="products-slick-nav"></div>
                                     </div>
+                                    <!-- /tab -->
+
+                                    <!-- tab -->
+                                    <div id="pap2" class="tab-pane ">
+                                        <div class="products-slick">
+                                            <?php
+                                            $type_id = 2;
+                                            $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
+                                            <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
+                                                <!-- product -->
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
+                                                        <div class="product-label">
+                                                            <span class="new">TOPSELLING</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-body">
+                                                        <p class="product-category">Category</p>
+                                                        <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
+                                                        <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
+                                                        <div class="product-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                        <div class="product-btns">
+                                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-to-cart">
+                                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
+                                                            cart</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /product -->
+                                            <?php endforeach ?>
+                                        </div>
+                                        <div id="slick-nav-1" class="products-slick-nav"></div>
+                                    </div>
+                                    <!-- /tab -->
+
+                                    <!-- tab -->
+                                    <div id="pap3" class="tab-pane ">
+                                        <div class="products-slick">
+                                            <?php
+                                            $type_id = 3;
+                                            $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
+                                            <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
+                                                <!-- product -->
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
+                                                        <div class="product-label">
+                                                            <span class="new">TOPSELLING</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-body">
+                                                        <p class="product-category">Category</p>
+                                                        <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
+                                                        <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
+                                                        <div class="product-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                        <div class="product-btns">
+                                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-to-cart">
+                                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
+                                                            cart</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /product -->
+                                            <?php endforeach ?>
+                                        </div>
+                                        <div id="slick-nav-1" class="products-slick-nav"></div>
+                                    </div>
+                                    <!-- /tab -->
+
+                                    <!-- tab -->
+                                    <div id="pap4" class="tab-pane ">
+                                        <div class="products-slick">
+                                            <?php
+                                            $type_id = 4;
+                                            $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
+                                            <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
+                                                <!-- product -->
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
+                                                        <div class="product-label">
+                                                            <span class="new">TOPSELLING</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-body">
+                                                        <p class="product-category">Category</p>
+                                                        <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
+                                                        <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
+                                                        <div class="product-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                        <div class="product-btns">
+                                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-to-cart">
+                                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
+                                                            cart</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /product -->
+
+                                            <?php endforeach ?>
+                                        </div>
+                                        <div id="slick-nav-1" class="products-slick-nav"></div>
+                                    </div>
+                                    <!-- /tab -->
+
+                                    <!-- tab -->
+                                    <div id="pap5" class="tab-pane ">
+                                        <div class="products-slick">
+                                            <?php
+                                            $type_id = 5;
+                                            $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
+                                            <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
+                                                <!-- product -->
+                                                <div class="product">
+                                                    <div class="product-img">
+                                                        <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
+                                                        <div class="product-label">
+                                                            <span class="new">TOPSELLING</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-body">
+                                                        <p class="product-category">Category</p>
+                                                        <h3 class="product-name"><a href="#"><?php echo $value['name'] ?></a></h3>
+                                                        <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
+                                                        <div class="product-rating">
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                            <i class="fa fa-star"></i>
+                                                        </div>
+                                                        <div class="product-btns">
+                                                            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                            <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="add-to-cart">
+                                                        <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
+                                                            cart</button>
+                                                    </div>
+                                                </div>
+                                                <!-- /product -->
+                                            <?php endforeach ?>
+                                        </div>
+                                        <div id="slick-nav-1" class="products-slick-nav"></div>
+                                    </div>
+                                    <!-- /tab -->
                                 </div>
                             </div>
-
-
                         </div>
+
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <?php include "footer.php" ?>
