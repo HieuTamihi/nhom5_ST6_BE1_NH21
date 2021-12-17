@@ -27,7 +27,7 @@
         <h3 class="card-title">Users</h3>
 
         <div class="card-tools">
-        <a class="btn  btn-sm bg-green" href="addUser.php">
+          <a class="btn  btn-sm bg-green" href="addUser.php">
             <i class="fas fa-plus"></i>
             Add
           </a>
@@ -43,16 +43,22 @@
         <table class="table table-striped projects">
           <thead>
             <tr>
-              <th style="width: 15%">
+              <th style="width: 10%">
                 User_ID
               </th>
-              <th style="width: 28%">
-                Username
+              <th style="width: 14%">
+                First name
               </th>
-              <th style="width: 28%">
-                Password
+              <th style="width: 14%">
+                Last name
               </th>
               <th style="width: 15%">
+                Username
+              </th>
+              <th style="width: 17%">
+                Password
+              </th>
+              <th style="width: 10%">
                 Role_ID
               </th>
               <th style="width: 14%">
@@ -67,17 +73,19 @@
             ?>
               <tr>
                 <td><?php echo $value['user_id'] ?></td>
+                <td><?php echo $value['First_name'] ?></td>
+                <td><?php echo $value['Last_name'] ?></td>
                 <td><?php echo $value['username'] ?></td>
                 <td><?php echo $value['password'] ?></td>
                 <td><?php echo $value['role_id'] ?></td>
-              
+
                 <td class="project-actions text-right">
-                  <a class="btn btn-info btn-sm" href="editUser.php?user_id=<?php echo $value['user_id'];?>">
+                  <a class="btn btn-info btn-sm" href="editUser.php?user_id=<?php echo $value['user_id']; ?>">
                     <i class="fas fa-pencil-alt">
                     </i>
                     Edit
                   </a>
-                  <a class="btn btn-danger btn-sm" href="deleteU.php?user_id=<?php echo $value['user_id'];?>">
+                  <a class="btn btn-danger btn-sm" href="deleteU.php?user_id=<?php echo $value['user_id']; ?>">
                     <i class="fas fa-trash">
                     </i>
                     Delete

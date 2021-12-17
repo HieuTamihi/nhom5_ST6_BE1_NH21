@@ -17,11 +17,11 @@ class User extends Db
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
     }
-    public function addUser($username, $password, $role_id)
+    public function addUser($first_name, $last_name, $username, $password, $role_id)
     {
-        $sql = self::$connection->prepare("INSERT INTO `users`(`username`, `password`, `role_id`) VALUES(?,?,?)");
+        $sql = self::$connection->prepare("INSERT INTO `users`(`First_name`,`Last_name`,`username`, `password`, `role_id`) VALUES(?,?,?,?,?)");
         $password = md5($password);
-        $sql->bind_param("ssi", $username, $password, $role_id);
+        $sql->bind_param("ssssi", $first_name, $last_name, $username, $password, $role_id);
         return $sql->execute(); //return an object
     }
     public function deleteUser($user_id)
@@ -38,27 +38,27 @@ class User extends Db
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
     }
-    public function updateUser($user_id, $username, $password, $role_id)
+    public function updateUser($user_id, $first_name, $last_name, $username, $password, $role_id)
     {
-        $sql = self::$connection->prepare("UPDATE `users` SET `username`=?, `password`=?, `role_id`=? WHERE `user_id`=?");
+        $sql = self::$connection->prepare("UPDATE `users` SET `First_name`=?, `Last_name`=?,`username`=?, `password`=?, `role_id`=? WHERE `user_id`=?");
         $password = md5($password);
-        $sql->bind_param("ssii", $username, $password, $role_id, $user_id);
+        $sql->bind_param("ssssii", $first_name, $last_name, $username, $password, $role_id, $user_id);
         return $sql->execute(); //return an object
     }
     public function updateUserNoChangePassword($user_id, $username, $role_id)
     {
         $sql = self::$connection->prepare("UPDATE `users` SET `username`=?, `role_id`=? WHERE `user_id`=?");
-        
+
         $sql->bind_param("sii", $username, $role_id, $user_id);
         return $sql->execute(); //return an object
     }
 
-    public function getPasswordByID($user_id){
+    public function getPasswordByID($user_id)
+    {
         $sql = self::$connection->prepare("SELECT `password` FROM users WHERE user_id = " . $user_id);
         $sql->execute(); //return an object
         $item = array();
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
     }
-
 }

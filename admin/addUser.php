@@ -41,6 +41,14 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
+                                <div class="form-group">
+                                        <label for="inputName">First name</label>
+                                        <input type="text" id="inputfirst" class="form-control" name="First_name" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputName">Last name</label>
+                                        <input type="text" id="inputLast" class="form-control" name="Last_name" required>
+                                    </div>
                                     <div class="form-group">
                                         <label for="inputName">Username</label>
                                         <input type="text" id="inputName" class="form-control" name="username" required>

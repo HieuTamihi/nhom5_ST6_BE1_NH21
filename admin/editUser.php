@@ -49,7 +49,15 @@
                                             <input readonly value="<?php echo $values['user_id'] ?>" type="text" id="inputID" class="form-control" name="user_id">
                                         </div>
                                         <div class="form-group">
-                                            <label for="inputName">User name</label>
+                                            <label for="inputName">First name</label>
+                                            <input value="<?php echo $values['First_name'] ?>" type="text" id="inputFirst" class="form-control" name="first_name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputName">Last name</label>
+                                            <input value="<?php echo $values['Last_name'] ?>" type="text" id="inputUserLast" class="form-control" name="last_name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputName">Username</label>
                                             <input value="<?php echo $values['username'] ?>" type="text" id="inputUserName" class="form-control" name="username">
                                         </div>
                                         <div class="form-group">
@@ -59,10 +67,10 @@
                                         <div class="form-group">
                                             <label for="inputName">Role ID</label>
                                             <select id="inputStatus" class="form-control custom-select" name="role_id">
-                                            <option selected disabled>Select one</option>
-                                            <option value="1" <?php if($values['role_id']==1) echo 'selected' ?>>1</option>
-                                            <option value="2" <?php if($values['role_id']==2) echo 'selected' ?>>2</option>
-                                        </select>
+                                                <option selected disabled>Select one</option>
+                                                <option value="1" <?php if ($values['role_id'] == 1) echo 'selected' ?>>1</option>
+                                                <option value="2" <?php if ($values['role_id'] == 2) echo 'selected' ?>>2</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
