@@ -43,11 +43,11 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="inputName">Name</label>
-                                        <input type="text" id="inputName" class="form-control" name="name">
+                                        <input type="text" id="inputName" class="form-control" name="name" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputStatus">Manufacture</label>
-                                        <select id="inputStatus" class="form-control custom-select" name="manu">
+                                        <select id="inputStatus" class="form-control custom-select" name="manu" required>
                                             <option selected disabled>Select one</option>
                                             <?php
                                             $getAllManu = $manufacture->getAllManu();
@@ -60,7 +60,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputStatus">Protype</label>
-                                        <select id="inputStatus" class="form-control custom-select" name="type">
+                                        <select id="inputStatus" class="form-control custom-select" name="type" required>
                                             <option selected disabled>Select one</option>
                                             <?php
                                             $getAllProtypes = $protype->getAllProtypes();
@@ -73,12 +73,12 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDescription">Description</label>
-                                        <textarea name="desc" id="inputDescription" class="form-control" rows="4"></textarea>
+                                        <textarea name="desc" id="inputDescription" class="form-control" rows="4" required></textarea>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="inputClientCompany">Price</label>
-                                        <input type="text" id="inputClientCompany" class="form-control" name="price">
+                                        <input type="text" id="inputClientCompany" class="form-control" name="price" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputStatus">Feature</label>

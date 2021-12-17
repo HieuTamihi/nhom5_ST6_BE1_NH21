@@ -53,11 +53,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputName">Sell Number</label>
-                                        <input type="text" id="inputSell" class="form-control" name="sell">
+                                        <input type="text" id="inputSell" class="form-control" name="sell" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputName">Import Quantity</label>
-                                        <input type="text" id="inputImportQuantity" class="form-control" name="import_quantity">
+                                        <input type="text" id="inputImportQuantity" class="form-control" name="import_quantity" required>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

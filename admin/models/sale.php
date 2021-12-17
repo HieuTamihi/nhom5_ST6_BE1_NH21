@@ -19,7 +19,7 @@ class Sale extends Db
     }
     public function addSale($id, $Sell_number, $Import_quantity)
     {
-        if ($Import_quantity > $Sell_number) {
+        if ($Import_quantity >= $Sell_number) {
             $sql = self::$connection->prepare("INSERT INTO `sales`(`id`,`Sell_number`,`Import_quantity`) VALUES(?,?,?)");
             $sql->bind_param("iii", $id, $Sell_number, $Import_quantity);
             return $sql->execute(); //return an array

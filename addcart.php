@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 if (isset($_GET['id'])) {
 
     if (isset($_GET['type_id'])) {

@@ -44,11 +44,11 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="inputName">Role ID</label>
-                                        <input type="text" id="inputName" class="form-control" name="role_id">
+                                        <input type="text" id="inputName" class="form-control" name="role_id" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputName">Role Name</label>
-                                        <input type="text" id="inputName" class="form-control" name="role_name">
+                                        <input type="text" id="inputName" class="form-control" name="role_name" required>
                                     </div>
                                     
                                    

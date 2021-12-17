@@ -51,6 +51,7 @@
                                     </thead>
                                     <?php $total = 0;
                                     ?>
+                                    <?php if(isset($_SESSION['cart'])): ?>
                                     <?php foreach ($_SESSION['cart'] as $key => $qty) : ?>
                                         <?php $getAllProducts =  $product->getAllProducts();
 
@@ -67,7 +68,7 @@
                                                             <a href="single-product.html"><img width="145" height="145" alt="poster_1_up" class="shop_thumbnail" src="img/<?php echo $value['pro_image'] ?>"></a>
                                                         </td>
 
-                                                        <td class="product-name">
+                                                        <td class="product-name" style="max-width: 440px;">
                                                             <a href="single-product.html"><?php echo $value['name'] ?></a>
                                                         </td>
 
@@ -105,6 +106,7 @@
                                             <?php endif ?>
                                         <?php endforeach ?>
                                     <?php endforeach ?>
+                                    <?php endif ?>
 
                                 </table>
                             </form>

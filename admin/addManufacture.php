@@ -33,8 +33,7 @@
                                     <h3 class="card-title">General</h3>
 
                                     <div class="card-tools">
-                                        <button type="button" class="btn btn-tool" data-card-widget="collapse"
-                                            title="Collapse">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                                             <i class="fas fa-minus"></i>
                                         </button>
                                     </div>
@@ -42,7 +41,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="inputName">Manu_name</label>
-                                        <input type="text" id="inputName" class="form-control" name="manu_name">
+                                        <input type="text" id="inputName" class="form-control" name="manu_name" required>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -52,8 +51,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <input type="submit" name="submit" value="Create new Manufacture"
-                                class="btn btn-success float-right">
+                            <input type="submit" name="submit" value="Create new Manufacture" class="btn btn-success float-right">
                         </div>
                     </div>
                 </form>
