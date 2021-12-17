@@ -26,12 +26,12 @@ class User extends Db
         return $items; //return an array
     }
 
-    public function register($username, $password, $passwordAgain)
+    public function register($first_name,$last_name,$username, $password, $passwordAgain)
     {
         if ($password == $passwordAgain) {
-            $sql = self::$connection->prepare("INSERT INTO `users`( `username`, `password`, `role_id`) VALUES (?,?,2)");
+            $sql = self::$connection->prepare("INSERT INTO `users`(`First_name`,`Last_name`,`username`, `password`, `role_id`) VALUES (?,?,?,?,2)");
             $password = md5($password);
-            $sql->bind_param("ss", $username, $password);
+            $sql->bind_param("ssss", $first_name,$last_name,$username, $password);
             $sql->execute();
             return true;
         }

@@ -188,26 +188,27 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                 <ul class="main-nav nav navbar-nav">
 
                     <?php
-                    $getAllProtype = $protype->getAllProtype();
-                    if (isset($_GET['type_id'])) : ?>
-                        <li><a href="index.php">Home</a></li>
-                        <?php
-                        $type_id = $_GET['type_id'];
-                        foreach ($getAllProtype as $value) :
-                        ?>
-                            <li <?php if ($type_id == $value['type_id']) echo 'class="active"' ?>><a href="products.php?type_id=<?php echo $value['type_id'] ?>">
-                                    <?php echo $value['type_name'] ?></a></li>
-                        <?php endforeach; ?>
+					$getAllProtype = $protype->getAllProtype();
+					if (isset($_GET['type_id'])) : ?>
+                    <li><a href="index.php">Home</a></li>
+                    <?php
+						$type_id = $_GET['type_id'];
+						foreach ($getAllProtype as $value) :
+						?>
+                    <li <?php if($type_id==$value['type_id']) echo 'class="active"' ?>><a
+                            href="products.php?type_id=<?php echo $value['type_id'] ?>">
+                            <?php echo $value['type_name'] ?></a></li>
+                    <?php endforeach; ?>
                     <?php else : ?>
-                        <li class="active"><a href="index.php">Home</a></li>
-                        <?php
-                        $getAllProtype = $protype->getAllProtype();
+                    <li class="active"><a href="index.php">Home</a></li>
+                    <?php
+						$getAllProtype = $protype->getAllProtype();
 
-                        foreach ($getAllProtype as $value) :
-                        ?>
-                            <li><a href="products.php?type_id=<?php echo $value['type_id'] ?>">
-                                    <?php echo $value['type_name'] ?></a></li>
-                        <?php endforeach; ?>
+						foreach ($getAllProtype as $value) :
+						?>
+                    <li><a href="products.php?type_id=<?php echo $value['type_id'] ?>">
+                            <?php echo $value['type_name'] ?></a></li>
+                    <?php endforeach; ?>
                     <?php endif; ?>
                 </ul>
                 <!-- /NAV -->

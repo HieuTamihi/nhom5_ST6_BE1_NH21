@@ -19,7 +19,6 @@ class User extends Db
     }
     public function addUser($username, $password, $role_id)
     {
-
         $sql = self::$connection->prepare("INSERT INTO `users`(`username`, `password`, `role_id`) VALUES(?,?,?)");
         $password = md5($password);
         $sql->bind_param("ssi", $username, $password, $role_id);

@@ -36,6 +36,18 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
+						<input type="text" name="first_name" class="form-control" placeholder="First name" required >
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" name="last_name" class="form-control" placeholder="Last name" required >
+					</div>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+						</div>
 						<input type="text" name="username" class="form-control" placeholder="username" required >
 					</div>
 					<div class="input-group form-group">

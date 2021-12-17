@@ -23,9 +23,7 @@ class Sale extends Db
             $sql = self::$connection->prepare("INSERT INTO `sales`(`id`,`Sell_number`,`Import_quantity`) VALUES(?,?,?)");
             $sql->bind_param("iii", $id, $Sell_number, $Import_quantity);
             return $sql->execute(); //return an array
-        }
-        else
-        {
+        } else {
             header('location:sales.php');
         }
     }
