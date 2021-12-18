@@ -53,4 +53,24 @@ class User extends Db
         return  $sql->execute(); //return an object
 
     }
+
+    public function getLastname($username){
+        $sql = self::$connection->prepare("SELECT `Last_name` FROM `users` WHERE `username`=?");
+        $sql->bind_param("s", $username);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+
+    public function getInfoByUsername($username){
+        $sql = self::$connection->prepare("SELECT * FROM `users`,`roles` WHERE `username`=? AND `users`.`role_id`=`roles`.`role_id`");
+        $sql->bind_param("s", $username);
+        $sql->execute(); //return an object
+        $items = array();
+        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $items; //return an array
+    }
+
+ 
 }

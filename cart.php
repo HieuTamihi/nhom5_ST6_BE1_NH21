@@ -147,7 +147,8 @@
                                     <div id="pap1" class="tab-pane active">
                                         <div class="products-slick" data-nav="#slick-nav-1">
                                             <?php
-                                            $type_id = $_GET['type_id'];
+                                            if(isset($_GET['type_id'])):
+                                                     $type_id = $_GET['type_id'];
                                             $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
                                             <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
                                                 <!-- product -->
@@ -184,6 +185,9 @@
                                                 </div>
                                                 <!-- /product -->
                                             <?php endforeach ?>
+                                            <?php endif ?>
+                                            
+                                       
                                         </div>
                                         <div id="slick-nav-1" class="products-slick-nav"></div>
                                     </div>

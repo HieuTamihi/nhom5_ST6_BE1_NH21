@@ -1,5 +1,31 @@
-<?php
+<style type="text/css">
+body{
+    background: #f7f7ff;
+    margin-top:20px;
+}
+.main-body {
+        padding: 15px;
+    }
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid transparent;
+    border-radius: .25rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
+}
+.me-2 {
+    margin-right: .5rem!important;
+}
+</style>
 
+<?php
+session_start();
 require "config.php";
 require "models/db.php";
 require "models/product.php";
@@ -22,7 +48,10 @@ $getTopSellingProducts = $product->getTopSellingProducts();
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Electro - HTML Ecommerce Template</title>
-
+   
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -51,24 +80,29 @@ $getTopSellingProducts = $product->getTopSellingProducts();
 
 </head>
 
-<body>
     <!-- HEADER -->
     <header>
         <!-- TOP HEADER -->
         <div id="top-header">
             <div class="container">
-            <ul class="header-links pull-left">
+                <ul class="header-links pull-left">
                     <li><a href="tel:0987712063"><i class="fa fa-phone"></i> +84-987-712-063</a></li>
                     <li><a href="mailto:Thaihieu243@gmail.com"><i class="fa fa-envelope-o"></i> Thaihieu243@gmail.com</a></li>
                     <li><a href="https://www.google.com/maps/place/53+%C4%90.+V%C3%B5+V%C4%83n+Ng%C3%A2n,+Linh+Chi%E1%BB%83u,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8511574,106.7557547,17z/data=!3m1!4b1!4m5!3m4!1s0x317527bd532d45d9:0x6b46595d312dcffe!8m2!3d10.8511574!4d106.7579434"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan - Linh Chieu Ward- Thu Duc City</a></li>
                 </ul>
                 <ul class="header-links pull-right">
                     <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                    <?php $getLastname= $user->getLastname($_SESSION['user']);?>
-                    <li><a href="profile.php"><i class="<?php if($_SESSION['permision']==1){echo "fa fa-user-secret";}else{echo "fa fa-user";} ?>"></i> Hello <?php foreach($getLastname as $value){echo $value['Last_name'];} ?></a></li>
-                 
+                    <?php $getLastname = $user->getLastname($_SESSION['user']); ?>
+                    <li><a href="profile.php"><i class="<?php if ($_SESSION['permision'] == 1) {
+                                                                echo "fa fa-user-secret";
+                                                            } else {
+                                                                echo "fa fa-user";
+                                                            } ?>"></i> Hello <?php foreach ($getLastname as $value) {
+                                                                                    echo $value['Last_name'];
+                                                                                } ?></a></li>
+
                     <li><a href="admin/logoutuser.php"><i class="fa fa-sign-out"></i> Log Out</a></li>
-                    
+
                 </ul>
             </div>
         </div>
@@ -182,46 +216,85 @@ $getTopSellingProducts = $product->getTopSellingProducts();
             <!-- container -->
         </div>
         <!-- /MAIN HEADER -->
+        
     </header>
     <!-- /HEADER -->
+    <!--   <meta charset="utf-8"> -->
+    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+    <!--  All snippets are MIT license http://bootdey.com/license -->
 
-    <!-- NAVIGATION -->
-    <nav id="navigation">
-        <!-- container -->
-        <div class="container">
-            <!-- responsive-nav -->
-            <div id="responsive-nav">
-                <!-- NAV -->
-                <ul class="main-nav nav navbar-nav">
+<body>
+<div class="container">
+		<div class="main-body">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="card">
+						<div class="card-body">
+							<div class="d-flex flex-column align-items-center text-center">
+                            <?php $getInfoByUsername=$user->getInfoByUsername($_SESSION['user']); ?>
+								<img src="./img/<?php foreach($getInfoByUsername as $value){echo $value['image'];} ?>" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
+								<div class="mt-3">
+                                    <?php  ?>
+									
+                                        <h4><?php foreach($getInfoByUsername as $value){echo $value['First_name'].$value['Last_name'];} ?></h4>
+									<button class="btn btn-primary">Change Photo</button>
+									<button class="btn btn-primary">Change Password</button>
+								
+								</div>
+							</div>
+						
+							
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<div class="card">
+						<div class="card-body">
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0">First Name</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input type="text" class="form-control" value="<?php foreach($getInfoByUsername as $value){echo $value['First_name'];} ?>">
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Last Name</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input type="text" class="form-control" value="<?php foreach($getInfoByUsername as $value){echo $value['Last_name'];} ?>">
+								</div>
+							</div>
+						
+							<div class="row mb-3">
+								<div class="col-sm-3">
+									<h6 class="mb-0">Phone</h6>
+								</div>
+								<div class="col-sm-9 text-secondary">
+									<input type="text" class="form-control" value="<?php foreach($getInfoByUsername as $value){echo $value['phone'];} ?>">
+								</div>
+							</div>
+						
+							<div class="row">
+								<div class="col-sm-3"></div>
+								<div class="col-sm-9 text-secondary">
+									<input type="button" class="btn btn-primary px-4" value="Save Changes">
+									
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				
+				</div>
+			</div>
+		</div>
+	</div>
 
-                    <?php
-					$getAllProtype = $protype->getAllProtype();
-					if (isset($_GET['type_id'])) : ?>
-                    <li><a href="index.php">Home</a></li>
-                    <?php
-						$type_id = $_GET['type_id'];
-						foreach ($getAllProtype as $value) :
-						?>
-                    <li <?php if($type_id==$value['type_id']) echo 'class="active"' ?>><a
-                            href="products.php?type_id=<?php echo $value['type_id'] ?>">
-                            <?php echo $value['type_name'] ?></a></li>
-                    <?php endforeach; ?>
-                    <?php else : ?>
-                    <li class="active"><a href="index.php">Home</a></li>
-                    <?php
-						$getAllProtype = $protype->getAllProtype();
 
-						foreach ($getAllProtype as $value) :
-						?>
-                    <li><a href="products.php?type_id=<?php echo $value['type_id'] ?>">
-                            <?php echo $value['type_name'] ?></a></li>
-                    <?php endforeach; ?>
-                    <?php endif; ?>
-                </ul>
-                <!-- /NAV -->
-            </div>
-            <!-- /responsive-nav -->
-        </div>
-        <!-- /container -->
-    </nav>
-    <!-- /NAVIGATION -->
+
+<script type="text/javascript">
+
+</script>
+<?php include "footer.php" ?>
