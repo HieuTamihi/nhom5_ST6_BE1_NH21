@@ -9,17 +9,11 @@ if (isset($_POST['submit'])) {
     $username = $_GET['username'];
     $password = $_POST['password'];
     $passwordAgain = $_POST['passwordAgain'];
-
-
+    
     if ($password == $passwordAgain) {
         $user->changePassword($password, $username);
-     
-       
-        header('location:notificationPWT.php');  
-      
-       
-   
+        header('location:notificationPWT.php');
     } else {
-       header('location:notificationPWF.php?username='.$username);  
+        header('location:notificationPWF.php?username=' . $username);
     }
 }

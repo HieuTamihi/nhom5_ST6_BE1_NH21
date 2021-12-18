@@ -1,5 +1,5 @@
 <style type="text/css">
-  /*   body {
+    /*   body {
         font-family: 'Montserrat', sans-serif;
         font-weight: 400;
         color: #333;
@@ -83,7 +83,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>Electro - HTML Ecommerce Template</title>
-   
+
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -116,175 +116,177 @@ $getTopSellingProducts = $product->getTopSellingProducts();
 </head>
 
 
-    <!-- HEADER -->
-    <header>
-        <!-- TOP HEADER -->
-        <div id="top-header">
-            <div class="container">
-                <ul class="header-links pull-left">
-                    <li><a href="tel:0987712063"><i class="fa fa-phone"></i> +84-987-712-063</a></li>
-                    <li><a href="mailto:Thaihieu243@gmail.com"><i class="fa fa-envelope-o"></i> Thaihieu243@gmail.com</a></li>
-                    <li><a href="https://www.google.com/maps/place/53+%C4%90.+V%C3%B5+V%C4%83n+Ng%C3%A2n,+Linh+Chi%E1%BB%83u,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8511574,106.7557547,17z/data=!3m1!4b1!4m5!3m4!1s0x317527bd532d45d9:0x6b46595d312dcffe!8m2!3d10.8511574!4d106.7579434"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan - Linh Chieu Ward- Thu Duc City</a></li>
-                </ul>
-                <ul class="header-links pull-right">
-                    <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                    <?php $getLastname = $user->getLastname($_SESSION['user']); ?>
-                    <li><a href="profile.php"><i class="<?php if ($_SESSION['permision'] == 1) {
-                                                                echo "fa fa-user-secret";
-                                                            } else {
-                                                                echo "fa fa-user";
-                                                            } ?>"></i> Hello <?php foreach ($getLastname as $value) {
-                                                                                    echo $value['Last_name'];
-                                                                                } ?></a></li>
+<!-- HEADER -->
+<header>
+    <!-- TOP HEADER -->
+    <div id="top-header">
+        <div class="container">
+            <ul class="header-links pull-left">
+                <li><a href="tel:0987712063"><i class="fa fa-phone"></i> +84-987-712-063</a></li>
+                <li><a href="mailto:Thaihieu243@gmail.com"><i class="fa fa-envelope-o"></i> Thaihieu243@gmail.com</a></li>
+                <li><a href="https://www.google.com/maps/place/53+%C4%90.+V%C3%B5+V%C4%83n+Ng%C3%A2n,+Linh+Chi%E1%BB%83u,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8511574,106.7557547,17z/data=!3m1!4b1!4m5!3m4!1s0x317527bd532d45d9:0x6b46595d312dcffe!8m2!3d10.8511574!4d106.7579434"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan - Linh Chieu Ward- Thu Duc City</a></li>
+            </ul>
+            <ul class="header-links pull-right">
+                <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+                <?php $getLastname = $user->getLastname($_SESSION['user']); ?>
+                <li><a href="profile.php"><i class="<?php if ($_SESSION['permision'] == 1) {
+                                                        echo "fa fa-user-secret";
+                                                    } else {
+                                                        echo "fa fa-user";
+                                                    } ?>"></i> Hello <?php foreach ($getLastname as $value) {
+                                                                            echo $value['Last_name'];
+                                                                        } ?></a></li>
 
-                    <li><a href="admin/logoutuser.php"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                <li><a href="admin/logoutuser.php"><i class="fa fa-sign-out"></i> Log Out</a></li>
 
-                </ul>
-            </div>
+            </ul>
         </div>
-        <!-- /TOP HEADER -->
+    </div>
+    <!-- /TOP HEADER -->
 
-        <!-- MAIN HEADER -->
-        <div id="header">
-            <!-- container -->
-            <div class="container">
-                <!-- row -->
-                <div class="row">
-                    <!-- LOGO -->
-                    <div class="col-md-3">
-                        <div class="header-logo">
-                            <a href="index.php" class="logo">
-                                <img src="./img/logo.png" alt="">
+    <!-- MAIN HEADER -->
+    <div id="header">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <!-- LOGO -->
+                <div class="col-md-3">
+                    <div class="header-logo">
+                        <a href="index.php" class="logo">
+                            <img src="./img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- /LOGO -->
+
+                <!-- SEARCH BAR -->
+                <div class="col-md-6">
+                    <div class="header-search">
+                        <form method="get" action="result.php">
+                            <select class="input-select" name="searchCol">
+                                <option value="0">All category</option>
+                                <option value="1">Phone</option>
+                                <option value="2">LapTop</option>
+                                <option value="3">Tablet</option>
+                                <option value="4">Smartwatch</option>
+                                <option value="5">HeadPhone</option>
+                            </select>
+                            <input name="keyword" class="input" placeholder="Search here">
+                            <button type="submit" class="search-btn">Search</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /SEARCH BAR -->
+
+                <!-- ACCOUNT -->
+                <div class="col-md-3 clearfix">
+                    <div class="header-ctn">
+                        <!-- Wishlist -->
+                        <div>
+                            <a href="#">
+                                <i class="fa fa-heart-o"></i>
+                                <span>Your Wishlist</span>
+                                <div class="qty">2</div>
                             </a>
                         </div>
-                    </div>
-                    <!-- /LOGO -->
+                        <!-- /Wishlist -->
 
-                    <!-- SEARCH BAR -->
-                    <div class="col-md-6">
-                        <div class="header-search">
-                            <form method="get" action="result.php">
-                                <select class="input-select" name="searchCol">
-                                    <option value="0">All category</option>
-                                    <option value="1">Phone</option>
-                                    <option value="2">LapTop</option>
-                                    <option value="3">Tablet</option>
-                                    <option value="4">Smartwatch</option>
-                                    <option value="5">HeadPhone</option>
-                                </select>
-                                <input name="keyword" class="input" placeholder="Search here">
-                                <button type="submit" class="search-btn">Search</button>
-                            </form>
-                        </div>
-                    </div>
-                    <!-- /SEARCH BAR -->
-
-                    <!-- ACCOUNT -->
-                    <div class="col-md-3 clearfix">
-                        <div class="header-ctn">
-                            <!-- Wishlist -->
-                            <div>
-                                <a href="#">
-                                    <i class="fa fa-heart-o"></i>
-                                    <span>Your Wishlist</span>
-                                    <div class="qty">2</div>
-                                </a>
-                            </div>
-                            <!-- /Wishlist -->
-
-                            <!-- Cart -->
-                            <div class="dropdown">
-                                <a href="cart.php?type_id=1">
-                                    <i class="fa fa-shopping-cart"></i>
-                                    <span>Your Cart</span>
-                                    <div class="qty">3</div>
-                                </a>
-                                <div class="cart-dropdown">
-                                    <div class="cart-list">
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src="./img/product01.png" alt="">
-                                            </div>
-                                            <div class="product-body">
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                            </div>
-                                            <button class="delete"><i class="fa fa-close"></i></button>
+                        <!-- Cart -->
+                        <div class="dropdown">
+                            <a href="cart.php?type_id=1">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>Your Cart</span>
+                                <div class="qty">3</div>
+                            </a>
+                            <div class="cart-dropdown">
+                                <div class="cart-list">
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <img src="./img/product01.png" alt="">
                                         </div>
-
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src="./img/product02.png" alt="">
-                                            </div>
-                                            <div class="product-body">
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                            </div>
-                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                        <div class="product-body">
+                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                            <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
                                         </div>
+                                        <button class="delete"><i class="fa fa-close"></i></button>
                                     </div>
-                                    <div class="cart-summary">
-                                        <small>3 Item(s) selected</small>
-                                        <h5>SUBTOTAL: $2940.00</h5>
-                                    </div>
-                                    <div class="cart-btns">
-                                        <a href="#">View Cart</a>
-                                        <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+
+                                    <div class="product-widget">
+                                        <div class="product-img">
+                                            <img src="./img/product02.png" alt="">
+                                        </div>
+                                        <div class="product-body">
+                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
+                                            <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
+                                        </div>
+                                        <button class="delete"><i class="fa fa-close"></i></button>
                                     </div>
                                 </div>
+                                <div class="cart-summary">
+                                    <small>3 Item(s) selected</small>
+                                    <h5>SUBTOTAL: $2940.00</h5>
+                                </div>
+                                <div class="cart-btns">
+                                    <a href="#">View Cart</a>
+                                    <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                </div>
                             </div>
-                            <!-- /Cart -->
-
-                            <!-- Menu Toogle -->
-                            <div class="menu-toggle">
-                                <a href="#">
-                                    <i class="fa fa-bars"></i>
-                                    <span>Menu</span>
-                                </a>
-                            </div>
-                            <!-- /Menu Toogle -->
                         </div>
+                        <!-- /Cart -->
+
+                        <!-- Menu Toogle -->
+                        <div class="menu-toggle">
+                            <a href="#">
+                                <i class="fa fa-bars"></i>
+                                <span>Menu</span>
+                            </a>
+                        </div>
+                        <!-- /Menu Toogle -->
                     </div>
-                    <!-- /ACCOUNT -->
                 </div>
-                <!-- row -->
+                <!-- /ACCOUNT -->
             </div>
-            <!-- container -->
+            <!-- row -->
         </div>
-        <!-- /MAIN HEADER -->
-        
-    </header>
-    <!-- /HEADER -->
-    <!--   <meta charset="utf-8"> -->
-    <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
-    <!--  All snippets are MIT license http://bootdey.com/license -->
+        <!-- container -->
+    </div>
+    <!-- /MAIN HEADER -->
+
+</header>
+<!-- /HEADER -->
+<!--   <meta charset="utf-8"> -->
+<!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+<!--  All snippets are MIT license http://bootdey.com/license -->
 
 
-    <body>
-        <div class="container">
-            <div class="main-body">
+<body>
+    <div class="container">
+        <div class="main-body">
 
-              
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <?php $getInfoByUsername = $user->getInfoByUsername($_SESSION['user']); ?>
+                                <img src="./img/<?php foreach ($getInfoByUsername as $value) {
+                                                    echo $value['image'];
+                                                } ?>" alt="Admin" class="rounded-circle" width="150">
+                                <div class="mt-3">
 
-                <div class="row gutters-sm">
-                    <div class="col-md-4 mb-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="d-flex flex-column align-items-center text-center">
-                                <?php $getInfoByUsername=$user->getInfoByUsername($_SESSION['user']); ?>
-                                    <img src="./img/<?php foreach($getInfoByUsername as $value){echo $value['image'];} ?>" alt="Admin" class="rounded-circle" width="150">
-                                    <div class="mt-3">
-                                        
-                                        <h4><?php foreach($getInfoByUsername as $value){echo $value['First_name'].$value['Last_name'];} ?></h4>
-                                       <!--  <p class="text-secondary mb-1">Full Stack Developer</p>
+                                    <h4><?php foreach ($getInfoByUsername as $value) {
+                                            echo $value['First_name'] . $value['Last_name'];
+                                        } ?></h4>
+                                    <!--  <p class="text-secondary mb-1">Full Stack Developer</p>
                                         <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p> -->
-                                       <!--  <button class="btn btn-primary">Follow</button>
+                                    <!--  <button class="btn btn-primary">Follow</button>
                                         <button class="btn btn-outline-primary">Message</button> -->
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                      <!--   <div class="card mt-3">
+                    </div>
+                    <!--   <div class="card mt-3">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-globe mr-2 icon-inline">
@@ -322,74 +324,80 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                 </li>
                             </ul>
                         </div> -->
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">First Name</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                    <?php foreach($getInfoByUsername as $value){echo $value['First_name'];} ?>
-                                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">First Name</h6>
                                 </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Last Name</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                    <?php foreach($getInfoByUsername as $value){echo $value['Last_name'];} ?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Username</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <?php echo $_SESSION['user'] ?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Phone</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                    <?php foreach($getInfoByUsername as $value){echo $value['phone'];} ?>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Permission</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                    <?php foreach($getInfoByUsername as $value){echo $value['role_name'];} ?>
-                                    </div>
-                                </div>
-                                <hr>
-                               
-                                
-                               
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <a class="btn btn-info " target="__blank" href="editprofile.php">Edit</a>
-                                    </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <?php foreach ($getInfoByUsername as $value) {
+                                        echo $value['First_name'];
+                                    } ?>
                                 </div>
                             </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Last Name</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <?php foreach ($getInfoByUsername as $value) {
+                                        echo $value['Last_name'];
+                                    } ?>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Username</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <?php echo $_SESSION['user'] ?>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Phone</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <?php foreach ($getInfoByUsername as $value) {
+                                        echo $value['phone'];
+                                    } ?>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-0">Permission</h6>
+                                </div>
+                                <div class="col-sm-9 text-secondary">
+                                    <?php foreach ($getInfoByUsername as $value) {
+                                        echo $value['role_name'];
+                                    } ?>
+                                </div>
+                            </div>
+                            <hr>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <a class="btn btn-info " href="editprofile.php?user_id=<?php echo $value['user_id']; ?>">Edit</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
-        </div>
+    </div>
 
 
 
-        <script type="text/javascript">
+    <script type="text/javascript">
 
-        </script>
-<?php include "footer.php" ?>
+    </script>
+    <?php include "footer.php" ?>
