@@ -5,9 +5,9 @@ if(isset($_GET['status'])){
   }if($_GET['status']=='dc'){
     echo "<script> alert('Xóa thành công'); </script>";
   }if($_GET['status']=='ec'){
-    echo "<script> alert('Edit success'); </script>";
+    echo "<script> alert('Sửa thành công'); </script>";
   }if($_GET['status']=='ac'){
-    echo "<script> alert('Add success'); </script>";
+    echo "<script> alert('Thêm thành công'); </script>";
   }
   echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_NH21/admin/manufactures.php");</script>';
 }

@@ -17,5 +17,4 @@ if (isset($_POST['submit'])) {
     $Import_quantity = $_POST['import_quantity'];
 
     $sale->addSale($id, $Sell_number, $Import_quantity);
-    header('location:sales.php?status=ac');
 }

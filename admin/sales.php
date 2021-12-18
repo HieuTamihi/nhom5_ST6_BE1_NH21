@@ -1,13 +1,19 @@
 <?php include "header.php";
-if(isset($_GET['status'])){
-  if($_GET['status']=='df'){
+if (isset($_GET['status'])) {
+  if ($_GET['status'] == 'df') {
     echo "<script> alert('Xóa không thành công'); </script>";
-  }if($_GET['status']=='dc'){
+  }
+  if ($_GET['status'] == 'ds') {
     echo "<script> alert('Xóa thành công'); </script>";
-  }if($_GET['status']=='ec'){
+  }
+  if ($_GET['status'] == 'es') {
     echo "<script> alert('Sửa thành công'); </script>";
-  }if($_GET['status']=='ac'){
+  }
+  if ($_GET['status'] == 'as') {
     echo "<script> alert('Thêm thành công'); </script>";
+  }
+  if ($_GET['status'] == 'af') {
+    echo "<script> alert('Thêm thất bại (Import quantity phải lớn hơn hoặc bằng Sell number)'); </script>";
   }
   echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_NH21/admin/sales.php");</script>';
 } ?>

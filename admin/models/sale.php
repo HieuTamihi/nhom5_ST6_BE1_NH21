@@ -22,9 +22,10 @@ class Sale extends Db
         if ($Import_quantity >= $Sell_number) {
             $sql = self::$connection->prepare("INSERT INTO `sales`(`id`,`Sell_number`,`Import_quantity`) VALUES(?,?,?)");
             $sql->bind_param("iii", $id, $Sell_number, $Import_quantity);
+            header('location:sales.php?status=ac');
             return $sql->execute(); //return an array
         } else {
-            header('location:sales.php');
+            header('location:sales.php?status=af');
         }
     }
     public function deleteSale($id)
