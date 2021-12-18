@@ -38,6 +38,6 @@ if(isset($_POST['submit'])){
     $feature = $_POST['feature'];
     $id = $_POST['id'];
     $product->updateProductNotImage($name, $manu_id, $type_id, $price, $desc,  $feature, $id);
-    header('location:products.php');
+    header('location:products.php?status=ec');
     }
 }

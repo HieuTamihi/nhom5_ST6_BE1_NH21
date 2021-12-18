@@ -1,4 +1,22 @@
-<?php include "header.php" ?>
+<?php include "header.php";
+if (isset($_GET['status'])) {
+  if ($_GET['status'] == 'df') {
+    echo "<script> alert('Xóa không thành công'); </script>";
+  }
+  if ($_GET['status'] == 'dc') {
+    echo "<script> alert('Xóa thành công'); </script>";
+  }
+  if ($_GET['status'] == 'ec') {
+    echo "<script> alert('Sửa thành công'); </script>";
+  }
+  if ($_GET['status'] == 'ac') {
+    echo "<script> alert('Thêm thành công'); </script>";
+  }
+  if ($_GET['status'] == 'af') {
+    echo "<script> alert('Thêm không thành công'); </script>";
+  }
+  echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_NH21/admin/roles.php");</script>';
+} ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -27,7 +45,7 @@
         <h3 class="card-title">Roles</h3>
 
         <div class="card-tools">
-        <a class="btn  btn-sm bg-green" href="addRole.php">
+          <a class="btn  btn-sm bg-green" href="addRole.php">
             <i class="fas fa-plus"></i>
             Add
           </a>
@@ -43,13 +61,13 @@
         <table class="table table-striped projects">
           <thead>
             <tr>
-                                              
+
               <th style="width: 43%">
-               Role ID
-              </th>            
+                Role ID
+              </th>
               <th style="width: 43%">
                 Role Name
-              </th>            
+              </th>
               <th style="width: 14%">
                 Action
               </th>
@@ -62,10 +80,10 @@
             ?>
               <tr>
                 <td><?php echo $value['role_id'] ?></td>
-                <td><?php echo $value['role_name'] ?></td>    
-                
+                <td><?php echo $value['role_name'] ?></td>
+
                 <td class="project-actions text-right">
-                  <a class="btn btn-info btn-sm" href="editRole.php?role_id=<?php echo $value['role_id'];?>">
+                  <a class="btn btn-info btn-sm" href="editRole.php?role_id=<?php echo $value['role_id']; ?>">
                     <i class="fas fa-pencil-alt">
                     </i>
                     Edit
@@ -75,7 +93,7 @@
                     </i>
                     Delete
                   </a>
-                </td>             
+                </td>
               </tr>
             <?php endforeach; ?>
           </tbody>

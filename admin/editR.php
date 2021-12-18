@@ -20,5 +20,5 @@ if (isset($_POST['submit'])) {
   
     $updateRoleByID =  $role->updateRoleByID($role_name, $role_id);
   
-    header('location:roles.php');
+    header('location:roles.php?status=ec');
 }

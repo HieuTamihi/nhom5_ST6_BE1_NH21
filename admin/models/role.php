@@ -45,10 +45,10 @@ class Role extends Db
         if (count($item) == 0) {
             $sql = self::$connection->prepare("DELETE FROM `roles` WHERE `role_id`=?");
             $sql->bind_param("i", $role_id);
-            header('location:roles.php');
+            header('location:roles.php?status=dc');
             return $sql->execute(); //return an object
         } else {
-            header('location:roles.php');
+            header('location:roles.php?status=df');
         }
     }
 }

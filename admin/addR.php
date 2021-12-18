@@ -28,9 +28,9 @@ if (isset($_POST['submit'])) {
     if ($temp == 0) {
         
         $role->addRole($role_id, $role_name);
-        header('location:roles.php');
+        header('location:roles.php?status=ac');
     } else {
        
-        header('location:roles.php');
+        header('location:roles.php?status=af');
     }
 }

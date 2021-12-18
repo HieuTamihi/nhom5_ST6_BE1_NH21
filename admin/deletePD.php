@@ -12,5 +12,5 @@ $protype = new Protype;
 $sale = new Sale;
 if(isset($_GET['id'])){
     $product->deleteProduct($_GET['id']);
-    header('location:products.php');
+    header('location:products.php?status=dc');
 }

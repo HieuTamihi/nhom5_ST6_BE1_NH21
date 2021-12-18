@@ -31,7 +31,7 @@ class Sale extends Db
     {
         $sql = self::$connection->prepare("DELETE FROM `sales` WHERE `id`= ?");
         $sql->bind_param("i", $id);
-        header('location:sales.php');
+        header('location:sales.php?status=dc');
         return $sql->execute(); //return an object
     }
     public function updateSale($Sell_number, $Import_quantity, $id)

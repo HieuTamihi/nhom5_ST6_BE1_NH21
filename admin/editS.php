@@ -15,5 +15,5 @@ if(isset($_POST['submit'])){
     $Import_quantity = $_POST['import_quantity'];
     $id = $_POST['id'];
     $sale->updateSale($Sell_number, $Import_quantity, $id);
-    header('location:sales.php');
+    header('location:sales.php?status=ec');
 }

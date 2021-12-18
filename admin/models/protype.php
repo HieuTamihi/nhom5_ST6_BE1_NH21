@@ -43,12 +43,12 @@ FROM `protypes`");
         if (count($item) == 0) {
             $sql = self::$connection->prepare("DELETE FROM `protypes` WHERE `type_id`=?");
             $sql->bind_param("i", $type_id);
-            header('location:protypes.php');
+            header('location:protypes.php?status=dc');
             return $sql->execute(); //return an object
            
         }
         else{
-            header('location:protypes.php');
+            header('location:protypes.php?status=df');
         }
     }
     public function updateProtype($type_name, $type_id){

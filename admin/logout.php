@@ -2,5 +2,6 @@
 session_start();
 include "login.php";
 unset($_SESSION['user']);
-header('location:../login/index.php');
+unset($_SESSION['permision']);
+header('location:../index.php');
 ?>

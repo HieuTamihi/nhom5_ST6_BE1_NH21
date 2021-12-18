@@ -1,4 +1,18 @@
 <?php
+session_start();
+if (isset($_SESSION['user'])) {
+    if (isset($_SESSION['permision'])) {
+        $permission = $_SESSION['permision'];
+        if ($permission != 1) {
+            header('location:../login/index.php');
+        }
+    }
+} else {
+    header('location:../login/index.php');
+}
+
+?>
+<?php
 require "config.php";
 require "models/db.php";
 require "models/product.php";
@@ -23,8 +37,7 @@ $role = new Role;
     <title>AdminLTE 3 | Dashboard</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
@@ -78,8 +91,7 @@ $role = new Role;
                     <div class="navbar-search-block">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
+                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
                                 <div class="input-group-append">
                                     <button class="btn btn-navbar" type="submit">
                                         <i class="fas fa-search"></i>
@@ -103,8 +115,7 @@ $role = new Role;
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 mr-3 img-circle">
+                                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Brad Diesel
@@ -120,8 +131,7 @@ $role = new Role;
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
+                                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         John Pierce
@@ -137,13 +147,11 @@ $role = new Role;
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar"
-                                    class="img-size-50 img-circle mr-3">
+                                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
                                         Nora Silvester
-                                        <span class="float-right text-sm text-warning"><i
-                                                class="fas fa-star"></i></span>
+                                        <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
                                     </h3>
                                     <p class="text-sm">The subject goes here</p>
                                     <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
@@ -215,8 +223,7 @@ $role = new Role;
                 <!-- SidebarSearch Form -->
                 <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                            aria-label="Search">
+                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
                             <button class="btn btn-sidebar">
                                 <i class="fas fa-search fa-fw"></i>
@@ -227,14 +234,13 @@ $role = new Role;
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                         <li class="nav-item menu-open">
                             <a href="index.php" class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/index.php') {
-                                                    echo 'active';
-                                                  } ?>">
+                                                                    echo 'active';
+                                                                } ?>">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Dashboard
@@ -243,8 +249,8 @@ $role = new Role;
                         </li>
                         <li class="nav-item">
                             <a href="products.php" class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/products.php' || $_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/addProduct.php') {
-                                                        echo 'active';
-                                                      } ?>">
+                                                                        echo 'active';
+                                                                    } ?>">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Products
@@ -254,8 +260,8 @@ $role = new Role;
                         </li>
                         <li class="nav-item">
                             <a href="manufactures.php" class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/manufactures.php' || $_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/addManufacture.php') {
-                                                            echo 'active';
-                                                          } ?>">
+                                                                            echo 'active';
+                                                                        } ?>">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Manufactures
@@ -265,8 +271,8 @@ $role = new Role;
                         </li>
                         <li class="nav-item">
                             <a href="protypes.php" class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/protypes.php' || $_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/addProtype.php') {
-                                                        echo 'active';
-                                                      } ?>">
+                                                                        echo 'active';
+                                                                    } ?>">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Protypes
@@ -276,8 +282,8 @@ $role = new Role;
                         </li>
                         <li class="nav-item">
                             <a href="sales.php" class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/sales.php' || $_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/addSale.php') {
-                                                    echo 'active';
-                                                  } ?>">
+                                                                    echo 'active';
+                                                                } ?>">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Sales
@@ -287,8 +293,8 @@ $role = new Role;
                         </li>
                         <li class="nav-item">
                             <a href="users.php" class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/users.php' || $_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/addUser.php') {
-                                                    echo 'active';
-                                                  } ?>">
+                                                                    echo 'active';
+                                                                } ?>">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     User
@@ -298,8 +304,8 @@ $role = new Role;
                         </li>
                         <li class="nav-item">
                             <a href="roles.php" class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/roles.php' || $_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/addRole.php') {
-                                                    echo 'active';
-                                                  } ?>">
+                                                                    echo 'active';
+                                                                } ?>">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Roles

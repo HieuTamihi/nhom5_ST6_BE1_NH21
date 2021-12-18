@@ -1,4 +1,7 @@
+
+
 <?php include "header.php" ?>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
@@ -55,8 +58,8 @@
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
-             <!-- small box -->
-             <div class="small-box bg-pink">
+          <!-- small box -->
+          <div class="small-box bg-pink">
             <div class="inner">
               <h3><?php echo count($sale->getAllSales()) ?></h3>
 
@@ -67,12 +70,12 @@
             </div>
             <a href="sales.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-       
+
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-6">
           <!-- small box -->
-          <div class="small-box bg-danger"> 
+          <div class="small-box bg-danger">
             <div class="inner">
               <h3><?php echo count($protype->getAllProtypes()) ?></h3>
 
@@ -115,7 +118,7 @@
             <a href="roles.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-       
+
       </div>
       <!-- /.row -->
       <!-- Main row -->

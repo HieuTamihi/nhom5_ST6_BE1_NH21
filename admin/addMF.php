@@ -14,5 +14,5 @@ $sale = new Sale;
 if(isset($_POST['submit'])){
     $manu_name = $_POST['manu_name'];
     $manufacture->addManufacture($manu_name);
-    header('location:manufactures.php');
+    header('location:manufactures.php?status=ac');
 }

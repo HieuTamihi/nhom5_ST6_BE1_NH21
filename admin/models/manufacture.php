@@ -48,11 +48,11 @@ class Manufacture extends Db
         if (count($item) == 0) {
             $sql = self::$connection->prepare("DELETE FROM `manufactures` WHERE `manu_id`=?");
             $sql->bind_param("i", $manu_id);
-            header('location:manufactures.php');
+            header('location:manufactures.php?status=dc');
             return $sql->execute(); //return an object
 
         } else {
-            header('location:manufactures.php');
+            header('location:manufactures.php?status=df');
         }
         /*  $sql = self::$connection->prepare("DELETE FROM `manufactures` WHERE `manu_id`=?");
         $sql->bind_param("i", $manu_id);

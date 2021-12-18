@@ -1,4 +1,16 @@
-<?php include "header.php" ?>
+<?php include "header.php";
+if(isset($_GET['status'])){
+  if($_GET['status']=='df'){
+    echo "<script> alert('Xóa không thành công'); </script>";
+  }if($_GET['status']=='dc'){
+    echo "<script> alert('Xóa thành công'); </script>";
+  }if($_GET['status']=='ec'){
+    echo "<script> alert('Sửa thành công'); </script>";
+  }if($_GET['status']=='ac'){
+    echo "<script> alert('Thêm thành công'); </script>";
+  }
+  echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_NH21/admin/users.php");</script>';
+} ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
   <!-- Content Header (Page header) -->
