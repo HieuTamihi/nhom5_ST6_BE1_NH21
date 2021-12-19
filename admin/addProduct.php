@@ -73,8 +73,10 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDescription">Description</label>
-                                        <textarea name="desc" id="inputDescription" class="form-control" rows="4" required></textarea>
+                                        <textarea name="desc" id="summernote" class="form-control" rows="4" required></textarea>
                                     </div>
+ 
+                                   
 
                                     <div class="form-group">
                                         <label for="inputClientCompany">Price</label>

@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="css/style1.css">
 <link rel="stylesheet" href="css/responsive.css">
 
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -35,63 +36,131 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-content-right">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="product-images">
-                                    <div class="product-main-img">
-                                        <img src="img/dong-ho-thong-minh-huuawei-watch-3-pro-1_2_1.jpg" alt="" width="70%">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6">
-                                <div class="product-inner">
-                                    <h2 class="product-name">GIẢI CỨU KHOA PUG</h2>
-                                    <div class="product-inner-price">
-                                        <ins>$????</ins>
-                                    </div>
-
-                                    <form action="" class="cart">
-                                        <div class="quantity">
-                                            <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
-                                        </div>
-                                        <button class="add_to_cart_button" type="submit">Add to cart</button>
-                                    </form>
-
-                                    <div role="tabpanel">
-                                        <ul class="product-tab" role="tablist">
-                                            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                                            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                                <h2>Product Description</h2>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tristique, diam in consequat iaculis, est purus iaculis mauris, imperdiet facilisis ante ligula at nulla. Quisque volutpat nulla risus, id maximus ex aliquet ut. Suspendisse potenti. Nulla varius lectus id turpis dignissim porta. Quisque magna arcu, blandit quis felis vehicula, feugiat gravida diam. Nullam nec turpis ligula. Aliquam quis blandit elit, ac sodales nisl. Aliquam eget dolor eget elit malesuada aliquet. In varius lorem lorem, semper bibendum lectus lobortis ac.</p>
-
-                                                <p>Mauris placerat vitae lorem gravida viverra. Mauris in fringilla ex. Nulla facilisi. Etiam scelerisque tincidunt quam facilisis lobortis. In malesuada pulvinar neque a consectetur. Nunc aliquam gravida purus, non malesuada sem accumsan in. Morbi vel sodales libero.</p>
+                        <div class="row"><?php if (isset($_GET['id'])) :
+                                                $getProductById = $product->getProductById($_GET['id']);
+                                                foreach ($getProductById as $value) :
+                                            ?>
+                                    <div class="col-sm-6">
+                                        <div class="product-images">
+                                            <div class="product-main-img">
+                                                <img src="img/<?php echo $value['pro_image'] ?>" alt="" width="70%">
                                             </div>
-                                            <div role="tabpanel" class="tab-pane fade" id="profile">
-                                                <h2>Reviews</h2>
-                                                <div class="submit-review">
-                                                    <p><label for="name">Name</label> <input name="name" type="text"></p>
-                                                    <p><label for="email">Email</label> <input name="email" type="email"></p>
-                                                    <div class="rating-chooser">
-                                                        <p>Your rating</p>
+                                        </div>
+                                    </div>
 
-                                                        <div class="rating-wrap-post">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
+                                    <div class="col-sm-6">
+                                        <div class="product-inner">
+
+                                            <h2 class="product-name"><?php echo $value['name'] ?></h2>
+                                            <div class="product-inner-price">
+                                                <ins><?php echo number_format($value['price']) ?>VND</ins>
+                                            </div>
+
+                                            <form action="" class="cart">
+                                                <div class="quantity">
+                                                    <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
+                                                </div>
+                                                <!-- <button class="" type="submit">Add to cart</button> -->
+                                           <button type="submit">Add to cart</button>
+                                            </form>
+
+                                            <div role="tabpanel">
+                                                <ul class="product-tab" role="tablist">
+                                                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
+                                                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                                                </ul>
+                                                <div class="tab-content">
+                                                    <div role="tabpanel" class="tab-pane fade in active" id="home">
+                                                        <h2>Product Description</h2>
+                                                        <p><?php echo $value['description'] ?></p>
+                                                    </div>
+                                                    <div role="tabpanel" class="tab-pane fade" id="profile">
+                                                        <h2>Reviews</h2>
+                                                        <div class="submit-review">
+                                                            <p><label for="name">Name</label> <input name="name" type="text"></p>
+                                                            <p><label for="email">Email</label> <input name="email" type="email"></p>
+                                                            <div class="rating-chooser">
+                                                                <p>Your rating</p>
+
+                                                                <div class="rating-wrap-post">
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                    <i class="fa fa-star"></i>
+                                                                </div>
+                                                            </div>
+                                                            <p><label for="review">Your review</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
+                                                            <p><input type="submit" value="Submit"></p>
                                                         </div>
                                                     </div>
-                                                    <p><label for="review">Your review</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
-                                                    <p><input type="submit" value="Submit"></p>
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
+                                <?php endforeach ?>
+                            <?php endif ?>
+                        </div>
+                        <hr size="5px" align="center" color=#e6e9ee />
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="products-tabs">
+                                    <!-- tab -->
+                                    <div id="pap1" class="tab-pane active">
+                                        <div class="products-slick" data-nav="#slick-nav-1">
+                                            <?php
+                                            if (isset($_GET['type_id'])) :
+                                                $type_id = $_GET['type_id'];
+                                                $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
+                                                <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
+                                                    <!-- product -->
+                                                    <div class="product">
+                                                        <div class="product-img">
+                                                            <img style="width=100px" src="./img/<?php echo $value['pro_image'] ?>" alt="">
+                                                            <div class="product-label">
+                                                                <span class="new">TOPSELLING</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-body">
+                                                            <p class="product-category">Category</p>
+                                                            <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
+                                                            <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
+                                                            <div class="product-rating">
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                                <i class="fa fa-star"></i>
+                                                            </div>
+                                                            <div class="product-btns">
+                                                                <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                                                <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                                                <button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                                            </div>
+                                                        </div>
+                                                        <a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>">
+                                                            <div class="add-to-cart">
+                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
+                                                                    cart</button>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <!-- /product -->
+                                                <?php endforeach ?>
+                                            <?php endif ?>
+
+
+                                        </div>
+                                        <div id="slick-nav-1" class="products-slick-nav"></div>
+                                    </div>
+                                    <!-- /tab -->
+
+
+
+
+
+
 
                                 </div>
                             </div>
