@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $passwordAgain = $_POST['passwordAgain'];
+    $phone = $_POST['phone'];
     $getAllUsername =   $user->getAllUsername();
     $temp = 0;
     foreach ($getAllUsername as $value) {
@@ -22,7 +23,7 @@ if (isset($_POST['submit'])) {
         }
     }
     if ($temp == 0) {
-        if ($user->register($first_name,$last_name,$username, $password, $passwordAgain)) {
+        if ($user->register($first_name, $last_name, $username, $password, $phone, $passwordAgain)) {
 
             header('location:notification2.php');
         }

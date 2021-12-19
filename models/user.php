@@ -26,12 +26,12 @@ class User extends Db
         return $items; //return an array
     }
 
-    public function register($first_name, $last_name, $username, $password, $passwordAgain)
+    public function register($first_name, $last_name, $username, $password, $phone, $passwordAgain)
     {
         if ($password == $passwordAgain) {
-            $sql = self::$connection->prepare("INSERT INTO `users`(`First_name`,`Last_name`,`username`, `password`, `role_id`) VALUES (?,?,?,?,2)");
+            $sql = self::$connection->prepare("INSERT INTO `users`(`First_name`,`Last_name`,`username`, `password`,`phone`,`image`, `role_id`) VALUES (?,?,?,?,?,'avatar7.png',2)");
             $password = md5($password);
-            $sql->bind_param("ssss", $first_name, $last_name, $username, $password);
+            $sql->bind_param("ssssi", $first_name, $last_name, $username, $password, $phone);
             $sql->execute();
             return true;
         }
@@ -84,7 +84,7 @@ class User extends Db
     }
     public function changePhoto($image, $user_id)
     {
-        $sql = self::$connection->prepare("UPDATE `users` SET `image`=? WHERE `user_id`=?");
+        $sql = self::$connection->prepare("UPDATE `users` SET `image` = ? WHERE `user_id` = ?");
         $sql->bind_param("si", $image, $user_id);
         return $sql->execute(); //return an object
     }
