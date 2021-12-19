@@ -17,11 +17,11 @@ class User extends Db
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
     }
-    public function addUser($first_name, $last_name, $username, $password, $role_id)
+    public function addUser($first_name, $last_name, $phone, $username, $password, $role_id)
     {
-        $sql = self::$connection->prepare("INSERT INTO `users`(`First_name`,`Last_name`,`username`, `password`, `role_id`) VALUES(?,?,?,?,?)");
+        $sql = self::$connection->prepare("INSERT INTO `users`(`image`,`First_name`,`Last_name`,`phone`,`username`, `password`, `role_id`) VALUES('avatar7.png',?,?,?,?,?,?)");
         $password = md5($password);
-        $sql->bind_param("ssssi", $first_name, $last_name, $username, $password, $role_id);
+        $sql->bind_param("ssissi", $first_name, $last_name, $phone, $username, $password, $role_id);
         return $sql->execute(); //return an object
     }
     public function deleteUser($user_id)
@@ -38,11 +38,11 @@ class User extends Db
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
     }
-    public function updateUser($user_id, $first_name, $last_name, $username, $password, $role_id)
+    public function updateUser($first_name, $last_name, $phone, $username, $password, $role_id, $image, $user_id)
     {
-        $sql = self::$connection->prepare("UPDATE `users` SET `First_name`=?, `Last_name`=?,`username`=?, `password`=?, `role_id`=? WHERE `user_id`=?");
+        $sql = self::$connection->prepare("UPDATE `users` SET `First_name`=?, `Last_name`=?,`phone`=?,`username`=?, `password`=?, `role_id`=? ,`image` =? WHERE `user_id`=?");
         $password = md5($password);
-        $sql->bind_param("ssssii", $first_name, $last_name, $username, $password, $role_id, $user_id);
+        $sql->bind_param("ssissisi", $first_name, $last_name, $phone, $username, $password, $role_id, $image, $user_id);
         return $sql->execute(); //return an object
     }
     public function updateUserNoChangePassword($user_id, $username, $role_id)

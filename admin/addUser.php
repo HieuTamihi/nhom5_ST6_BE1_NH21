@@ -4,8 +4,6 @@
     <!-- Site wrapper -->
     <div class="wrapper">
 
-
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -41,7 +39,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                <div class="form-group">
+                                    <div class="form-group">
                                         <label for="inputName">First name</label>
                                         <input type="text" id="inputfirst" class="form-control" name="First_name" required>
                                     </div>
@@ -50,12 +48,16 @@
                                         <input type="text" id="inputLast" class="form-control" name="Last_name" required>
                                     </div>
                                     <div class="form-group">
+                                        <label for="inputName">Phone</label>
+                                        <input type="text" id="inputPhone" class="form-control" name="phone" required>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="inputName">Username</label>
                                         <input type="text" id="inputName" class="form-control" name="username" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputName">Password</label>
-                                        <input type="text" id="inputPassword" class="form-control" name="password" required>
+                                        <input type="password" id="inputPassword" class="form-control" name="password" required>
                                     </div>
 
                                     <div class="form-group">

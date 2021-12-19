@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
         $user_id = $_POST['user_id'];
         $user->changePhoto($image, $user_id);
 
-        $target_dir = "../img/";
+        $target_dir = "./img/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
         move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
         header('location:profile.php');

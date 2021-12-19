@@ -1,12 +1,18 @@
 <?php include "header.php";
-if(isset($_GET['status'])){
-  if($_GET['status']=='df'){
+if (isset($_GET['status'])) {
+  if ($_GET['status'] == 'df') {
     echo "<script> alert('Xóa không thành công'); </script>";
-  }if($_GET['status']=='dc'){
+  }
+  if ($_GET['status'] == 'dc') {
     echo "<script> alert('Xóa thành công'); </script>";
-  }if($_GET['status']=='ec'){
+  }
+  if ($_GET['status'] == 'ec') {
     echo "<script> alert('Sửa thành công'); </script>";
-  }if($_GET['status']=='ac'){
+  }
+  if ($_GET['status'] == 'ef') {
+    echo "<script> alert('Sửa thất bại (mật khẩu phải được thay đổi)'); </script>";
+  }
+  if ($_GET['status'] == 'ac') {
     echo "<script> alert('Thêm thành công'); </script>";
   }
   echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_NH21/admin/users.php");</script>';
@@ -55,8 +61,11 @@ if(isset($_GET['status'])){
         <table class="table table-striped projects">
           <thead>
             <tr>
-              <th style="width: 10%">
+              <th style="width: 5%">
                 User_ID
+              </th>
+              <th style="width: 10%">
+                image
               </th>
               <th style="width: 14%">
                 First name
@@ -64,16 +73,19 @@ if(isset($_GET['status'])){
               <th style="width: 14%">
                 Last name
               </th>
-              <th style="width: 15%">
+              <th style="width: 14%">
+                Phone
+              </th>
+              <th style="width: 12%">
                 Username
               </th>
-              <th style="width: 17%">
+              <th style="width: 13%">
                 Password
               </th>
-              <th style="width: 10%">
+              <th style="width: 5%">
                 Role_ID
               </th>
-              <th style="width: 14%">
+              <th style="width: 15%">
                 Action
               </th>
             </tr>
@@ -85,8 +97,10 @@ if(isset($_GET['status'])){
             ?>
               <tr>
                 <td><?php echo $value['user_id'] ?></td>
+                <td><img style="width:50px" src="../img/<?php echo $value['image'] ?>" alt=""></td>
                 <td><?php echo $value['First_name'] ?></td>
                 <td><?php echo $value['Last_name'] ?></td>
+                <td><?php echo $value['phone'] ?></td>
                 <td><?php echo $value['username'] ?></td>
                 <td><?php echo $value['password'] ?></td>
                 <td><?php echo $value['role_id'] ?></td>

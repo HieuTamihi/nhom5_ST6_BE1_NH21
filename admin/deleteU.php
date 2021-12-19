@@ -14,5 +14,5 @@ $sale = new Sale;
 $user = new User;
 if(isset($_GET['user_id'])){
     $user->deleteUser($_GET['user_id']);
-    header('location:users.php');
+    header('location:users.php?status=dc');
 }

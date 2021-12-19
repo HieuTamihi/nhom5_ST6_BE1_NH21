@@ -246,7 +246,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                     <div class="form-group">
                                         <label for="inputProjectLeader">Image</label>
                                         <!-- <input type="text"  name="fileToUpload" id="inputProjectLeader" class="form-control" -->
-                                        <img style="width:50px" src="../img/<?php echo $values['image'] ?>" alt="">
+                                        <img style="width:50px" src="./img/<?php echo $values['image'] ?>" alt="">
                                         <input type="file" name="image" id="fileToUpload">
                                     </div>
                                 </div>

@@ -57,6 +57,10 @@
                                             <input value="<?php echo $values['Last_name'] ?>" type="text" id="inputUserLast" class="form-control" name="last_name">
                                         </div>
                                         <div class="form-group">
+                                            <label for="inputName">Phone</label>
+                                            <input value="<?php echo $values['phone'] ?>" type="text" id="inputUserPhone" class="form-control" name="phone">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="inputName">Username</label>
                                             <input value="<?php echo $values['username'] ?>" type="text" id="inputUserName" class="form-control" name="username">
                                         </div>
@@ -71,6 +75,12 @@
                                                 <option value="1" <?php if ($values['role_id'] == 1) echo 'selected' ?>>1</option>
                                                 <option value="2" <?php if ($values['role_id'] == 2) echo 'selected' ?>>2</option>
                                             </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputProjectLeader">Image</label>
+                                            <!-- <input type="text"  name="fileToUpload" id="inputProjectLeader" class="form-control" -->
+                                            <img style="width:50px" src="../img/<?php echo $values['image'] ?>" alt="">
+                                            <input type="file" name="image" id="fileToUpload">
                                         </div>
                                     </div>
                                     <!-- /.card-body -->
