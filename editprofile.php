@@ -246,11 +246,8 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                         } ?></h4>
                                     <a href="changePhoto.php?user_id=<?php echo $value['user_id']; ?>"><button class="btn btn-primary">Change Photo</button></a>
                                     <a href="http://localhost/nhom5_ST6_BE1_NH21/login/changepassword.php"><button class="btn btn-primary">Change Password</button></a>
-
                                 </div>
                             </div>
-
-
                         </div>
                     </div>
                 </div>
