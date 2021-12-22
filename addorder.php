@@ -28,7 +28,7 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
 
     $order->addOrder($user_id, $pro_id, $pro_name, $quantity, $address, $phone,  $total, $note);
-  
+
     unset($_SESSION['cart'][$_GET['id']]);
     header('location:orders.php?status=s');
 }

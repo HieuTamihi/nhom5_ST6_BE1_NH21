@@ -72,6 +72,14 @@ $user = new User;
 $getAllProducts = $product->getAllProducts();
 $getAllNewProducts = $product->getAllNewProducts();
 $getTopSellingProducts = $product->getTopSellingProducts();
+
+if (isset($_GET['status'])) {
+    if ($_GET['status'] == 's') {
+        echo "<script> alert('Cập nhật thành công'); </script>";
+        echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_NH21/profile.php");</script>';
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -192,48 +200,55 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                         </div>
                         <!-- /Wishlist -->
 
-                        <!-- Cart -->
                         <div class="dropdown">
-                            <a href="cart.php?type_id=1">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>Your Cart</span>
-                                <div class="qty">3</div>
-                            </a>
-                            <div class="cart-dropdown">
-                                <div class="cart-list">
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/product01.png" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Your Cart</span>
+                                    <?php
+                                    $temp = 0;
+                                    foreach ($_SESSION['cart'] as $value) {
+                                        $temp+=1;
+                                    }
+                                    ?>
+                                    <div class="qty"><?php echo $temp; ?></div>
+                                </a>
+                                <div class="cart-dropdown">
+                                    <div class="cart-list"><?php $totalPrice = 0;
+                                                            $totalProduct = 0; ?>
+                                        <?php if (isset($_SESSION['cart'])) :
 
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/product02.png" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
+                                            foreach ($_SESSION['cart'] as $key => $qty) :
+                                                $getAllProducts =  $product->getAllProducts();
+                                                foreach ($getAllProducts as $value) :
+                                                    if ($value['id'] == $key) : ?>
+                                                        <?php $totalPrice += $value['price'] * $qty;
+                                                        $totalProduct += 1;
+                                                        ?>
+                                                        <div class="product-widget">
+                                                            <div class="product-img">
+                                                                <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
+                                                            </div>
+                                                            <div class="product-body">
+                                                                <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
+                                                                <h4 class="product-price"><span class="qty"><?php echo $qty ?>x</span><?php echo number_format($value['price']) ?>VND</h4>
+                                                            </div>
+                                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                                        </div>
+                                                    <?php endif ?>
+                                                <?php endforeach ?>
+                                            <?php endforeach ?>
+                                        <?php endif ?>
                                     </div>
-                                </div>
-                                <div class="cart-summary">
-                                    <small>3 Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
-                                </div>
-                                <div class="cart-btns">
-                                    <a href="#">View Cart</a>
-                                    <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                    <div class="cart-summary">
+                                        <small><?php echo $totalProduct ?> Item(s) selected</small>
+                                        <h5>SUBTOTAL: <?php echo number_format($totalPrice) ?></h5>
+                                    </div>
+                                    <div class="cart-btns">
+                                        <a href="cart.php?type_id=1">View Cart</a>
+                                        <a href="orders.php">View Order <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /Cart -->
 
                         <!-- Menu Toogle -->
                         <div class="menu-toggle">

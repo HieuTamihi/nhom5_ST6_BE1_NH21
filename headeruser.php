@@ -127,7 +127,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                 <a href="#">
                                     <i class="fa fa-heart-o"></i>
                                     <span>Your Wishlist</span>
-                                    <div class="qty">2</div>
+                                    <div class="qty">0</div>
                                 </a>
                             </div>
                             <!-- /Wishlist -->
@@ -139,7 +139,13 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Your Cart</span>
-                                    <div class="qty">3</div>
+                                    <?php
+                                    $temp = 0;
+                                    foreach ($_SESSION['cart'] as $value) {
+                                        $temp+=1;
+                                    }
+                                    ?>
+                                    <div class="qty"><?php echo $temp; ?></div>
                                 </a>
                                 <div class="cart-dropdown">
                                     <div class="cart-list"><?php $totalPrice = 0;

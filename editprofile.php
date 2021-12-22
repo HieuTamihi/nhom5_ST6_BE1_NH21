@@ -101,8 +101,8 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                                     } else {
                                                         echo "fa fa-user";
                                                     } ?>"></i> Hello <?php foreach ($getLastname as $value) {
-                                                                                    echo $value['Last_name'];
-                                                                                } ?></a></li>
+                                                                            echo $value['Last_name'];
+                                                                        } ?></a></li>
 
                 <li><a href="admin/logoutuser.php"><i class="fa fa-sign-out"></i> Log Out</a></li>
 
@@ -159,48 +159,55 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                         </div>
                         <!-- /Wishlist -->
 
-                        <!-- Cart -->
                         <div class="dropdown">
-                            <a href="cart.php?type_id=1">
-                                <i class="fa fa-shopping-cart"></i>
-                                <span>Your Cart</span>
-                                <div class="qty">3</div>
-                            </a>
-                            <div class="cart-dropdown">
-                                <div class="cart-list">
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/product01.png" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
-                                    </div>
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                    <i class="fa fa-shopping-cart"></i>
+                                    <span>Your Cart</span>
+                                    <?php
+                                    $temp = 0;
+                                    foreach ($_SESSION['cart'] as $value) {
+                                        $temp+=1;
+                                    }
+                                    ?>
+                                    <div class="qty"><?php echo $temp; ?></div>
+                                </a>
+                                <div class="cart-dropdown">
+                                    <div class="cart-list"><?php $totalPrice = 0;
+                                                            $totalProduct = 0; ?>
+                                        <?php if (isset($_SESSION['cart'])) :
 
-                                    <div class="product-widget">
-                                        <div class="product-img">
-                                            <img src="./img/product02.png" alt="">
-                                        </div>
-                                        <div class="product-body">
-                                            <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                            <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                        </div>
-                                        <button class="delete"><i class="fa fa-close"></i></button>
+                                            foreach ($_SESSION['cart'] as $key => $qty) :
+                                                $getAllProducts =  $product->getAllProducts();
+                                                foreach ($getAllProducts as $value) :
+                                                    if ($value['id'] == $key) : ?>
+                                                        <?php $totalPrice += $value['price'] * $qty;
+                                                        $totalProduct += 1;
+                                                        ?>
+                                                        <div class="product-widget">
+                                                            <div class="product-img">
+                                                                <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
+                                                            </div>
+                                                            <div class="product-body">
+                                                                <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
+                                                                <h4 class="product-price"><span class="qty"><?php echo $qty ?>x</span><?php echo number_format($value['price']) ?>VND</h4>
+                                                            </div>
+                                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                                        </div>
+                                                    <?php endif ?>
+                                                <?php endforeach ?>
+                                            <?php endforeach ?>
+                                        <?php endif ?>
                                     </div>
-                                </div>
-                                <div class="cart-summary">
-                                    <small>3 Item(s) selected</small>
-                                    <h5>SUBTOTAL: $2940.00</h5>
-                                </div>
-                                <div class="cart-btns">
-                                    <a href="#">View Cart</a>
-                                    <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                    <div class="cart-summary">
+                                        <small><?php echo $totalProduct ?> Item(s) selected</small>
+                                        <h5>SUBTOTAL: <?php echo number_format($totalPrice) ?></h5>
+                                    </div>
+                                    <div class="cart-btns">
+                                        <a href="cart.php?type_id=1">View Cart</a>
+                                        <a href="orders.php">View Order <i class="fa fa-arrow-circle-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /Cart -->
 
                         <!-- Menu Toogle -->
                         <div class="menu-toggle">
@@ -245,57 +252,60 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                             echo $value['First_name'] . $value['Last_name'];
                                         } ?></h4>
                                     <a href="changePhoto.php?user_id=<?php echo $value['user_id']; ?>"><button class="btn btn-primary">Change Photo</button></a>
-                                    <a href="http://localhost/nhom5_ST6_BE1_NH21/login/changepassword.php"><button class="btn btn-primary">Change Password</button></a>
+                                    <a href="./login/changepassword.php?username=<?php echo $_SESSION['user'] ?>"><button class="btn btn-primary">Change Password</button></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">First Name</h6>
+                    <form action="editPF.php?user_id=<?php echo $_GET['user_id'] ?>" method="post">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">First Name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" class="form-control" name="First_name" value="<?php foreach ($getInfoByUsername as $value) {
+                                                                                            echo $value['First_name'];
+                                                                                        } ?>">
+                                    </div>
                                 </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="<?php foreach ($getInfoByUsername as $value) {
-                                                                                        echo $value['First_name'];
-                                                                                    } ?>">
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Last Name</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="<?php foreach ($getInfoByUsername as $value) {
-                                                                                        echo $value['Last_name'];
-                                                                                    } ?>">
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <div class="col-sm-3">
-                                    <h6 class="mb-0">Phone</h6>
-                                </div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="text" class="form-control" value="<?php foreach ($getInfoByUsername as $value) {
-                                                                                        echo $value['phone'];
-                                                                                    } ?>">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-3"></div>
-                                <div class="col-sm-9 text-secondary">
-                                    <input type="button" class="btn btn-primary px-4" value="Save Changes">
-
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Last Name</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" name="Last_name" class="form-control" value="<?php foreach ($getInfoByUsername as $value) {
+                                                                                            echo $value['Last_name'];
+                                                                                        } ?>">
+                                    </div>
                                 </div>
 
+                                <div class="row mb-3">
+                                    <div class="col-sm-3">
+                                        <h6 class="mb-0">Phone</h6>
+                                    </div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <input type="text" name="phone" class="form-control" value="<?php foreach ($getInfoByUsername as $value) {
+                                                                                            echo $value['phone'];
+                                                                                        } ?>">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-3"></div>
+                                    <div class="col-sm-9 text-secondary">
+                                        <!-- <input type="button" class="btn btn-primary px-4" value="Save Changes"> -->
+                                        <button class="btn btn-primary px-4" name="submit">Save Changes</button>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
+
 
                 </div>
             </div>

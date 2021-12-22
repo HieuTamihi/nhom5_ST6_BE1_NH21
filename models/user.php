@@ -73,14 +73,12 @@ class User extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
-    public function updateUser($first_name, $last_name, $phone)
+    public function updateUser($first_name, $last_name, $phone, $user_id)
     {
-        $sql = self::$connection->prepare("UPDATE `users` SET `First_name`=?,`Last_name`=?,`phone`=? WHERE `user_id`=? AND role_id = 2");
-        $sql->bind_param("ssi", $first_name, $last_name, $phone);
-        $sql->execute(); //return an object
-        $items = array();
-        $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $items; //return an array
+        $sql = self::$connection->prepare("UPDATE `users` SET `First_name`=?,`Last_name`=?,`phone`=? WHERE `user_id`=? ");
+        $sql->bind_param("ssii", $first_name, $last_name, $phone, $user_id);
+        return    $sql->execute(); //return an object
+
     }
     public function changePhoto($image, $user_id)
     {
