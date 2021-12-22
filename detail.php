@@ -55,13 +55,13 @@
                                             <div class="product-inner-price">
                                                 <ins><?php echo number_format($value['price']) ?>VND</ins>
                                             </div>
-
-                                            <form action="" class="cart">
+                                          
+                                            <form action="addcart1.php?id=<?php echo $_GET['id'] ?>&type_id=<?php echo $_GET['type_id'] ?>" class="cart" method="post">
                                                 <div class="quantity">
                                                     <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                                 </div>
                                                 <!-- <button class="" type="submit">Add to cart</button> -->
-                                           <button type="submit">Add to cart</button>
+                                                <button type="submit" name="submit">Add to cart</button>
                                             </form>
 
                                             <div role="tabpanel">

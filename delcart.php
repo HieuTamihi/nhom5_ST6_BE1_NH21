@@ -5,4 +5,4 @@ if(isset($_GET['id'])){
     unset($_SESSION['cart'][$_GET['id']]);
    
 }
-header('location:cart.php?type_id=' . $type_id);
+header('location:cart.php?type_id='.$type_id);

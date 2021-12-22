@@ -14,4 +14,6 @@ if (isset($_GET['id'])) {
     }
 }
 
+
+
 header('location:cart.php?type_id=' . $type_id);

@@ -45,6 +45,7 @@ class Product extends Db
     {
         $sql = self::$connection->prepare("SELECT * FROM products WHERE id = ?");
         $sql->bind_param("i", $id);
+        $sql->execute();
         $item = array();
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
