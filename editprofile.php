@@ -267,7 +267,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                         <h6 class="mb-0">First Name</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" class="form-control" name="First_name" value="<?php foreach ($getInfoByUsername as $value) {
+                                        <input required type="text" class="form-control" name="First_name" value="<?php foreach ($getInfoByUsername as $value) {
                                                                                             echo $value['First_name'];
                                                                                         } ?>">
                                     </div>
@@ -277,7 +277,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                         <h6 class="mb-0">Last Name</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="Last_name" class="form-control" value="<?php foreach ($getInfoByUsername as $value) {
+                                        <input required type="text" name="Last_name" class="form-control" value="<?php foreach ($getInfoByUsername as $value) {
                                                                                             echo $value['Last_name'];
                                                                                         } ?>">
                                     </div>
@@ -288,7 +288,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                         <h6 class="mb-0">Phone</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
-                                        <input type="text" name="phone" class="form-control" value="<?php foreach ($getInfoByUsername as $value) {
+                                        <input required type="text" name="phone" class="form-control" value="<?php foreach ($getInfoByUsername as $value) {
                                                                                             echo $value['phone'];
                                                                                         } ?>">
                                     </div>
