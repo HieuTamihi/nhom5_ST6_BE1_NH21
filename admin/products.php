@@ -9,6 +9,9 @@ if (isset($_GET['status'])) {
   if ($_GET['status'] == 'ec') {
     echo "<script> alert('Sửa thành công'); </script>";
   }
+  if ($_GET['status'] == 'ef') {
+    echo "<script> alert('Sửa không thành công'); </script>";
+  }
   if ($_GET['status'] == 'ac') {
     echo "<script> alert('Thêm thành công'); </script>";
   }

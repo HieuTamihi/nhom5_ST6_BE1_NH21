@@ -18,10 +18,19 @@ if (isset($_POST['submit'])) {
     $desc = $_POST['desc'];
     $image = $_FILES['image']['name'];
     $feature = $_POST['feature'];
-    $product->addProduct($name, $manu_id, $type_id, $price, $image, $desc,  $feature);
+
 
     $target_dir = "../img/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);
-    move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
-    header('location:products.php?status=ac');
+
+    $imageFileType =   pathinfo($target_file, PATHINFO_EXTENSION);
+
+
+    if ($imageFileType == 'jpg') {
+        $product->addProduct($name, $manu_id, $type_id, $price, $image, $desc,  $feature);
+        move_uploaded_file($_FILES["image"]["tmp_name"], $target_file);
+        header('location:products.php?status=ac');
+    } else {
+        header('location:products.php?status=af');
+    }
 }

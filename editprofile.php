@@ -154,7 +154,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                             <a href="#">
                                 <i class="fa fa-heart-o"></i>
                                 <span>Your Wishlist</span>
-                                <div class="qty">2</div>
+                                <div class="qty">0</div>
                             </a>
                         </div>
                         <!-- /Wishlist -->
@@ -165,9 +165,11 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                     <span>Your Cart</span>
                                     <?php
                                     $temp = 0;
-                                    foreach ($_SESSION['cart'] as $value) {
-                                        $temp+=1;
-                                    }
+                                    if(isset($_SESSION['cart'])){
+                                        foreach ($_SESSION['cart'] as $value) {
+                                            $temp+=1;
+                                        }
+                                       }
                                     ?>
                                     <div class="qty"><?php echo $temp; ?></div>
                                 </a>
