@@ -62,7 +62,7 @@ if(isset($_SESSION['user'])){
                             // Tính tổng số dòng, ví dụ kết quả là 18
                             $total = count($getProductsByType); 					
                             // lấy đường dẫn đến file hiện hành
-                            $url = $_SERVER['PHP_SELF']."?type_id".$type_id;
+                            $url = $_SERVER['PHP_SELF']."?type_id=".$type_id;
 							$get3ProductsByType = $product->get3ProductsByType($type_id,$page,$perPage);
 							foreach($get3ProductsByType as $value):
 							?>
