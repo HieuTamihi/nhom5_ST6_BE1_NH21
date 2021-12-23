@@ -19,6 +19,11 @@ if (isset($_POST['submit'])) {
     $image = $_FILES['image']['name'];
     $feature = $_POST['feature'];
 
+    if (is_numeric($price) == false) {
+
+        header('location:products.php?status=af');
+        return;
+    }
 
     $target_dir = "../img/";
     $target_file = $target_dir . basename($_FILES["image"]["name"]);

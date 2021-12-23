@@ -64,7 +64,16 @@
 							$keyword = $_GET['keyword'];
 							$searchCol = $_GET['searchCol'];	
 							$search = $product->search($keyword,$searchCol);
-							foreach($search as $value):
+							// hiển thị 3 sản phẩm trên 1 trang
+                            $perPage = 3; 				
+                            // Lấy số trang trên thanh địa chỉ
+                            $page = isset($_GET['page'])?$_GET['page']:1; 			
+                            // Tính tổng số dòng, ví dụ kết quả là 18
+                            $total = count($search); 					
+                            // lấy đường dẫn đến file hiện hành
+                            $url = $_SERVER['PHP_SELF']."?keyword=".$keyword."&searchCol=".$searchCol."\"";
+							$search1 = $product->search1($keyword,$searchCol,$page,$perPage);
+							foreach($search1 as $value):
 							?>
 							<!-- product -->
 							<div class="col-md-4 col-xs-6">
@@ -105,11 +114,12 @@
 						<div class="store-filter clearfix">
 					
 							<ul class="store-pagination">
-								<li class="active">1</li>
+								<!-- <li class="active">1</li>
 								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
 								<li><a href="#">4</a></li>
-								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+								<li><a href="#"><i class="fa fa-angle-right"></i></a></li> -->
+								<?php echo $product->paginate($url, $total, $perPage,$page); ?>
 							</ul>
 						</div>
 						<!-- /store bottom filter -->

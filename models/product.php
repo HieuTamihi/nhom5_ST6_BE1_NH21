@@ -9,6 +9,17 @@ class Product extends Db
         $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; //return an array
     }
+
+    public function get3NewProductsByID($type_id)
+    {
+        $sql = self::$connection->prepare("SELECT * FROM products WHERE `type_id` = ? ORDER BY `created_at` DESC LIMIT 0,3  ");
+        $sql->bind_param("i", $type_id);
+        $sql->execute(); //return an object
+        $item = array();
+        $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $item; //return an array
+    }
+
     public function getAllNewProducts()
     {
         $sql = self::$connection->prepare("SELECT * FROM products ORDER BY id DESC LIMIT 0,10");
@@ -19,11 +30,6 @@ class Product extends Db
     }
     public function getProductById1($type_id)
     {
-        $sql = self::$connection->prepare("SELECT * FROM products WHERE type_id = " . $type_id);
-        $sql->execute(); //return an object
-        $item = array();
-        $item = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
-        return $item; //return an array
     }
     public function getProductsTopSellingByType1($type_id)
     {
@@ -120,6 +126,9 @@ class Product extends Db
         $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $items; //return an array
     }
+
+
+
     public function paginate($url, $total, $perPage, $page)
     {
         $totalLinks = ceil($total / $perPage);
@@ -136,7 +145,8 @@ class Product extends Db
     public function search($keyword, $searchCol)
     {
         if ($searchCol == 1 || $searchCol == 2 || $searchCol == 3 || $searchCol == 4 || $searchCol == 5) {
-            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ? AND `type_id` = ?");
+            
+            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ? AND `type_id` = ? ");
             $keyword = "%$keyword%";
             $sql->bind_param("si", $keyword, $searchCol);
             $sql->execute(); //return an object
@@ -147,6 +157,28 @@ class Product extends Db
             $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ?");
             $keyword = "%$keyword%";
             $sql->bind_param("s", $keyword);
+            $sql->execute(); //return an object
+            $items = array();
+            $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+            return $items; //return an array
+        }
+    }
+    public function search1($keyword, $searchCol, $page, $perPage)
+    {
+        if ($searchCol == 1 || $searchCol == 2 || $searchCol == 3 || $searchCol == 4 || $searchCol == 5) {
+            $firstLink = ($page - 1) * $perPage;
+            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ? AND `type_id` = ? LIMIT ?, ?");
+            $keyword = "%$keyword%";
+            $sql->bind_param("siii", $keyword, $searchCol,$firstLink, $perPage);
+            $sql->execute(); //return an object
+            $items = array();
+            $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);
+            return $items; //return an array
+        } else {
+            $firstLink = ($page - 1) * $perPage;
+            $sql = self::$connection->prepare("SELECT * FROM products WHERE `name` LIKE ? LIMIT ?, ?");
+            $keyword = "%$keyword%";
+            $sql->bind_param("sii", $keyword,$firstLink, $perPage);
             $sql->execute(); //return an object
             $items = array();
             $items = $sql->get_result()->fetch_all(MYSQLI_ASSOC);

@@ -73,7 +73,11 @@
                                             <?php endforeach ?>
                                         </select>
                                     </div>
-
+                                    <div class="form-group">
+                                        <label for="inputProjectLeader">Image</label>
+                                        <!-- <input type="text"  name="fileToUpload" id="inputProjectLeader" class="form-control" -->
+                                        <input type="file" name="image" id="fileToUpload">
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>

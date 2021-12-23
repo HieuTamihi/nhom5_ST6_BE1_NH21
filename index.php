@@ -93,8 +93,8 @@ if(isset($_SESSION['user'])){
 							<div class="products-slick" data-nav="#slick-nav-1">
 								<?php
 								$type_id = 1;
-								$getProductById1 = $product->getProductById1($type_id); ?>
-								<?php foreach ($getProductById1 as $value) : ?>
+								$get3NewProductsByID = $product->get3NewProductsByID($type_id); ?>
+								<?php foreach ($get3NewProductsByID as $value) : ?>
 									<!-- product -->
 									<div class="product">
 										<div class="product-img">
@@ -136,8 +136,8 @@ if(isset($_SESSION['user'])){
 							<div class="products-slick">
 								<?php
 								$type_id = 2;
-								$getProductById1 = $product->getProductById1($type_id); ?>
-								<?php foreach ($getProductById1 as $value) : ?>
+								$get3NewProductsByID = $product->get3NewProductsByID($type_id); ?>
+								<?php foreach ($get3NewProductsByID as $value) : ?>
 									<!-- product -->
 									<div class="product">
 										<div class="product-img">
@@ -180,8 +180,8 @@ if(isset($_SESSION['user'])){
 							<div class="products-slick">
 								<?php
 								$type_id = 3;
-								$getProductById1 = $product->getProductById1($type_id); ?>
-								<?php foreach ($getProductById1 as $value) : ?>
+								$get3NewProductsByID = $product->get3NewProductsByID($type_id); ?>
+								<?php foreach ($get3NewProductsByID as $value) : ?>
 									<!-- product -->
 									<div class="product">
 										<div class="product-img">
@@ -224,8 +224,8 @@ if(isset($_SESSION['user'])){
 							<div class="products-slick">
 								<?php
 								$type_id = 4;
-								$getProductById1 = $product->getProductById1($type_id); ?>
-								<?php foreach ($getProductById1 as $value) : ?>
+								$get3NewProductsByID = $product->get3NewProductsByID($type_id); ?>
+								<?php foreach ($get3NewProductsByID as $value) : ?>
 									<!-- product -->
 									<div class="product">
 										<div class="product-img">
@@ -268,8 +268,8 @@ if(isset($_SESSION['user'])){
 							<div class="products-slick">
 								<?php
 								$type_id = 5;
-								$getProductById1 = $product->getProductById1($type_id); ?>
-								<?php foreach ($getProductById1 as $value) : ?>
+								$get3NewProductsByID = $product->get3NewProductsByID($type_id); ?>
+								<?php foreach ($get3NewProductsByID as $value) : ?>
 									<!-- product -->
 									<div class="product">
 										<div class="product-img">

@@ -10,10 +10,13 @@ if (isset($_GET['status'])) {
     echo "<script> alert('Sửa thành công'); </script>";
   }
   if ($_GET['status'] == 'ef') {
-    echo "<script> alert('Sửa thất bại (mật khẩu phải được thay đổi)'); </script>";
+    echo "<script> alert('Sửa không thành công'); </script>";
   }
-  if ($_GET['status'] == 'ac') {
+  if ($_GET['status'] == 'as') {
     echo "<script> alert('Thêm thành công'); </script>";
+  }
+  if ($_GET['status'] == 'af') {
+    echo "<script> alert('Thêm không thành công'); </script>";
   }
   echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_NH21/admin/users.php");</script>';
 } ?>

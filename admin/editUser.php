@@ -50,23 +50,23 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="inputName">First name</label>
-                                            <input value="<?php echo $values['First_name'] ?>" type="text" id="inputFirst" class="form-control" name="first_name">
+                                            <input value="<?php echo $values['First_name'] ?>" type="text" id="inputFirst" class="form-control" name="first_name" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputName">Last name</label>
-                                            <input value="<?php echo $values['Last_name'] ?>" type="text" id="inputUserLast" class="form-control" name="last_name">
+                                            <input value="<?php echo $values['Last_name'] ?>" type="text" id="inputUserLast" class="form-control" name="last_name" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputName">Phone</label>
-                                            <input value="<?php echo $values['phone'] ?>" type="text" id="inputUserPhone" class="form-control" name="phone">
+                                            <input value="<?php echo $values['phone'] ?>" type="text" id="inputUserPhone" class="form-control" name="phone" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputName">Username</label>
-                                            <input value="<?php echo $values['username'] ?>" type="text" id="inputUserName" class="form-control" name="username">
+                                            <input value="<?php echo $values['username'] ?>" type="text" id="inputUserName" class="form-control" name="username"  required>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputName">Password</label>
-                                            <input value="<?php echo $values['password'] ?>" type="text" id="inputPassword" class="form-control" name="password">
+                                            <input value="<?php echo $values['password'] ?>" type="text" id="inputPassword" class="form-control" name="password" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="inputName">Role ID</label>

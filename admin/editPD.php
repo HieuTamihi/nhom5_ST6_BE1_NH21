@@ -21,10 +21,13 @@ if (isset($_POST['submit'])) {
         $feature = $_POST['feature'];
         $id = $_POST['id'];
 
+        if (is_numeric($price) == false) {
 
+            header('location:products.php?status=ef');
+            return;
+        }
         $target_dir = "../img/";
         $target_file = $target_dir . basename($_FILES["image"]["name"]);
-
         $imageFileType =   pathinfo($target_file, PATHINFO_EXTENSION);
 
        
@@ -46,6 +49,11 @@ if (isset($_POST['submit'])) {
         $desc = $_POST['desc'];
         $feature = $_POST['feature'];
         $id = $_POST['id'];
+        if (is_numeric($price) == false) {
+
+            header('location:products.php?status=ef');
+            return;
+        }
         $product->updateProductNotImage($name, $manu_id, $type_id, $price, $desc,  $feature, $id);
         header('location:products.php?status=ec');
     }

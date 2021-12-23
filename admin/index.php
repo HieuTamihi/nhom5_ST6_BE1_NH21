@@ -118,6 +118,34 @@
             <a href="roles.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3><?php echo count($order->getAllOrdersDelivered()) ?></h3>
+
+              <p>Orders are being delivered</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-paper-airplane"></i>
+            </div>
+            <a href="orders.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6">
+          <!-- small box -->
+          <div class="small-box bg-orange">
+            <div class="inner">
+              <h3><?php echo count($order->getAllOrdersHasDelivered()) ?></h3>
+
+              <p>Order has been delivered</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-checkmark-round"></i>
+            </div>
+            <a href="orders.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
 
       </div>
       <!-- /.row -->

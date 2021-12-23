@@ -37,10 +37,10 @@ echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_
                 <h3 class="card-title">Orders</h3>
 
                 <div class="card-tools">
-                    <a class="btn  btn-sm bg-green" href="addOrder.php">
+                    <!--  <a class="btn  btn-sm bg-green" href="addOrder.php">
                         <i class="fas fa-plus"></i>
                         Add
-                    </a>
+                    </a> -->
                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                         <i class="fas fa-minus"></i>
                     </button>
@@ -101,7 +101,11 @@ echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_
                                 <td><?php echo $value['quantity'] ?></td>
                                 <td><?php echo $value['address'] ?></td>
                                 <td><?php echo $value['phone'] ?></td>
-                                <td><?php echo $value['status'] ?></td>
+                                <td><?php if ($value['status'] == 0) {
+                                        echo 'Đang giao';
+                                    } else {
+                                        echo 'Đã giao';
+                                    } ?></td>
                                 <td><?php echo $value['total'] ?></td>
                                 <td><?php echo $value['note'] ?></td>
                                 <td><?php echo $value['date_create'] ?></td>

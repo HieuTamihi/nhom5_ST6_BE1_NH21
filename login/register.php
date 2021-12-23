@@ -14,6 +14,11 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $getAllUsername =   $user->getAllUsername();
     $temp = 0;
+
+    if ($password != $passwordAgain) {
+        header('location:notification3.php');
+    }
+
     foreach ($getAllUsername as $value) {
         if ($value['username'] == $username) {
 

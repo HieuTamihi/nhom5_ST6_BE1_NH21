@@ -15,6 +15,10 @@ if (isset($_POST['submit'])) {
     $first_name = $_POST['First_name'];
     $last_name = $_POST['Last_name'];
     $phone = $_POST['phone'];
-    $user->updateUser($first_name,$last_name,$phone,$user_id);
-    header('location:profile.php?status=s');
+    if (is_numeric($phone) == true) {
+        $user->updateUser($first_name, $last_name, $phone, $user_id);
+        header('location:profile.php?status=s');
+    } else {
+        header('location:profile.php?status=f');
+    }
 }

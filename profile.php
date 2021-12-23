@@ -209,7 +209,7 @@ if (isset($_GET['status'])) {
 
 
 
-                            <div class="dropdown">
+                           <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
                                     <span>Giỏ hàng</span>
@@ -243,7 +243,7 @@ if (isset($_GET['status'])) {
                                                                 <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
                                                                 <h4 class="product-price"><span class="qty"><?php echo $qty ?>x</span><?php echo number_format($value['price']) ?>VND</h4>
                                                             </div>
-                                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                                            <a href="delcart1.php?id=<?php echo $value['id'] ?>"><button class="delete"><i class="fa fa-close"></i></button></a>
                                                         </div>
                                                     <?php endif ?>
                                                 <?php endforeach ?>
@@ -370,7 +370,7 @@ if (isset($_GET['status'])) {
 
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <a class="btn btn-info " href="editprofile.php?user_id=<?php echo $value['user_id']; ?>">Sửa</a>
+                                        <a style="background-color: #D10024;"  class="btn btn-info " href="editprofile.php?user_id=<?php echo $value['user_id']; ?>">Sửa</a>
                                     </div>
                                 </div>
                             </div>
