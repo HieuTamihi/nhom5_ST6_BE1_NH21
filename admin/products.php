@@ -107,7 +107,12 @@ echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_
                 <td><?php echo $value['name'] ?></td>
                 <td><img style="width:50px" src="../img/<?php echo $value['pro_image'] ?>" alt=""></td>
                 <td class="project_progress">
-                  <?php echo substr($value['description'], 0, 60) ?><a style="color: black;" href="#">...</a>
+                  <?php
+                  if (strlen($value['description']) > 60) : ?>
+                    <?php echo substr($value['description'], 0, 60) ?><a style="color: black;" href="detailProducts.php?id=<?php echo $value['id'] ?>">...</a>
+                    <?php else: echo $value['description'] ?>
+                  <?php endif ?>
+
                 </td>
                 <td><?php echo number_format($value['price']) ?> VND</td>
                 <td class="project_progress">
