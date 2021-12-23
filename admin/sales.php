@@ -9,6 +9,9 @@ if (isset($_GET['status'])) {
   if ($_GET['status'] == 'es') {
     echo "<script> alert('Sửa thành công'); </script>";
   }
+  if ($_GET['status'] == 'ef') {
+    echo "<script> alert('Sửa thất bại (Import quantity phải lớn hơn hoặc bằng Sell number)'); </script>";
+  }
   if ($_GET['status'] == 'as') {
     echo "<script> alert('Thêm thành công'); </script>";
   }

@@ -21,12 +21,14 @@ require "models/protype.php";
 require "models/sale.php";
 require "models/user.php";
 require "models/role.php";
+require "models/order.php";
 $product = new Product;
 $manufacture = new Manufacture;
 $protype = new Protype;
 $sale = new Sale;
 $user = new User;
 $role = new Role;
+$order = new Order;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -313,7 +315,17 @@ $role = new Role;
                                 </p>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a href="orders.php" class="nav-link <?php if ($_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/orders.php' || $_SERVER['PHP_SELF'] == '/nhom5_ST6_BE1_NH21/admin/addOrder.php') {
+                                                                    echo 'active';
+                                                                } ?>">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Orders
+                                    <span class="right badge badge-danger">New</span>
+                                </p>
+                            </a>
+                        </li>
 
                         <li class="nav-item">
                             <a href="logout.php" class="nav-link">
