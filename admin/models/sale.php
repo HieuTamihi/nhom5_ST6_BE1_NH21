@@ -37,12 +37,13 @@ class Sale extends Db
     }
     public function updateSale($Sell_number, $Import_quantity, $id)
     {
-        if ($Import_quantity > $Sell_number) {
+        if ($Import_quantity >= $Sell_number) {
             $sql = self::$connection->prepare("UPDATE `sales` SET `Sell_number`= ?,`Import_quantity` = ?,`Import_date` = NOW() WHERE `id`=?");
             $sql->bind_param("iii", $Sell_number, $Import_quantity, $id);
             return $sql->execute(); //return an object
+            header('location:sales.php?status=es');
         } else {
-            header('location:sales.php');
+            header('location:sales.php?status=ef');
         }
     }
     public function getSaleById($id)
