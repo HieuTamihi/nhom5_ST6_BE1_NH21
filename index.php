@@ -70,14 +70,14 @@ if(isset($_SESSION['user'])){
 			<!-- section title -->
 			<div class="col-md-12">
 				<div class="section-title">
-					<h3 class="title">New Products</h3>
+					<h3 class="title">Sản phẩm mới</h3>
 					<div class="section-nav">
 						<ul class="section-tab-nav tab-nav">
-							<li class="active"><a data-toggle="tab" href="#tab1">Smartphone</a></li>
+							<li class="active"><a data-toggle="tab" href="#tab1">Điện thoại</a></li>
 							<li><a data-toggle="tab" href="#tab2">Laptop</a></li>
-							<li><a data-toggle="tab" href="#tab3">Tablet</a></li>
-							<li><a data-toggle="tab" href="#tab4">Smartwatch</a></li>
-							<li><a data-toggle="tab" href="#tab5">Headphone</a></li>
+							<li><a data-toggle="tab" href="#tab3">Máy tính bảng</a></li>
+							<li><a data-toggle="tab" href="#tab4">Đồng hồ</a></li>
+							<li><a data-toggle="tab" href="#tab5">Tai nghe</a></li>
 						</ul>
 					</div>
 				</div>
@@ -100,11 +100,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img style="width=100px" src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">NEW</span>
+												<span class="new">MỚI</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -121,8 +121,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -144,11 +143,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">NEW</span>
+												<span class="new">MỚI</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -165,8 +164,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -189,11 +187,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">NEW</span>
+												<span class="new">MỚI</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -210,8 +208,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -234,11 +231,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">NEW</span>
+												<span class="new">MỚI</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -255,8 +252,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -279,11 +275,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">NEW</span>
+												<span class="new">MỚI</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -300,8 +296,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -336,31 +331,31 @@ if(isset($_SESSION['user'])){
 						<li>
 							<div>
 								<h3>02</h3>
-								<span>Days</span>
+								<span>Ngày</span>
 							</div>
 						</li>
 						<li>
 							<div>
 								<h3>10</h3>
-								<span>Hours</span>
+								<span>Giờ</span>
 							</div>
 						</li>
 						<li>
 							<div>
 								<h3>34</h3>
-								<span>Mins</span>
+								<span>Phút</span>
 							</div>
 						</li>
 						<li>
 							<div>
 								<h3>60</h3>
-								<span>Secs</span>
+								<span>Giây</span>
 							</div>
 						</li>
 					</ul>
-					<h2 class="text-uppercase">hot deal this week</h2>
-					<p>New Collection Up to 50% OFF</p>
-					<a class="primary-btn cta-btn" href="#">Shop now</a>
+					<h2 class="text-uppercase">khuyến mãi trong tuần</h2>
+					<p>sản phẩm mới giảm tới 50%</p>
+					<a class="primary-btn cta-btn" href="#">mua ngay</a>
 				</div>
 			</div>
 		</div>
@@ -380,14 +375,14 @@ if(isset($_SESSION['user'])){
 			<!-- section title -->
 			<div class="col-md-12">
 				<div class="section-title">
-					<h3 class="title">TOP SELLING</h3>
+					<h3 class="title">Sản phẩm bán chạy</h3>
 					<div class="section-nav">
 						<ul class="section-tab-nav tab-nav">
-							<li class="active"><a data-toggle="tab" href="#pap1">Smartphone</a></li>
+							<li class="active"><a data-toggle="tab" href="#pap1">Điện thoại</a></li>
 							<li><a data-toggle="tab" href="#pap2">Laptop</a></li>
-							<li><a data-toggle="tab" href="#pap3">Tablet</a></li>
-							<li><a data-toggle="tab" href="#pap4">Smartwatch</a></li>
-							<li><a data-toggle="tab" href="#pap5">Headphone</a></li>
+							<li><a data-toggle="tab" href="#pap3">Máy tính bảng</a></li>
+							<li><a data-toggle="tab" href="#pap4">Đồng hồ</a></li>
+							<li><a data-toggle="tab" href="#pap5">Tai nghe</a></li>
 						</ul>
 					</div>
 				</div>
@@ -410,11 +405,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img style="width=100px" src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">TOPSELLING</span>
+												<span class="new">BÁN CHẠY</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -431,8 +426,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -454,11 +448,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">TOPSELLING</span>
+												<span class="new">BÁN CHẠY</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -475,8 +469,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -498,11 +491,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">TOPSELLING</span>
+												<span class="new">BÁN CHẠY</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -519,8 +512,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>THÊM VÀO GIỎ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -542,11 +534,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">TOPSELLING</span>
+												<span class="new">BÁN CHẠY</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -563,8 +555,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>THÊM VÀO GIỎ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -587,11 +578,11 @@ if(isset($_SESSION['user'])){
 										<div class="product-img">
 											<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 											<div class="product-label">
-												<span class="new">TOPSELLING</span>
+												<span class="new">BÁN CHẠY</span>
 											</div>
 										</div>
 										<div class="product-body">
-											<p class="product-category">Category</p>
+											<p class="product-category"></p>
 											<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 											<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 											<div class="product-rating">
@@ -608,8 +599,7 @@ if(isset($_SESSION['user'])){
 											</div>
 										</div>
 										<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><div class="add-to-cart">
-											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-												cart</button>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>THÊM VÀO GIỎ</button>
 										</div></a>
 									</div>
 									<!-- /product -->
@@ -637,7 +627,7 @@ if(isset($_SESSION['user'])){
 		<div class="row">
 			<div class="col-md-4 col-xs-6">
 				<div class="section-title">
-					<h4 class="title">Featured phone</h4>
+					<h4 class="title">ĐIỆN THOẠI NỔI BẬT</h4>
 					<div class="section-nav">
 						<div id="slick-nav-3" class="products-slick-nav"></div>
 					</div>
@@ -654,7 +644,7 @@ if(isset($_SESSION['user'])){
 									<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 								</div>
 								<div class="product-body">
-									<p class="product-category">Category</p>
+									<p class="product-category"></p>
 									<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 									<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 								</div>
@@ -673,7 +663,7 @@ if(isset($_SESSION['user'])){
 									<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 								</div>
 								<div class="product-body">
-									<p class="product-category">Category</p>
+									<p class="product-category"></p>
 									<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 									<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 								</div>
@@ -686,7 +676,7 @@ if(isset($_SESSION['user'])){
 
 			<div class="col-md-4 col-xs-6">
 				<div class="section-title">
-					<h4 class="title">Featured phone</h4>
+					<h4 class="title">LAPTOP NỔI BẬT</h4>
 					<div class="section-nav">
 						<div id="slick-nav-4" class="products-slick-nav"></div>
 					</div>
@@ -703,7 +693,7 @@ if(isset($_SESSION['user'])){
 									<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 								</div>
 								<div class="product-body">
-									<p class="product-category">Category</p>
+									<p class="product-category"></p>
 									<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 									<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 								</div>
@@ -718,7 +708,7 @@ if(isset($_SESSION['user'])){
 
 			<div class="col-md-4 col-xs-6">
 				<div class="section-title">
-					<h4 class="title">FEATURED SMARTWATCH</h4>
+					<h4 class="title">ĐỒNG HỒ NỔI BẬT</h4>
 					<div class="section-nav">
 						<div id="slick-nav-5" class="products-slick-nav"></div>
 					</div>
@@ -735,7 +725,7 @@ if(isset($_SESSION['user'])){
 									<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 								</div>
 								<div class="product-body">
-									<p class="product-category">Category</p>
+									<p class="product-category"></p>
 									<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 									<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 								</div>
@@ -754,7 +744,7 @@ if(isset($_SESSION['user'])){
 								<img src="./img/<?php echo $value['pro_image'] ?>" alt="">
 							</div>
 							<div class="product-body">
-								<p class="product-category">Category</p>
+								<p class="product-category"></p>
 								<h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
 								<h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
 							</div>

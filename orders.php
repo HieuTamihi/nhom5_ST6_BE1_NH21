@@ -60,12 +60,12 @@ if(isset($_GET['status'])){
                                             <!-- <th class="product-remove">&nbsp;</th> -->
                                             <th class="product-thumbnail">&nbsp;</th>
 
-                                            <th class="product-price">Total</th>
-                                            <th class="product-name">Address</th>
-                                            <th class="product-price">Phone</th>
-                                            <th class="product-subtotal">Status</th>
+                                            <th class="product-price">TỔNG GIÁ</th>
+                                            <th class="product-name">ĐỊA CHỈ</th>
+                                            <th class="product-price">ĐIỆN THOẠI</th>
+                                            <th class="product-subtotal">TRẠNG THÁI</th>
 
-                                            <th class="product-name">Date create</th>
+                                            <th class="product-name">NGÀY TẠO</th>
                                         </tr>
                                     </thead>
 
@@ -128,13 +128,13 @@ if(isset($_GET['status'])){
                                                                 <div class="add-to-cart">
 
 
-                                                                    <button class="add-to-cart-btn"><a style="text-decoration: none;" href="delorder.php?order_id=<?php echo $value['order_id'] ?>"><i class="fa fa-credit-card"></i> CANCEL ORDER</a></button>
-                                                                    <button class="add-to-cart-btn"><a style="text-decoration: none;" href="received.php?order_id=<?php echo $value['order_id'] ?>"><i class="fa fa-credit-card"></i> ITEM RECEIVED</a></button>
+                                                                    <button class="add-to-cart-btn"><a style="text-decoration: none;" href="delorder.php?order_id=<?php echo $value['order_id'] ?>"><i class="fa fa-credit-card"></i> HỦY ĐƠN HÀNG</a></button>
+                                                                    <button class="add-to-cart-btn"><a style="text-decoration: none;" href="received.php?order_id=<?php echo $value['order_id'] ?>"><i class="fa fa-credit-card"></i> ĐÃ NHẬN HÀNG</a></button>
 
                                                                
                                                             <?php else : ?>
                                                                 <div class="add-to-cart">
-                                                                <button class="add-to-cart-btn"><a style="text-decoration: none;" href="repurchase.php?order_id=<?php echo $value['order_id'] ?>"><i class="fa fa-credit-card"></i> REPURCHASE</a></button>
+                                                                <button class="add-to-cart-btn"><a style="text-decoration: none;" href="repurchase.php?order_id=<?php echo $value['order_id'] ?>"><i class="fa fa-credit-card"></i> MUA LẠI</a></button>
                                                                  </div>
                                                             <?php endif ?>
 

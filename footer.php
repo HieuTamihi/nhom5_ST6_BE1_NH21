@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="newsletter">
-                    <p>Sign Up for the <strong>NEWSLETTER</strong></p>
+                    <p>Đăng Kí Để Nhận <strong>THÔNG BÁO</strong></p>
                     <form>
-                        <input class="input" type="email" placeholder="Enter Your Email">
-                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
+                        <input class="input" type="email" placeholder="Email của bạn">
+                        <button class="newsletter-btn"><i class="fa fa-envelope"></i> Đăng kí</button>
                     </form>
                     <ul class="newsletter-follow">
                         <li>
@@ -44,10 +44,10 @@
             <div class="row">
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">About Us</h3>
-                        <p><strong>Group 5-course code CNC10745305-school year 2021</strong></p>
+                        <h3 class="footer-title">Chúng tôi</h3>
+                        <p><strong>Nhóm 5-Khóa CNC10745305-Năm học 2021</strong></p>
                         <ul class="footer-links">
-                            <li><i class="fa fa-map-marker"></i>53 Vo Van Ngan - Linh Chieu Ward- Thu Duc City</li>
+                            <li><i class="fa fa-map-marker"></i>53 Võ Văn Ngân - Phường Linh Chiểu- Thành phố Thủ Đức</li>
                             <li><i class="fa fa-phone"></i>08.38970023</li>
                             <li><i class="fa fa-envelope-o"></i>fit@tdc.edu.vn</li>
                         </ul>
@@ -56,13 +56,13 @@
 
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Categories</h3>
+                        <h3 class="footer-title">thể loại</h3>
                         <ul class="footer-links">
-                            <li><a href="products.php?type_id=1">Smartphones</a></li>
-                            <li><a href="products.php?type_id=2">Laptops</a></li>
-                            <li><a href="products.php?type_id=3">Tablets</a></li>
-                            <li><a href="products.php?type_id=4">Smartwatchs</a></li>
-                            <li><a href="products.php?type_id=5">Headphones</a></li>
+                            <li><a href="products.php?type_id=1">Điện thoại</a></li>
+                            <li><a href="products.php?type_id=2">Laptop</a></li>
+                            <li><a href="products.php?type_id=3">Máy tính bảng</a></li>
+                            <li><a href="products.php?type_id=4">Đồng hồ</a></li>
+                            <li><a href="products.php?type_id=5">tai nghe</a></li>
                         </ul>
                     </div>
                 </div>
@@ -71,24 +71,24 @@
 
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Information</h3>
+                        <h3 class="footer-title">thông tin</h3>
                         <ul class="footer-links">
-                            <li><strong>Thai Minh Hieu</strong> - Thaihieu243@gmail.com</li>
-                            <li><strong>Nguyen Anh Vu</strong> - Anhvu4777@gmail.com</li>
-                            <li><strong>Nguyen Anh Khoa</strong> - nguyenanhkhoaa5@gmail.com</li>
+                            <li><strong>Thái Minh Hiếu</strong> - Thaihieu243@gmail.com</li>
+                            <li><strong>Nguyễn Anh Vũ</strong> - Anhvu4777@gmail.com</li>
+                            <li><strong>Nguyễn Anh Khoa</strong> - nguyenanhkhoaa5@gmail.com</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-md-3 col-xs-6">
                     <div class="footer">
-                        <h3 class="footer-title">Service</h3>
+                        <h3 class="footer-title">Dịch vụ</h3>
                         <ul class="footer-links">
-                            <li><a href="login/index.php">My Account</a></li>
-                            <li><a href="#">View Cart</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Track My Order</a></li>
-                            <li><a href="#">Help</a></li>
+                            <li><a href="login/index.php">Tài Khoản Của Tôi</a></li>
+                            <li><a href="#">Xem Giỏ Hàng</a></li>
+                            <li><a href="#">Yêu Thích</a></li>
+                            <li><a href="#">Xem Đơn Hàng</a></li>
+                            <li><a href="#">Giúp Đỡ</a></li>
                         </ul>
                     </div>
                 </div>

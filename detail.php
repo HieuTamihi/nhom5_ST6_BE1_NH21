@@ -61,26 +61,26 @@
                                                     <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                                 </div>
                                                 <!-- <button class="" type="submit">Add to cart</button> -->
-                                                <button type="submit" name="submit">Add to cart</button>
+                                                <button type="submit" name="submit">thêm vào giỏ</button>
                                             </form>
 
                                             <div role="tabpanel">
                                                 <ul class="product-tab" role="tablist">
-                                                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Description</a></li>
-                                                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Reviews</a></li>
+                                                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Mô tả</a></li>
+                                                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Đánh giá</a></li>
                                                 </ul>
                                                 <div class="tab-content">
                                                     <div role="tabpanel" class="tab-pane fade in active" id="home">
-                                                        <h2>Product Description</h2>
+                                                        <h2>Mô tả sản phẩm</h2>
                                                         <p><?php echo $value['description'] ?></p>
                                                     </div>
                                                     <div role="tabpanel" class="tab-pane fade" id="profile">
-                                                        <h2>Reviews</h2>
+                                                        <h2>Đánh giá</h2>
                                                         <div class="submit-review">
-                                                            <p><label for="name">Name</label> <input name="name" type="text"></p>
+                                                            <p><label for="name">Tên</label> <input name="name" type="text"></p>
                                                             <p><label for="email">Email</label> <input name="email" type="email"></p>
                                                             <div class="rating-chooser">
-                                                                <p>Your rating</p>
+                                                                <p>Đánh giá</p>
 
                                                                 <div class="rating-wrap-post">
                                                                     <i class="fa fa-star"></i>
@@ -90,8 +90,8 @@
                                                                     <i class="fa fa-star"></i>
                                                                 </div>
                                                             </div>
-                                                            <p><label for="review">Your review</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
-                                                            <p><input type="submit" value="Submit"></p>
+                                                            <p><label for="review">Bình luận</label> <textarea name="review" id="" cols="30" rows="10"></textarea></p>
+                                                            <p><input type="submit" value="Gửi"></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -119,11 +119,11 @@
                                                         <div class="product-img">
                                                             <img style="width=100px" src="./img/<?php echo $value['pro_image'] ?>" alt="">
                                                             <div class="product-label">
-                                                                <span class="new">TOPSELLING</span>
+                                                                <span class="new">BÁN CHẠY</span>
                                                             </div>
                                                         </div>
                                                         <div class="product-body">
-                                                            <p class="product-category">Category</p>
+                                                            <p class="product-category"></p>
                                                             <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
                                                             <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
                                                             <div class="product-rating">
@@ -141,8 +141,7 @@
                                                         </div>
                                                         <a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>">
                                                             <div class="add-to-cart">
-                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                                                    cart</button>
+                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> THÊM VÀO GIỎ</button>
                                                             </div>
                                                         </a>
                                                     </div>

@@ -59,11 +59,11 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                 <ul class="header-links pull-left">
                     <li><a href="tel:0987712063"><i class="fa fa-phone"></i> +84-987-712-063</a></li>
                     <li><a href="mailto:Thaihieu243@gmail.com"><i class="fa fa-envelope-o"></i> Thaihieu243@gmail.com</a></li>
-                    <li><a href="https://www.google.com/maps/place/53+%C4%90.+V%C3%B5+V%C4%83n+Ng%C3%A2n,+Linh+Chi%E1%BB%83u,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8511574,106.7557547,17z/data=!3m1!4b1!4m5!3m4!1s0x317527bd532d45d9:0x6b46595d312dcffe!8m2!3d10.8511574!4d106.7579434"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan - Linh Chieu Ward- Thu Duc City</a></li>
+                    <li><a href="https://www.google.com/maps/place/53+%C4%90.+V%C3%B5+V%C4%83n+Ng%C3%A2n,+Linh+Chi%E1%BB%83u,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8511574,106.7557547,17z/data=!3m1!4b1!4m5!3m4!1s0x317527bd532d45d9:0x6b46595d312dcffe!8m2!3d10.8511574!4d106.7579434"><i class="fa fa-map-marker"></i> 53 Võ Văn Ngân - Phường Linh Chiểu - Thành phố Thủ Đức</a></li>
                 </ul>
                 <ul class="header-links pull-right">
-                    <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                    <li><a href="login/index.php"><i class="fa fa-user-o"></i> Log In</a></li>
+                   
+                    <li><a href="login/index.php"><i class="fa fa-user-o"></i> Đăng nhập</a></li>
                 </ul>
             </div>
         </div>
@@ -90,15 +90,15 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                         <div class="header-search">
                             <form method="get" action="result.php">
                                 <select class="input-select" name="searchCol">
-                                    <option value="0">All category</option>
-                                    <option value="1">Phone</option>
+                                    <option value="0">Tất cả</option>
+                                    <option value="1">Điện thoại</option>
                                     <option value="2">LapTop</option>
-                                    <option value="3">Tablet</option>
-                                    <option value="4">Smartwatch</option>
-                                    <option value="5">HeadPhone</option>
+                                    <option value="3">Máy tính bảng</option>
+                                    <option value="4">Đồng hồ</option>
+                                    <option value="5">Tai nghe</option>
                                 </select>
-                                <input name="keyword" class="input" placeholder="Search here">
-                                <button type="submit" class="search-btn">Search</button>
+                                <input name="keyword" class="input" placeholder="tìm kiếm">
+                                <button type="submit" class="search-btn">Tìm</button>
                             </form>
                         </div>
                     </div>
@@ -111,54 +111,63 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                             <div>
                                 <a href="#">
                                     <i class="fa fa-heart-o"></i>
-                                    <span>Your Wishlist</span>
-                                    <div class="qty">2</div>
+                                    <span>Yêu thích</span>
+                                    <div class="qty">0</div>
                                 </a>
                             </div>
                             <!-- /Wishlist -->
 
-                            <!-- Cart -->
                             <div class="dropdown">
-                                <a href="cart.php?type_id=1">
+                                <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span>Your Cart</span>
-                                    <div class="qty">3</div>
+                                    <span>Giỏ hàng</span>
+                                    <?php
+                                    $temp = 0;
+                                   if(isset($_SESSION['cart'])){
+                                    foreach ($_SESSION['cart'] as $value) {
+                                        $temp+=1;
+                                    }
+                                   }
+                                    ?>
+                                    <div class="qty"><?php echo $temp; ?></div>
                                 </a>
                                 <div class="cart-dropdown">
-                                    <div class="cart-list">
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src="./img/product01.png" alt="">
-                                            </div>
-                                            <div class="product-body">
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price"><span class="qty">1x</span>$980.00</h4>
-                                            </div>
-                                            <button class="delete"><i class="fa fa-close"></i></button>
-                                        </div>
+                                    <div class="cart-list"><?php $totalPrice = 0;
+                                                            $totalProduct = 0; ?>
+                                        <?php if (isset($_SESSION['cart'])) :
 
-                                        <div class="product-widget">
-                                            <div class="product-img">
-                                                <img src="./img/product02.png" alt="">
-                                            </div>
-                                            <div class="product-body">
-                                                <h3 class="product-name"><a href="#">product name goes here</a></h3>
-                                                <h4 class="product-price"><span class="qty">3x</span>$980.00</h4>
-                                            </div>
-                                            <button class="delete"><i class="fa fa-close"></i></button>
-                                        </div>
+                                            foreach ($_SESSION['cart'] as $key => $qty) :
+                                                $getAllProducts =  $product->getAllProducts();
+                                                foreach ($getAllProducts as $value) :
+                                                    if ($value['id'] == $key) : ?>
+                                                        <?php $totalPrice += $value['price'] * $qty;
+                                                        $totalProduct += 1;
+                                                        ?>
+                                                        <div class="product-widget">
+                                                            <div class="product-img">
+                                                                <img src="./img/<?php echo $value['pro_image'] ?>" alt="">
+                                                            </div>
+                                                            <div class="product-body">
+                                                                <h3 class="product-name"><a href="detail.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
+                                                                <h4 class="product-price"><span class="qty"><?php echo $qty ?>x</span><?php echo number_format($value['price']) ?>VND</h4>
+                                                            </div>
+                                                            <button class="delete"><i class="fa fa-close"></i></button>
+                                                        </div>
+                                                    <?php endif ?>
+                                                <?php endforeach ?>
+                                            <?php endforeach ?>
+                                        <?php endif ?>
                                     </div>
                                     <div class="cart-summary">
-                                        <small>3 Item(s) selected</small>
-                                        <h5>SUBTOTAL: $2940.00</h5>
+                                        <small><?php echo $totalProduct ?> Sản phẩm</small>
+                                        <h5>Tổng tiền: <?php echo number_format($totalPrice) ?></h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="#">View Cart</a>
-                                        <a href="#">Checkout <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a href="cart.php?type_id=1">Xem giỏ hàng</a>
+                                        <a href="./login/index.php">Xem đơn hàng <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /Cart -->
 
                             <!-- Menu Toogle -->
                             <div class="menu-toggle">

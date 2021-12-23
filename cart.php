@@ -46,10 +46,10 @@
                                         <tr>
                                             <th class="product-remove">&nbsp;</th>
                                             <th class="product-thumbnail">&nbsp;</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-price">Price</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-subtotal">Total</th>
+                                            <th class="product-name">sản phẩm</th>
+                                            <th class="product-price">giá</th>
+                                            <th class="product-quantity">số lượng</th>
+                                            <th class="product-subtotal">tổng giá</th>
                                         </tr>
                                     </thead>
                                     <?php $total = 0;
@@ -100,7 +100,7 @@
                                                                 <td class="actions" colspan="6">
 
                                                                     <div class="add-to-cart">
-                                                                    <button class="add-to-cart-btn"><a style="text-decoration: none;" href="check.php?id=<?php echo $value['id'] ?>"><i class="fa fa-credit-card"></i> Checkout</a></button>
+                                                                    <button class="add-to-cart-btn"><a style="text-decoration: none;" href="check.php?id=<?php echo $value['id'] ?>"><i class="fa fa-credit-card"></i> Thanh toán</a></button>
                                                                     </div>
 
                                                                 </td>
@@ -116,18 +116,18 @@
                             </form>
                             <div class="cart-collaterals">
                                 <div class="cart_totals col-lg-offset-4">
-                                    <h2>Cart Totals</h2>
+                                    <h2>Tổng các Đơn hàng</h2>
 
                                     <table cellspacing="0">
                                         <tbody>
 
                                             <tr class="shipping">
-                                                <th>Shipping and Handling</th>
-                                                <td>Free Shipping</td>
+                                                <th>Vận chuyển và xử lý</th>
+                                                <td>Miễn phí</td>
                                             </tr>
 
                                             <tr class="order-total">
-                                                <th>Order Total</th>
+                                                <th>Tổng</th>
                                                 <td><strong><span class="amount"><?php echo number_format($total) ?>VND</span></strong> </td>
                                             </tr>
                                         </tbody>
@@ -160,11 +160,11 @@
                                                         <div class="product-img">
                                                             <img style="width=100px" src="./img/<?php echo $value['pro_image'] ?>" alt="">
                                                             <div class="product-label">
-                                                                <span class="new">TOPSELLING</span>
+                                                                <span class="new">BÁN CHẠY</span>
                                                             </div>
                                                         </div>
                                                         <div class="product-body">
-                                                            <p class="product-category">Category</p>
+                                                            <p class="product-category"></p>
                                                             <h3 class="product-name"><a href="detail.php?type_id=<?php echo $value['type_id'] ?>"><?php echo $value['name'] ?></a></h3>
                                                             <h4 class="product-price"><?php echo number_format($value['price']) ?>VND</h4>
                                                             <div class="product-rating">
@@ -182,8 +182,7 @@
                                                         </div>
                                                         <a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>">
                                                             <div class="add-to-cart">
-                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to
-                                                                    cart</button>
+                                                                <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
                                                             </div>
                                                         </a>
                                                     </div>

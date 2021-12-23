@@ -78,6 +78,11 @@ if (isset($_GET['status'])) {
         echo "<script> alert('Cập nhật thành công'); </script>";
         echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_NH21/profile.php");</script>';
     }
+   
+    if ($_GET['status'] == 'f') {
+        echo "<script> alert('Cập nhật không thành công'); </script>";
+        echo '<script>window.history.pushState({}, document.title, "/" + "nhom5_ST6_BE1_NH21/profile.php");</script>';
+    }
 }
 
 ?>
@@ -126,91 +131,95 @@ if (isset($_GET['status'])) {
 
 <!-- HEADER -->
 <header>
-    <!-- TOP HEADER -->
-    <div id="top-header">
-        <div class="container">
-            <ul class="header-links pull-left">
-                <li><a href="tel:0987712063"><i class="fa fa-phone"></i> +84-987-712-063</a></li>
-                <li><a href="mailto:Thaihieu243@gmail.com"><i class="fa fa-envelope-o"></i> Thaihieu243@gmail.com</a></li>
-                <li><a href="https://www.google.com/maps/place/53+%C4%90.+V%C3%B5+V%C4%83n+Ng%C3%A2n,+Linh+Chi%E1%BB%83u,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8511574,106.7557547,17z/data=!3m1!4b1!4m5!3m4!1s0x317527bd532d45d9:0x6b46595d312dcffe!8m2!3d10.8511574!4d106.7579434"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan - Linh Chieu Ward- Thu Duc City</a></li>
-            </ul>
-            <ul class="header-links pull-right">
-                <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
-                <?php $getLastname = $user->getLastname($_SESSION['user']); ?>
-                <li><a href="profile.php"><i class="<?php if ($_SESSION['permision'] == 1) {
-                                                        echo "fa fa-user-secret";
-                                                    } else {
-                                                        echo "fa fa-user";
-                                                    } ?>"></i> Hello <?php foreach ($getLastname as $value) {
-                                                                            echo $value['Last_name'];
-                                                                        } ?></a></li>
 
-                <li><a href="admin/logoutuser.php"><i class="fa fa-sign-out"></i> Log Out</a></li>
+ <!-- TOP HEADER -->
+ <div id="top-header">
+            <div class="container">
+                <ul class="header-links pull-left">
+                    <li><a href="tel:0987712063"><i class="fa fa-phone"></i> +84-987-712-063</a></li>
+                    <li><a href="mailto:Thaihieu243@gmail.com"><i class="fa fa-envelope-o"></i> Thaihieu243@gmail.com</a></li>
+                    <li><a href="https://www.google.com/maps/place/53+%C4%90.+V%C3%B5+V%C4%83n+Ng%C3%A2n,+Linh+Chi%E1%BB%83u,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8511574,106.7557547,17z/data=!3m1!4b1!4m5!3m4!1s0x317527bd532d45d9:0x6b46595d312dcffe!8m2!3d10.8511574!4d106.7579434"><i class="fa fa-map-marker"></i> 53 Võ Văn Ngân - Phường Linh Chiểu - Thành phố Thủ Đức</a></li>
+                </ul>
+                <ul class="header-links pull-right">
+                   <!--  <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li> -->
+                    <?php $getLastname = $user->getLastname($_SESSION['user']); ?>
+                    <li><a href="profile.php"><i class="<?php if ($_SESSION['permision'] == 1) {
+                                                            echo "fa fa-user-secret";
+                                                        } else {
+                                                            echo "fa fa-user";
+                                                        } ?>"></i> Xin chào <?php foreach ($getLastname as $value) {
+                                                                                echo $value['Last_name'];
+                                                                            } ?></a></li>
 
-            </ul>
+                    <li><a href="admin/logoutuser.php"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+
+                </ul>
+            </div>
         </div>
-    </div>
-    <!-- /TOP HEADER -->
+        <!-- /TOP HEADER -->
 
-    <!-- MAIN HEADER -->
-    <div id="header">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <!-- LOGO -->
-                <div class="col-md-3">
-                    <div class="header-logo">
-                        <a href="index.php" class="logo">
-                            <img src="./img/logo.png" alt="">
-                        </a>
-                    </div>
-                </div>
-                <!-- /LOGO -->
-
-                <!-- SEARCH BAR -->
-                <div class="col-md-6">
-                    <div class="header-search">
-                        <form method="get" action="result.php">
-                            <select class="input-select" name="searchCol">
-                                <option value="0">All category</option>
-                                <option value="1">Phone</option>
-                                <option value="2">LapTop</option>
-                                <option value="3">Tablet</option>
-                                <option value="4">Smartwatch</option>
-                                <option value="5">HeadPhone</option>
-                            </select>
-                            <input name="keyword" class="input" placeholder="Search here">
-                            <button type="submit" class="search-btn">Search</button>
-                        </form>
-                    </div>
-                </div>
-                <!-- /SEARCH BAR -->
-
-                <!-- ACCOUNT -->
-                <div class="col-md-3 clearfix">
-                    <div class="header-ctn">
-                        <!-- Wishlist -->
-                        <div>
-                            <a href="#">
-                                <i class="fa fa-heart-o"></i>
-                                <span>Your Wishlist</span>
-                                <div class="qty">0</div>
+        <!-- MAIN HEADER -->
+        <div id="header">
+            <!-- container -->
+            <div class="container">
+                <!-- row -->
+                <div class="row">
+                    <!-- LOGO -->
+                    <div class="col-md-3">
+                        <div class="header-logo">
+                            <a href="index.php" class="logo">
+                                <img src="./img/logo.png" alt="">
                             </a>
                         </div>
-                        <!-- /Wishlist -->
+                    </div>
+                    <!-- /LOGO -->
 
-                        <div class="dropdown">
+                    <!-- SEARCH BAR -->
+                    <div class="col-md-6">
+                        <div class="header-search">
+                            <form method="get" action="result.php">
+                                <select class="input-select" name="searchCol">
+                                <option value="0">Tất cả</option>
+                                    <option value="1">Điện thoại</option>
+                                    <option value="2">LapTop</option>
+                                    <option value="3">Máy tính bảng</option>
+                                    <option value="4">Đồng hồ</option>
+                                    <option value="5">Tai nghe</option>
+                                </select>
+                                <input name="keyword" class="input" placeholder="tìm kiếm">
+                                <button type="submit" class="search-btn">Tìm</button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /SEARCH BAR -->
+
+                    <!-- ACCOUNT -->
+                    <div class="col-md-3 clearfix">
+                        <div class="header-ctn">
+                            <!-- Wishlist -->
+                            <div>
+                                <a href="#">
+                                    <i class="fa fa-heart-o"></i>
+                                    <span>Yêu thích</span>
+                                    <div class="qty">0</div>
+                                </a>
+                            </div>
+                            <!-- /Wishlist -->
+
+
+
+
+                            <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span>Your Cart</span>
+                                    <span>Giỏ hàng</span>
                                     <?php
                                     $temp = 0;
-                                    if(isset($_SESSION['cart'])){
-                                        foreach ($_SESSION['cart'] as $value) {
-                                            $temp+=1;
-                                        }
-                                       }
+                                   if(isset($_SESSION['cart'])){
+                                    foreach ($_SESSION['cart'] as $value) {
+                                        $temp+=1;
+                                    }
+                                   }
                                     ?>
                                     <div class="qty"><?php echo $temp; ?></div>
                                 </a>
@@ -242,33 +251,35 @@ if (isset($_GET['status'])) {
                                         <?php endif ?>
                                     </div>
                                     <div class="cart-summary">
-                                        <small><?php echo $totalProduct ?> Item(s) selected</small>
+                                        <small><?php echo $totalProduct ?> Sản phẩm</small>
                                         <h5>SUBTOTAL: <?php echo number_format($totalPrice) ?></h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="cart.php?type_id=1">View Cart</a>
-                                        <a href="orders.php">View Order <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a href="cart.php?type_id=1">Xem giỏ hàng</a>
+                                        <a href="orders.php">Xem đơn hàng <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
 
-                        <!-- Menu Toogle -->
-                        <div class="menu-toggle">
-                            <a href="#">
-                                <i class="fa fa-bars"></i>
-                                <span>Menu</span>
-                            </a>
+
+                            <!-- Menu Toogle -->
+                            <div class="menu-toggle">
+                                <a href="#">
+                                    <i class="fa fa-bars"></i>
+                                    <span>Menu</span>
+                                </a>
+                            </div>
+                            <!-- /Menu Toogle -->
                         </div>
-                        <!-- /Menu Toogle -->
                     </div>
+                    <!-- /ACCOUNT -->
                 </div>
-                <!-- /ACCOUNT -->
+                <!-- row -->
             </div>
-            <!-- row -->
+            <!-- container -->
         </div>
-        <!-- container -->
-    </div>
-    <!-- /MAIN HEADER -->
+        <!-- /MAIN HEADER -->
+
 
 </header>
 <!-- /HEADER -->
@@ -305,7 +316,7 @@ if (isset($_GET['status'])) {
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">First Name</h6>
+                                        <h6 class="mb-0">Họ</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <?php foreach ($getInfoByUsername as $value) {
@@ -316,7 +327,7 @@ if (isset($_GET['status'])) {
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Last Name</h6>
+                                        <h6 class="mb-0">Tên</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <?php foreach ($getInfoByUsername as $value) {
@@ -327,7 +338,7 @@ if (isset($_GET['status'])) {
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Username</h6>
+                                        <h6 class="mb-0">Tên tài khoản</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <?php echo $_SESSION['user'] ?>
@@ -336,7 +347,7 @@ if (isset($_GET['status'])) {
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Phone</h6>
+                                        <h6 class="mb-0">Điện thoại</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <?php foreach ($getInfoByUsername as $value) {
@@ -347,7 +358,7 @@ if (isset($_GET['status'])) {
                                 <hr>
                                 <div class="row">
                                     <div class="col-sm-3">
-                                        <h6 class="mb-0">Permission</h6>
+                                        <h6 class="mb-0">Quyền</h6>
                                     </div>
                                     <div class="col-sm-9 text-secondary">
                                         <?php foreach ($getInfoByUsername as $value) {
@@ -359,7 +370,7 @@ if (isset($_GET['status'])) {
 
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <a class="btn btn-info " href="editprofile.php?user_id=<?php echo $value['user_id']; ?>">Edit</a>
+                                        <a class="btn btn-info " href="editprofile.php?user_id=<?php echo $value['user_id']; ?>">Sửa</a>
                                     </div>
                                 </div>
                             </div>

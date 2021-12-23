@@ -64,20 +64,20 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                 <ul class="header-links pull-left">
                     <li><a href="tel:0987712063"><i class="fa fa-phone"></i> +84-987-712-063</a></li>
                     <li><a href="mailto:Thaihieu243@gmail.com"><i class="fa fa-envelope-o"></i> Thaihieu243@gmail.com</a></li>
-                    <li><a href="https://www.google.com/maps/place/53+%C4%90.+V%C3%B5+V%C4%83n+Ng%C3%A2n,+Linh+Chi%E1%BB%83u,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8511574,106.7557547,17z/data=!3m1!4b1!4m5!3m4!1s0x317527bd532d45d9:0x6b46595d312dcffe!8m2!3d10.8511574!4d106.7579434"><i class="fa fa-map-marker"></i> 53 Vo Van Ngan - Linh Chieu Ward- Thu Duc City</a></li>
+                    <li><a href="https://www.google.com/maps/place/53+%C4%90.+V%C3%B5+V%C4%83n+Ng%C3%A2n,+Linh+Chi%E1%BB%83u,+Th%E1%BB%A7+%C4%90%E1%BB%A9c,+Th%C3%A0nh+ph%E1%BB%91+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.8511574,106.7557547,17z/data=!3m1!4b1!4m5!3m4!1s0x317527bd532d45d9:0x6b46595d312dcffe!8m2!3d10.8511574!4d106.7579434"><i class="fa fa-map-marker"></i> 53 Võ Văn Ngân - Phường Linh Chiểu - Thành phố Thủ Đức</a></li>
                 </ul>
                 <ul class="header-links pull-right">
-                    <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li>
+                   <!--  <li><a href="#"><i class="fa fa-dollar"></i> USD</a></li> -->
                     <?php $getLastname = $user->getLastname($_SESSION['user']); ?>
                     <li><a href="profile.php"><i class="<?php if ($_SESSION['permision'] == 1) {
                                                             echo "fa fa-user-secret";
                                                         } else {
                                                             echo "fa fa-user";
-                                                        } ?>"></i> Hello <?php foreach ($getLastname as $value) {
+                                                        } ?>"></i> Xin chào <?php foreach ($getLastname as $value) {
                                                                                 echo $value['Last_name'];
                                                                             } ?></a></li>
 
-                    <li><a href="admin/logoutuser.php"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                    <li><a href="admin/logoutuser.php"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
                 </ul>
             </div>
@@ -105,15 +105,15 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                         <div class="header-search">
                             <form method="get" action="result.php">
                                 <select class="input-select" name="searchCol">
-                                    <option value="0">All category</option>
-                                    <option value="1">Phone</option>
+                                <option value="0">Tất cả</option>
+                                    <option value="1">Điện thoại</option>
                                     <option value="2">LapTop</option>
-                                    <option value="3">Tablet</option>
-                                    <option value="4">Smartwatch</option>
-                                    <option value="5">HeadPhone</option>
+                                    <option value="3">Máy tính bảng</option>
+                                    <option value="4">Đồng hồ</option>
+                                    <option value="5">Tai nghe</option>
                                 </select>
-                                <input name="keyword" class="input" placeholder="Search here">
-                                <button type="submit" class="search-btn">Search</button>
+                                <input name="keyword" class="input" placeholder="tìm kiếm">
+                                <button type="submit" class="search-btn">Tìm</button>
                             </form>
                         </div>
                     </div>
@@ -126,7 +126,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                             <div>
                                 <a href="#">
                                     <i class="fa fa-heart-o"></i>
-                                    <span>Your Wishlist</span>
+                                    <span>Yêu thích</span>
                                     <div class="qty">0</div>
                                 </a>
                             </div>
@@ -138,7 +138,7 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                             <div class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
                                     <i class="fa fa-shopping-cart"></i>
-                                    <span>Your Cart</span>
+                                    <span>Giỏ hàng</span>
                                     <?php
                                     $temp = 0;
                                    if(isset($_SESSION['cart'])){
@@ -177,12 +177,12 @@ $getTopSellingProducts = $product->getTopSellingProducts();
                                         <?php endif ?>
                                     </div>
                                     <div class="cart-summary">
-                                        <small><?php echo $totalProduct ?> Item(s) selected</small>
+                                        <small><?php echo $totalProduct ?> Sản phẩm</small>
                                         <h5>SUBTOTAL: <?php echo number_format($totalPrice) ?></h5>
                                     </div>
                                     <div class="cart-btns">
-                                        <a href="cart.php?type_id=1">View Cart</a>
-                                        <a href="orders.php">View Order <i class="fa fa-arrow-circle-right"></i></a>
+                                        <a href="cart.php?type_id=1">Xem giỏ hàng</a>
+                                        <a href="orders.php">Xem đơn hàng <i class="fa fa-arrow-circle-right"></i></a>
                                     </div>
                                 </div>
                             </div>
