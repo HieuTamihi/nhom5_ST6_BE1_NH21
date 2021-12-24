@@ -112,14 +112,14 @@
                                             <?php
                                             if (isset($_GET['type_id'])) :
                                                 $type_id = $_GET['type_id'];
-                                                $getProductsTopSellingByType1 = $product->getProductsTopSellingByType1($type_id); ?>
-                                                <?php foreach ($getProductsTopSellingByType1 as $value) : ?>
+                                                $get3NewProductsByID = $product->get3NewProductsByID($type_id); ?>
+                                                <?php foreach ($get3NewProductsByID as $value) : ?>
                                                     <!-- product -->
                                                     <div class="product">
                                                         <div class="product-img">
                                                             <img style="width=100px" src="./img/<?php echo $value['pro_image'] ?>" alt="">
                                                             <div class="product-label">
-                                                                <span class="new">BÁN CHẠY</span>
+                                                                <span class="new">MỚI</span>
                                                             </div>
                                                         </div>
                                                         <div class="product-body">
