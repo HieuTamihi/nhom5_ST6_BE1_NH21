@@ -1,80 +1,80 @@
 <?php session_start() ?>
 <?php if (isset($_SESSION['user'])) {
-    include "headeruser.php";
+	include "headeruser.php";
 } else {
-    include "header.php";
+	include "header.php";
 }
 
 ?>
 
-		<!-- BREADCRUMB -->
-		<div id="breadcrumb" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-			
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /BREADCRUMB -->
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
 
-		<!-- SECTION -->
-		<div class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
+<!-- /BREADCRUMB -->
+
+<!-- SECTION -->
+<div class="section">
+	<!-- container -->
+	<div class="container">
+		<!-- row -->
+		<div class="row">
+			<!-- ASIDE -->
+
+			<!-- /ASIDE -->
+
+			<!-- STORE -->
+			<div id="store" class="col-lg-12">
+				<!-- store top filter -->
+				<div class="store-filter clearfix">
+					<div class="store-sort">
+						<label>
+							Sắp xếp:
+							<select class="input-select">
+								<option value="0">Popular</option>
+								<option value="1">Position</option>
+							</select>
+						</label>
+
+						<label>
+							Hiển thị:
+							<select class="input-select">
+								<option value="0">20</option>
+								<option value="1">50</option>
+							</select>
+						</label>
+					</div>
+					<ul class="store-grid">
+						<li class="active"><i class="fa fa-th"></i></li>
+						<li><a href="#"><i class="fa fa-th-list"></i></a></li>
+					</ul>
+				</div>
+				<!-- /store top filter -->
+
+				<!-- store products -->
 				<div class="row">
-					<!-- ASIDE -->
-				
-					<!-- /ASIDE -->
-
-					<!-- STORE -->
-					<div id="store" class="col-lg-12">
-						<!-- store top filter -->
-						<div class="store-filter clearfix">
-							<div class="store-sort">
-							<label>
-									Sắp xếp:
-									<select class="input-select">
-										<option value="0">Popular</option>
-										<option value="1">Position</option>
-									</select>
-								</label>
-
-								<label>
-									Hiển thị:
-									<select class="input-select">
-										<option value="0">20</option>
-										<option value="1">50</option>
-									</select>
-								</label>
-							</div>
-							<ul class="store-grid">
-								<li class="active"><i class="fa fa-th"></i></li>
-								<li><a href="#"><i class="fa fa-th-list"></i></a></li>
-							</ul>
-						</div>
-						<!-- /store top filter -->
-
-						<!-- store products -->
-						<div class="row">
-							<?php 
-							if(isset($_GET['keyword'])):
-							$keyword = $_GET['keyword'];
-							$searchCol = $_GET['searchCol'];	
-							$search = $product->search($keyword,$searchCol);
-							// hiển thị 3 sản phẩm trên 1 trang
-                            $perPage = 3; 				
-                            // Lấy số trang trên thanh địa chỉ
-                            $page = isset($_GET['page'])?$_GET['page']:1; 			
-                            // Tính tổng số dòng, ví dụ kết quả là 18
-                            $total = count($search); 					
-                            // lấy đường dẫn đến file hiện hành
-                            $url = $_SERVER['PHP_SELF']."?keyword=".$keyword."&searchCol=".$searchCol."\"";
-							$search1 = $product->search1($keyword,$searchCol,$page,$perPage);
-							foreach($search1 as $value):
-							?>
+					<?php
+					if (isset($_GET['keyword'])) :
+						$keyword = $_GET['keyword'];
+						$searchCol = $_GET['searchCol'];
+						$search = $product->search($keyword, $searchCol);
+						// hiển thị 3 sản phẩm trên 1 trang
+						$perPage = 3;
+						// Lấy số trang trên thanh địa chỉ
+						$page = isset($_GET['page']) ? $_GET['page'] : 1;
+						// Tính tổng số dòng, ví dụ kết quả là 18
+						$total = count($search);
+						// lấy đường dẫn đến file hiện hành
+						$url = $_SERVER['PHP_SELF'] . "?keyword=" . $keyword . "&searchCol=" . $searchCol . "\"";
+						$search1 = $product->search1($keyword, $searchCol, $page, $perPage);
+						foreach ($search1 as $value) :
+					?>
 							<!-- product -->
 							<div class="col-md-4 col-xs-6">
 								<div class="product">
@@ -100,35 +100,38 @@
 											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 										</div>
 									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
-									</div>
+									<a href="addcart.php?id=<?php echo $value['id'] ?>&type_id=<?php echo $value['type_id'] ?>">
+										<div class="add-to-cart">
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> thêm vào giỏ</button>
+										</div>
+									</a>
 								</div>
 							</div>
 							<!-- /product -->
-							<?php endforeach; endif ?>
-						</div>
-						<!-- /store products -->
+					<?php endforeach;
+					endif ?>
+				</div>
+				<!-- /store products -->
 
-						<!-- store bottom filter -->
-						<div class="store-filter clearfix">
-					
-							<ul class="store-pagination">
-								<!-- <li class="active">1</li>
+				<!-- store bottom filter -->
+				<div class="store-filter clearfix">
+
+					<ul class="store-pagination">
+						<!-- <li class="active">1</li>
 								<li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
 								<li><a href="#">4</a></li>
 								<li><a href="#"><i class="fa fa-angle-right"></i></a></li> -->
-								<?php echo $product->paginate($url, $total, $perPage,$page); ?>
-							</ul>
-						</div>
-						<!-- /store bottom filter -->
-					</div>
-					<!-- /STORE -->
+						<?php echo $product->paginate($url, $total, $perPage, $page); ?>
+					</ul>
 				</div>
-				<!-- /row -->
+				<!-- /store bottom filter -->
 			</div>
-			<!-- /container -->
+			<!-- /STORE -->
 		</div>
-		<!-- /SECTION -->
+		<!-- /row -->
+	</div>
+	<!-- /container -->
+</div>
+<!-- /SECTION -->
 <?php include "footer.php"; ?>
